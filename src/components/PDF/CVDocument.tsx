@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { Page, Text, View, Document, StyleSheet, Image, Font, Link, Svg, Path } from '@react-pdf/renderer';
 
 // Register Roboto font

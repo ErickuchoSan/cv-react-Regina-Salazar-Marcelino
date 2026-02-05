@@ -3,7 +3,7 @@ import { SectionTitle } from '../UI/SectionTitle';
 import {
     FaMicrosoft, FaRobot, FaUsers, FaCalendarCheck,
     FaHandshake, FaLightbulb, FaComments, FaTasks, FaChartBar,
-    FaChild, FaFirstAid, FaFileExcel, FaFileWord, FaFilePowerpoint, FaPalette
+    FaChild, FaFirstAid, FaFileExcel, FaFileWord, FaFilePowerpoint
 } from 'react-icons/fa';
 import { SiCanva } from 'react-icons/si';
 

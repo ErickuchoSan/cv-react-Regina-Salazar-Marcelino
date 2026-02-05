@@ -1,6 +1,6 @@
 import React from 'react';
 import { SectionTitle } from '../UI/SectionTitle';
-import { FaBuilding, FaCalendarAlt, FaChild, FaBullhorn, FaUsers, FaChartLine } from 'react-icons/fa';
+import { FaBuilding, FaCalendarAlt, FaChild, FaUsers } from 'react-icons/fa';
 
 interface ExperienceItem {
     role: string;
