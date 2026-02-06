@@ -28,14 +28,15 @@ const COLORS = {
 
 // Skills data for Regina
 const SKILLS_DATA = [
-    { name: 'Excel Avanzado', level: 90 },
-    { name: 'Canva', level: 90 },
-    { name: 'Herramientas IA', level: 85 },
-    { name: 'Office (Word, PPT)', level: 90 },
-    { name: 'Liderazgo', level: 95 },
-    { name: 'Gestión de Recursos', level: 85 },
-    { name: 'Coordinación de Eventos', level: 80 },
-    { name: 'Capacitación', level: 85 },
+    { name: 'Comunicación efectiva', level: 95 },
+    { name: 'Creatividad y pensamiento estratégico', level: 90 },
+    { name: 'Liderazgo colaborativo', level: 95 },
+    { name: 'Toma de decisiones informada', level: 90 },
+    { name: 'Pensamiento crítico y analítico', level: 90 },
+    { name: 'Evaluación y seguimiento', level: 95 },
+    { name: 'Responsabilidad', level: 100 },
+    { name: 'Adaptabilidad', level: 95 },
+    { name: 'Empatía', level: 95 },
 ];
 
 // Experience data for Regina
@@ -43,25 +44,40 @@ const EXPERIENCE_DATA = [
     {
         role: "Coordinadora Administrativa de Áreas Infantiles",
         company: "Sonora Kids Group",
-        period: "2022 - Actualidad",
-        description: "Supervisión de ludotecas en múltiples sucursales, liderazgo de equipos y coordinación de marketing.",
+        period: "Ene 2022 - Feb 2026",
+        description: "Coordinación integral de ludotecas y áreas infantiles en múltiples sucursales.",
         functions: [
-            "Supervisión de 23 sucursales (12 presenciales + 11 a distancia)",
-            "Liderazgo de equipos de 40-50 personas",
-            "Diseño e impartición de capacitaciones",
-            "Gestión de compras y proveedores",
-            "Creación de reportes y seguimiento de métricas",
+            "Supervisión operativa de 12 sucursales presenciales y 11 a distancia, generando reportes de desempeño y control de gestión",
+            "Reclutamiento y selección de personal, incluyendo entrevistas, evaluación de candidatos y proceso de onboarding",
+            "Diseño e impartición de capacitaciones al personal, asegurando el desarrollo continuo del equipo",
+            "Gestión de compras, negociación con proveedores y optimización de recursos operativos",
+            "Administración de personal a cargo (40-50 colaboradores), incluyendo altas, bajas y seguimiento",
+            "Creación de reportes mensuales en Excel con seguimiento de métricas y KPIs de desempeño"
+        ]
+    },
+    {
+        role: "Auxiliar en Marketing Digital",
+        company: "Naré",
+        period: "Mayo 2023 - Actualidad",
+        description: "Ejecución de estrategias de marketing digital y creación de contenido.",
+        functions: [
+            "Ejecución de estrategias de marketing",
+            "Creación, planeación y desarrollo de contenido para redes sociales",
+            "Organización de materiales, calendarios de contenido y reportes de desempeño, crecimiento e interacción",
+            "Uso de herramientas (photoshop, canva, illustrator, etc.)",
+            "Recopilación de datos de influencer (engagement, demografía, alcance y autenticidad)",
+            "Uso de KPIs"
         ]
     },
     {
         role: "Cuidadora Infantil",
         company: "Sonora Grill Group",
-        period: "2018 - 2022",
-        description: "Atención y cuidado integral de niños en área de ludoteca del restaurante.",
+        period: "Ene 2018 - Ene 2022",
+        description: "Atención y cuidado integral de niños en área de ludoteca.",
         functions: [
-            "Cuidado y atención a niños de 1 a 10 años",
-            "Atención directa a padres de familia",
-            "Resolución de conflictos",
+            "Atención y cuidado de niños de 1 a 10 años en área de ludoteca",
+            "Atención directa a padres de familia, resolución de conflictos y manejo de situaciones complejas",
+            "Aplicación de protocolos de seguridad y primeros auxilios"
         ]
     }
 ];
@@ -262,6 +278,25 @@ const styles = StyleSheet.create({
         fontSize: 6,
         color: COLORS.white,
         fontWeight: 700,
+    },
+    section: {
+        marginBottom: 12,
+    },
+    sectionTitle: {
+        fontSize: 10,
+        fontWeight: 700,
+        color: COLORS.dark,
+        textTransform: 'uppercase',
+        marginBottom: 6,
+        borderBottomWidth: 2,
+        borderBottomColor: COLORS.bgAccent,
+        paddingBottom: 2,
+        alignSelf: 'flex-start',
+    },
+    text: {
+        fontSize: 8,
+        color: COLORS.medium,
+        lineHeight: 1.5,
     },
     summary: {
         fontSize: 8,
@@ -464,7 +499,7 @@ export const CVDocument = () => (
                         <View style={styles.profileImageWrapper}>
                             <Image
                                 style={styles.profileImage}
-                                src="/profile.jpg"
+                                src="/assets/images/profile.jpeg"
                             />
                         </View>
                     </View>
@@ -554,19 +589,21 @@ export const CVDocument = () => (
                     <View style={styles.header}>
                         <Text style={styles.name}>Regina Salazar Marcelino</Text>
                         <View style={styles.titleRow}>
-                            <Text style={styles.jobTitle}>Coordinadora Administrativa</Text>
+                            <Text style={styles.jobTitle}>Coordinadora de Recursos Humanos</Text>
                             <View style={styles.expBadge}>
                                 <Text style={styles.expBadgeText}>+6 años</Text>
                             </View>
                         </View>
                     </View>
 
-                    <Text style={styles.summary}>
-                        Coordinadora Administrativa con +6 años de experiencia en gestión de áreas infantiles,
-                        liderazgo de equipos de hasta 50 personas y supervisión de múltiples sucursales.
-                        Especialista en capacitación de personal, coordinación de eventos y marketing digital.
-                        Técnica Puericultista con formación en curso de Lic. en Gestión y Desarrollo Empresarial.
-                    </Text>
+                    <View style={styles.section}>
+                        <Text style={styles.sectionTitle}>Perfil Profesional</Text>
+                        <Text style={styles.text}>
+                            Coordinadora administrativa con más de 2 años de experiencia en gestión de personal, reclutamiento y selección.
+                            Especializada en supervisión de equipos de 40-50 personas, optimización de procesos y administración de recursos.
+                            Dominio medio de Excel, avanzado en herramientas de IA y plataformas digitales para la gestión eficiente de RRHH.
+                        </Text>
+                    </View>
 
                     <View style={styles.mainSection}>
                         <View style={styles.mainSectionHeader}>

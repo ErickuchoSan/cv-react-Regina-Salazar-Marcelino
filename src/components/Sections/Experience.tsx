@@ -1,6 +1,6 @@
 import React from 'react';
 import { SectionTitle } from '../UI/SectionTitle';
-import { FaBuilding, FaCalendarAlt, FaChild, FaUsers } from 'react-icons/fa';
+import { FaBuilding, FaCalendarAlt, FaChild, FaUsers, FaBullhorn } from 'react-icons/fa';
 
 interface ExperienceItem {
     role: string;
@@ -17,44 +17,49 @@ const EXPERIENCE_DATA: ExperienceItem[] = [
     {
         role: "Coordinadora Administrativa de Áreas Infantiles",
         company: "Sonora Kids Group",
-        period: "2022 - Actualidad",
-        duration: "3 años",
-        description: "Coordinación integral de ludotecas y áreas infantiles en múltiples sucursales, combinando gestión operativa, administrativa y de marketing.",
+        period: "Ene 2022 - Feb 2026",
+        duration: "4 años",
+        description: "Coordinación integral de ludotecas y áreas infantiles en múltiples sucursales.",
         functions: [
-            "Supervisión operativa de 12 sucursales presenciales y 11 a distancia",
-            "Generación de reportes de desempeño, control y manejo",
-            "Diseño e impartición de capacitaciones al personal",
-            "Gestión de compras, proveedores y optimización de recursos",
-            "Reclutamiento y selección de personal",
-            "Creación de reportes mensuales de campañas en Canva",
-            "Seguimiento de métricas y KPIs en Excel",
-            "Apoyo en coordinación logística de eventos corporativos"
+            "Supervisión operativa de 12 sucursales presenciales y 11 a distancia, generando reportes de desempeño y control de gestión",
+            "Reclutamiento y selección de personal, incluyendo entrevistas, evaluación de candidatos y proceso de onboarding",
+            "Diseño e impartición de capacitaciones al personal, asegurando el desarrollo continuo del equipo",
+            "Gestión de compras, negociación con proveedores y optimización de recursos operativos",
+            "Administración de personal a cargo (40-50 colaboradores), incluyendo altas, bajas y seguimiento",
+            "Creación de reportes mensuales en Excel con seguimiento de métricas y KPIs de desempeño"
         ],
-        achievements: [
-            "Gestión exitosa de 23 sucursales simultáneas",
-            "Liderazgo de equipos de 40-50 personas",
-            "Implementación de procesos de capacitación estandarizados"
-        ],
+        achievements: [],
         icon: FaUsers
     },
     {
         role: "Cuidadora Infantil",
         company: "Sonora Grill Group",
-        period: "2018 - 2022",
+        period: "Ene 2018 - Ene 2022",
         duration: "4 años",
-        description: "Atención y cuidado integral de niños en área de ludoteca del restaurante, brindando un ambiente seguro y entretenido.",
+        description: "Atención y cuidado integral de niños en área de ludoteca.",
         functions: [
-            "Cuidado y atención a niños de 1 a 10 años",
-            "Atención directa a padres de familia",
-            "Resolución de conflictos entre niños",
-            "Organización, manejo y limpieza del área de trabajo",
-            "Actividades lúdicas y educativas"
+            "Atención y cuidado de niños de 1 a 10 años en área de ludoteca",
+            "Atención directa a padres de familia, resolución de conflictos y manejo de situaciones complejas",
+            "Aplicación de protocolos de seguridad y primeros auxilios"
         ],
-        achievements: [
-            "Promoción a coordinadora en la misma empresa",
-            "Excelente retroalimentación de padres de familia"
-        ],
+        achievements: [],
         icon: FaChild
+    },
+    {
+        role: "Auxiliar en Marketing Digital",
+        company: "Naré",
+        period: "Mayo 2023 - Actualidad",
+        duration: "Actualidad",
+        description: "Ejecución de estrategias de marketing digital y creación de contenido.",
+        functions: [
+            "Ejecución de estrategias de marketing",
+            "Creación, planeación y desarrollo de contenido para redes sociales",
+            "Organización de materiales, calendarios de contenido y reportes de desempeño, crecimiento e interacción",
+            "Uso de herramientas (photoshop, canva, illustrator, etc.)",
+            "Recopilación de datos de influencer (engagement, demografía, alcance y autenticidad)",
+            "Uso de KPIs"
+        ],
+        icon: FaBullhorn
     }
 ];
 

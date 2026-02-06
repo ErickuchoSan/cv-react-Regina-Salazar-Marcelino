@@ -3,7 +3,7 @@ import { SectionTitle } from '../UI/SectionTitle';
 import {
     FaMicrosoft, FaRobot, FaUsers, FaCalendarCheck,
     FaHandshake, FaLightbulb, FaComments, FaTasks, FaChartBar,
-    FaChild, FaFirstAid, FaFileExcel, FaFileWord, FaFilePowerpoint
+    FaChild, FaFirstAid, FaFileExcel, FaFileWord, FaFilePowerpoint, FaHeart
 } from 'react-icons/fa';
 import { SiCanva } from 'react-icons/si';
 
@@ -122,12 +122,15 @@ export const Skills: React.FC = () => {
                     <h3 className="text-2xl font-bold text-center mb-12 text-gray-800 dark:text-gray-200">Competencias Clave</h3>
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {[
-                            { icon: FaUsers, title: 'Liderazgo de Equipos', desc: 'Experiencia liderando equipos de hasta 50 personas' },
-                            { icon: FaChartBar, title: 'Gestión de Métricas', desc: 'Seguimiento y análisis de KPIs y reportes de desempeño' },
-                            { icon: FaComments, title: 'Comunicación Efectiva', desc: 'Habilidad para comunicar con equipos, padres y proveedores' },
-                            { icon: FaTasks, title: 'Organización', desc: 'Gestión eficiente de múltiples sucursales simultáneamente' },
-                            { icon: FaLightbulb, title: 'Adaptabilidad', desc: 'Capacidad de aprendizaje rápido y adaptación al cambio' },
-                            { icon: FaHandshake, title: 'Toma de Decisiones', desc: 'Resolución de problemas y toma de decisiones bajo presión' },
+                            { icon: FaComments, title: 'Comunicación Efectiva', desc: 'Claridad y empatía en la transmisión de ideas' },
+                            { icon: FaLightbulb, title: 'Creatividad y Estrategia', desc: 'Enfoque innovador para la resolución de problemas' },
+                            { icon: FaUsers, title: 'Liderazgo Colaborativo', desc: 'Guía de equipos fomentando la participación' },
+                            { icon: FaHandshake, title: 'Toma de Decisiones', desc: 'Análisis informado para decidir mejor' },
+                            { icon: FaChartBar, title: 'Pensamiento Crítico', desc: 'Análisis profundo de situaciones y datos' },
+                            { icon: FaTasks, title: 'Evaluación y Seguimiento', desc: 'Control constante de procesos y resultados' },
+                            { icon: FaCalendarCheck, title: 'Responsabilidad', desc: 'Compromiso total con objetivos laborales' },
+                            { icon: FaLightbulb, title: 'Adaptabilidad', desc: 'Apertura al cambio y aprendizaje continuo' },
+                            { icon: FaHeart, title: 'Empatía', desc: 'Conexión genuina con las necesidades del equipo' },
                         ].map((skill, index) => (
                             <div key={index} className="soft-skill-card glass-card tech-hover-effect p-6 text-center">
                                 <skill.icon className="text-3xl text-teal-600 mb-4 mx-auto" />

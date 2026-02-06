@@ -31,7 +31,7 @@ export const Hero: React.FC = () => {
                             Regina Salazar Marcelino
                         </h1>
                         <p className="text-xl md:text-2xl text-teal-300 mb-6 animate-fade-in-delay">
-                            Coordinadora Administrativa | Puericultista | +6 años de experiencia
+                            Coordinadora de Recursos Humanos | Puericultista | +6 años de experiencia
                         </p>
                         <p className="text-lg text-gray-300 mb-8 max-w-xl animate-fade-in-delay-2">
                             Especialista en gestión de áreas infantiles, liderazgo de equipos de 40+ personas
@@ -61,7 +61,7 @@ export const Hero: React.FC = () => {
                         <div className="relative">
                             <div className="profile-glow"></div>
                             <img
-                                src="/profile.jpg"
+                                src="/assets/images/profile.jpeg"
                                 alt="Regina Salazar Marcelino"
                                 className="relative w-64 h-64 md:w-80 md:h-80 rounded-full object-cover border-4 border-teal-400/50 shadow-2xl z-10"
                             />

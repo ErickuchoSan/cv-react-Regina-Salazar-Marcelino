@@ -14,7 +14,7 @@ export const About: React.FC = () => {
             <div className="max-w-6xl mx-auto px-4 relative z-10">
                 <SectionTitle
                     title="Sobre Mí"
-                    subtitle="Coordinadora Administrativa | +6 años de experiencia"
+                    subtitle="Coordinadora de Recursos Humanos"
                 />
 
                 <div className="grid md:grid-cols-2 gap-12 items-start">
@@ -23,13 +23,12 @@ export const About: React.FC = () => {
                             Especialista en Gestión de Áreas Infantiles
                         </h3>
                         <p className="text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
-                            Con <strong className="text-teal-600">+6 años de experiencia</strong> en el sector infantil y administrativo,
-                            me especializo en la supervisión operativa, gestión de equipos y coordinación de múltiples sucursales.
-                            Cuento con formación como <strong>Técnico Puericultista</strong> y actualmente curso la
-                            <strong> Licenciatura en Gestión y Desarrollo Empresarial</strong>.
+                            Coordinadora Administrativa con más de 2 años de experiencia en gestión de personal, reclutamiento y selección.
+                            Especializada en supervisión de equipos de 40-50 personas, optimización de procesos y administración de recursos.
+                            Dominio medio de Excel, avanzado en herramientas de IA y plataformas digitales para la gestión eficiente de RRHH.
                         </p>
                         <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
-                            Actualmente trabajo como <strong className="text-teal-600">Coordinadora Administrativa de Áreas Infantiles</strong> en
+                            Actualmente trabajo como <strong className="text-teal-600">Coordinadora Administrativa de Recursos Humanos</strong> en
                             Sonora Kids Group, donde superviso 23 sucursales (12 presenciales + 11 a distancia),
                             lidero equipos de 40-50 personas y coordino capacitaciones, marketing y eventos corporativos.
                         </p>
