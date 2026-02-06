@@ -50,7 +50,7 @@ export const Skills: React.FC = () => {
                     <h3 className="text-2xl font-bold text-center mb-12 text-gray-800 dark:text-gray-200">Herramientas Digitales</h3>
                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                         {[
-                            { icon: FaFileExcel, color: 'text-green-600', name: 'Excel', progress: 90 },
+                            { icon: FaFileExcel, color: 'text-green-600', name: 'Excel', progress: 70 },
                             { icon: SiCanva, color: 'text-cyan-500', name: 'Canva', progress: 90 },
                             { icon: FaRobot, color: 'text-purple-600', name: 'Herramientas IA', progress: 85 },
                             { icon: FaMicrosoft, color: 'text-blue-600', name: 'Office', progress: 90 },
@@ -78,7 +78,7 @@ export const Skills: React.FC = () => {
                         title="Herramientas Digitales"
                         icon={FaMicrosoft}
                         items={[
-                            { name: 'Excel Avanzado', icon: FaFileExcel, color: 'text-green-600' },
+                            { name: 'Excel Intermedio', icon: FaFileExcel, color: 'text-green-600' },
                             { name: 'PowerPoint', icon: FaFilePowerpoint, color: 'text-orange-600' },
                             { name: 'Word', icon: FaFileWord, color: 'text-blue-600' },
                             { name: 'Canva', icon: SiCanva, color: 'text-cyan-500' },

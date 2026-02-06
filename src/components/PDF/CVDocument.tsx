@@ -601,7 +601,7 @@ export const CVDocument = () => (
                         <Text style={styles.text}>
                             Coordinadora administrativa con más de 2 años de experiencia en gestión de personal, reclutamiento y selección.
                             Especializada en supervisión de equipos de 40-50 personas, optimización de procesos y administración de recursos.
-                            Dominio medio de Excel, avanzado en herramientas de IA y plataformas digitales para la gestión eficiente de RRHH.
+                            Nivel intermedio de Excel, avanzado en herramientas de IA y plataformas digitales para la gestión eficiente de RRHH.
                         </Text>
                     </View>
 

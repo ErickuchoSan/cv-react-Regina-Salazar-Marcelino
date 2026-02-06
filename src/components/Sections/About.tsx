@@ -25,7 +25,7 @@ export const About: React.FC = () => {
                         <p className="text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
                             Coordinadora Administrativa con más de 2 años de experiencia en gestión de personal, reclutamiento y selección.
                             Especializada en supervisión de equipos de 40-50 personas, optimización de procesos y administración de recursos.
-                            Dominio medio de Excel, avanzado en herramientas de IA y plataformas digitales para la gestión eficiente de RRHH.
+                            Nivel intermedio de Excel, avanzado en herramientas de IA y plataformas digitales para la gestión eficiente de RRHH.
                         </p>
                         <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
                             Actualmente trabajo como <strong className="text-teal-600">Coordinadora Administrativa de Recursos Humanos</strong> en
