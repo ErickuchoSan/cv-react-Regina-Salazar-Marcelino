@@ -42,20 +42,6 @@ const SKILLS_DATA = [
 // Experience data for Regina
 const EXPERIENCE_DATA = [
     {
-        role: "Coordinadora Administrativa de Áreas Infantiles",
-        company: "Sonora Kids Group",
-        period: "Ene 2022 - Feb 2026",
-        description: "Coordinación integral de ludotecas y áreas infantiles en múltiples sucursales.",
-        functions: [
-            "Supervisión operativa de 12 sucursales presenciales y 11 a distancia, generando reportes de desempeño y control de gestión",
-            "Reclutamiento y selección de personal, incluyendo entrevistas, evaluación de candidatos y proceso de onboarding",
-            "Diseño e impartición de capacitaciones al personal, asegurando el desarrollo continuo del equipo",
-            "Gestión de compras, negociación con proveedores y optimización de recursos operativos",
-            "Administración de personal a cargo (40-50 colaboradores), incluyendo altas, bajas y seguimiento",
-            "Creación de reportes mensuales en Excel con seguimiento de métricas y KPIs de desempeño"
-        ]
-    },
-    {
         role: "Auxiliar en Marketing Digital",
         company: "Naré",
         period: "Mayo 2023 - Actualidad",
@@ -67,6 +53,20 @@ const EXPERIENCE_DATA = [
             "Uso de herramientas (photoshop, canva, illustrator, etc.)",
             "Recopilación de datos de influencer (engagement, demografía, alcance y autenticidad)",
             "Uso de KPIs"
+        ]
+    },
+    {
+        role: "Coordinadora Administrativa de Áreas Infantiles",
+        company: "Sonora Kids Group",
+        period: "Ene 2022 - Feb 2026",
+        description: "Coordinación integral de ludotecas y áreas infantiles en múltiples sucursales.",
+        functions: [
+            "Supervisión operativa de 12 sucursales presenciales y 11 a distancia, generando reportes de desempeño y control de gestión",
+            "Reclutamiento y selección de personal, incluyendo entrevistas, evaluación de candidatos y proceso de onboarding",
+            "Diseño e impartición de capacitaciones al personal, asegurando el desarrollo continuo del equipo",
+            "Gestión de compras, negociación con proveedores y optimización de recursos operativos",
+            "Administración de personal a cargo (40-50 colaboradores), incluyendo altas, bajas y seguimiento",
+            "Creación de reportes mensuales en Excel con seguimiento de métricas y KPIs de desempeño"
         ]
     },
     {

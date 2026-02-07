@@ -15,37 +15,6 @@ interface ExperienceItem {
 
 const EXPERIENCE_DATA: ExperienceItem[] = [
     {
-        role: "Coordinadora Administrativa de Áreas Infantiles",
-        company: "Sonora Kids Group",
-        period: "Ene 2022 - Feb 2026",
-        duration: "4 años",
-        description: "Coordinación integral de ludotecas y áreas infantiles en múltiples sucursales.",
-        functions: [
-            "Supervisión operativa de 12 sucursales presenciales y 11 a distancia, generando reportes de desempeño y control de gestión",
-            "Reclutamiento y selección de personal, incluyendo entrevistas, evaluación de candidatos y proceso de onboarding",
-            "Diseño e impartición de capacitaciones al personal, asegurando el desarrollo continuo del equipo",
-            "Gestión de compras, negociación con proveedores y optimización de recursos operativos",
-            "Administración de personal a cargo (40-50 colaboradores), incluyendo altas, bajas y seguimiento",
-            "Creación de reportes mensuales en Excel con seguimiento de métricas y KPIs de desempeño"
-        ],
-        achievements: [],
-        icon: FaUsers
-    },
-    {
-        role: "Cuidadora Infantil",
-        company: "Sonora Grill Group",
-        period: "Ene 2018 - Ene 2022",
-        duration: "4 años",
-        description: "Atención y cuidado integral de niños en área de ludoteca.",
-        functions: [
-            "Atención y cuidado de niños de 1 a 10 años en área de ludoteca",
-            "Atención directa a padres de familia, resolución de conflictos y manejo de situaciones complejas",
-            "Aplicación de protocolos de seguridad y primeros auxilios"
-        ],
-        achievements: [],
-        icon: FaChild
-    },
-    {
         role: "Auxiliar en Marketing Digital",
         company: "Naré",
         period: "Mayo 2023 - Actualidad",
@@ -59,7 +28,52 @@ const EXPERIENCE_DATA: ExperienceItem[] = [
             "Recopilación de datos de influencer (engagement, demografía, alcance y autenticidad)",
             "Uso de KPIs"
         ],
+        achievements: [
+            "Creación de contenido visual de alta calidad",
+            "Optimización de calendarios editoriales",
+            "Análisis estratégico de métricas de redes sociales"
+        ],
         icon: FaBullhorn
+    },
+    {
+        role: "Coordinadora Administrativa de Áreas Infantiles",
+        company: "Sonora Kids Group",
+        period: "Ene 2022 - Feb 2026",
+        duration: "4 años",
+        description: "Coordinación integral de ludotecas y áreas infantiles en múltiples sucursales.",
+        functions: [
+            "Supervisión operativa de 12 sucursales presenciales y 11 a distancia, generando reportes de desempeño y control de gestión",
+            "Reclutamiento y selección de personal, incluyendo entrevistas, evaluación de candidatos y proceso de onboarding",
+            "Diseño e impartición de capacitaciones al personal, asegurando el desarrollo continuo del equipo",
+            "Gestión de compras, negociación con proveedores y optimización de recursos operativos",
+            "Administración de personal a cargo (40-50 colaboradores), incluyendo altas, bajas y seguimiento",
+            "Creación de reportes mensuales en Excel con seguimiento de métricas y KPIs de desempeño"
+        ],
+        achievements: [
+            "Gestión exitosa de 23 sucursales simultáneamente",
+            "Coordinación de equipo de 40-50 colaboradores",
+            "Implementación de sistema de reportes mensuales",
+            "Optimización de procesos de capacitación continua"
+        ],
+        icon: FaUsers
+    },
+    {
+        role: "Cuidadora Infantil",
+        company: "Sonora Grill Group",
+        period: "Ene 2018 - Ene 2022",
+        duration: "4 años",
+        description: "Atención y cuidado integral de niños en área de ludoteca.",
+        functions: [
+            "Atención y cuidado de niños de 1 a 10 años en área de ludoteca",
+            "Atención directa a padres de familia, resolución de conflictos y manejo de situaciones complejas",
+            "Aplicación de protocolos de seguridad y primeros auxilios"
+        ],
+        achievements: [
+            "4 años de experiencia sin incidentes de seguridad",
+            "Alta satisfacción de padres de familia",
+            "Manejo efectivo de situaciones complejas"
+        ],
+        icon: FaChild
     }
 ];
 
