@@ -593,7 +593,7 @@ export const CVDocument = () => (
                         <View style={styles.titleRow}>
                             <Text style={styles.jobTitle}>Coordinadora de Recursos Humanos</Text>
                             <View style={styles.expBadge}>
-                                <Text style={styles.expBadgeText}>+6 años</Text>
+                                <Text style={styles.expBadgeText}>+4 años</Text>
                             </View>
                         </View>
                     </View>
