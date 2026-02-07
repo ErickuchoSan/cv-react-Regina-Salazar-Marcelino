@@ -35,7 +35,7 @@ export const Contact: React.FC = () => {
                     subtitle="¿Tienes una oportunidad laboral? ¡Me encantaría escuchar sobre ella!"
                 />
 
-                <div className="grid md:grid-cols-2 gap-12">
+                <div className="grid md:grid-cols-2 gap-6 sm:gap-8 md:gap-12">
                     {/* Contact Info */}
                     <div>
                         <h3 className="text-2xl font-bold mb-8 text-gray-800 dark:text-gray-200">Información de Contacto</h3>

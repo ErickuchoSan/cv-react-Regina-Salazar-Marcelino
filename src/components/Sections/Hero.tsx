@@ -25,7 +25,7 @@ export const Hero: React.FC = () => {
             <div className="scan-line" />
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div className="grid md:grid-cols-2 gap-12 items-center">
+                <div className="grid md:grid-cols-2 gap-6 sm:gap-8 md:gap-12 items-center">
                     <div className="text-center md:text-left">
                         <h1 className="text-4xl md:text-6xl font-bold text-white mb-4 animate-fade-in">
                             Regina Salazar Marcelino
@@ -63,7 +63,7 @@ export const Hero: React.FC = () => {
                             <img
                                 src="/assets/images/profile.jpeg"
                                 alt="Regina Salazar Marcelino"
-                                className="relative w-64 h-64 md:w-80 md:h-80 rounded-full object-cover border-4 border-teal-400/50 shadow-2xl z-10"
+                                className="relative w-48 sm:w-56 md:w-64 lg:w-80 h-48 sm:h-56 md:h-64 lg:h-80 rounded-full object-cover border-4 border-teal-400/50 shadow-2xl z-10"
                             />
                             <div className="absolute -top-2 -right-2 bg-gradient-to-r from-teal-500 to-cyan-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg z-20">
                                 +6 años

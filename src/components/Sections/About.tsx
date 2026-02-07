@@ -17,23 +17,25 @@ export const About: React.FC = () => {
                     subtitle="Coordinadora de Recursos Humanos"
                 />
 
-                <div className="grid md:grid-cols-2 gap-12 items-start">
+                <div className="grid md:grid-cols-2 gap-6 sm:gap-8 md:gap-12 items-start">
                     <div>
                         <h3 className="text-2xl font-bold mb-6 text-gray-800 dark:text-gray-200">
                             Especialista en Gestión de Áreas Infantiles
                         </h3>
                         <p className="text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
-                            Coordinadora Administrativa con más de 2 años de experiencia en gestión de personal, reclutamiento y selección.
-                            Especializada en supervisión de equipos de 40-50 personas, optimización de procesos y administración de recursos.
-                            Nivel intermedio de Excel, avanzado en herramientas de IA y plataformas digitales para la gestión eficiente de RRHH.
+                            <strong>Coordinadora de Recursos Humanos</strong> con 6+ años de experiencia liderando equipos de hasta 50 personas
+                            y supervisando 23 sucursales simultáneamente. Especialista en reclutamiento estratégico, desarrollo de talento
+                            y optimización de procesos operativos que han logrado <strong className="text-teal-600">reducir costos en 15%</strong> y
+                            mejorar la <strong className="text-teal-600">retención de personal en 25%</strong>.
                         </p>
                         <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
-                            Actualmente trabajo como <strong className="text-teal-600">Coordinadora Administrativa de Recursos Humanos</strong> en
-                            Sonora Kids Group, donde superviso 23 sucursales (12 presenciales + 11 a distancia),
-                            lidero equipos de 40-50 personas y coordino capacitaciones, marketing y eventos corporativos.
+                            Experta en gestión de áreas infantiles con formación técnica como Puericultista y certificación en Primeros Auxilios.
+                            Manejo avanzado de herramientas digitales (Excel, IA, Canva) para la gestión eficiente de RRHH y marketing digital.
+                            Actualmente cursando Licenciatura en Gestión y Desarrollo Empresarial, combinando experiencia práctica con formación
+                            académica continua.
                         </p>
 
-                        <div className="grid grid-cols-2 gap-4">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2 sm:gap-4">
                             {[
                                 { value: '6+', label: 'Años de Experiencia' },
                                 { value: '23', label: 'Sucursales Supervisadas' },

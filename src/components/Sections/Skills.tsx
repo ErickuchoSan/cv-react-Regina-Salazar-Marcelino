@@ -48,7 +48,7 @@ export const Skills: React.FC = () => {
                 {/* Main Skills with Progress Bars */}
                 <div className="mb-16">
                     <h3 className="text-2xl font-bold text-center mb-12 text-gray-800 dark:text-gray-200">Herramientas Digitales</h3>
-                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
                         {[
                             { icon: FaFileExcel, color: 'text-green-600', name: 'Excel', progress: 70 },
                             { icon: SiCanva, color: 'text-cyan-500', name: 'Canva', progress: 90 },
@@ -73,7 +73,7 @@ export const Skills: React.FC = () => {
                 </div>
 
                 {/* Tech Categories */}
-                <div className="grid md:grid-cols-2 gap-8 mb-16">
+                <div className="grid md:grid-cols-2 gap-4 sm:gap-6 md:gap-8 mb-16">
                     <TechCategory
                         title="Herramientas Digitales"
                         icon={FaMicrosoft}
@@ -120,7 +120,7 @@ export const Skills: React.FC = () => {
                 {/* Soft Skills & Competencies */}
                 <div>
                     <h3 className="text-2xl font-bold text-center mb-12 text-gray-800 dark:text-gray-200">Competencias Clave</h3>
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                         {[
                             { icon: FaComments, title: 'Comunicación Efectiva', desc: 'Claridad y empatía en la transmisión de ideas' },
                             { icon: FaLightbulb, title: 'Creatividad y Estrategia', desc: 'Enfoque innovador para la resolución de problemas' },

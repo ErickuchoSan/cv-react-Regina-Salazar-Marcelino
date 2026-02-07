@@ -100,7 +100,7 @@
   }
 
   .enhanced-section-title {
-    @apply text-4xl md:text-5xl font-bold bg-gradient-to-r from-teal-600 via-cyan-600 to-teal-600 bg-clip-text text-transparent mb-4;
+    @apply text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-teal-600 via-cyan-600 to-teal-600 bg-clip-text text-transparent mb-4;
     background-size: 200% auto;
     animation: gradientShift 3s ease infinite;
   }
@@ -920,5 +920,45 @@
 
   100% {
     background-position: 0% 50%;
+  }
+}
+
+/* ===================================
+   MOBILE OPTIMIZATIONS
+   =================================== */
+
+/* Optimizaciones para móviles medianos y pequeños */
+@media (max-width: 640px) {
+  /* Reducir animaciones en móviles para mejor performance */
+  .tech-particle,
+  .section-particle,
+  .circuit-node {
+    animation-duration: 4s; /* Más lentas */
+    opacity: 0.3; /* Más sutiles */
+  }
+
+  /* Reducir altura de tech waves */
+  .tech-wave {
+    height: 60px; /* Antes: 100px */
+  }
+
+  /* Reducir el glow effect en perfiles para evitar overflow */
+  .profile-glow::before {
+    inset: -5px; /* Antes: -10px */
+  }
+}
+
+/* Optimizaciones para dispositivos extra-pequeños */
+@media (max-width: 400px) {
+  /* Desactivar partículas decorativas para mejor performance */
+  .section-particle {
+    display: none;
+  }
+
+  /* Hacer animaciones aún más sutiles */
+  .tech-particle,
+  .circuit-node {
+    opacity: 0.2;
+    animation-duration: 5s;
   }
 }

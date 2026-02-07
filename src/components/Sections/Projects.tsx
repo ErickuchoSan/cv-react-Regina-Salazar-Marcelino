@@ -38,7 +38,7 @@ export const Projects: React.FC = () => {
                     subtitle="Experiencia en gestión, coordinación y liderazgo"
                 />
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
                     {PROJECTS.map((project, index) => (
                         <div key={index} className="project-card glass-card tech-hover-effect flex flex-col h-full">
                             <div className="project-image bg-gradient-to-br from-teal-500 to-cyan-600 text-center p-6 flex justify-center items-center h-48">
