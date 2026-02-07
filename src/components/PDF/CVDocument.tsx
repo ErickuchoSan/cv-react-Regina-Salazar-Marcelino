@@ -660,16 +660,17 @@ export const CVDocument = () => (
                         </View>
                         <View style={styles.competenciesContainer}>
                             {[
-                                'Liderazgo de Equipos',
-                                'Gestión de Proveedores',
-                                'Coordinación de Eventos',
-                                'Capacitación de Personal',
-                                'Resolución de Conflictos',
+                                'Autodidacta',
+                                'Lúdica',
                                 'Comunicación Efectiva',
-                                'Organización',
+                                'Creatividad y Estrategia',
+                                'Liderazgo Colaborativo',
                                 'Toma de Decisiones',
+                                'Pensamiento Crítico',
+                                'Evaluación y Seguimiento',
+                                'Responsabilidad',
                                 'Adaptabilidad',
-                                'Atención Infantil',
+                                'Empatía',
                             ].map((comp, i) => (
                                 <Text key={i} style={styles.competencyChip}>{comp}</Text>
                             ))}
