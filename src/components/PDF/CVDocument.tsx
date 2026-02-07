@@ -26,17 +26,12 @@ const COLORS = {
     bgAccent: '#ccfbf1',
 };
 
-// Skills data for Regina
+// Skills data for Regina - Herramientas Digitales
 const SKILLS_DATA = [
-    { name: 'Comunicación efectiva', level: 95 },
-    { name: 'Creatividad y pensamiento estratégico', level: 90 },
-    { name: 'Liderazgo colaborativo', level: 95 },
-    { name: 'Toma de decisiones informada', level: 90 },
-    { name: 'Pensamiento crítico y analítico', level: 90 },
-    { name: 'Evaluación y seguimiento', level: 95 },
-    { name: 'Responsabilidad', level: 100 },
-    { name: 'Adaptabilidad', level: 95 },
-    { name: 'Empatía', level: 95 },
+    { name: 'Excel', level: 70 },
+    { name: 'Canva', level: 90 },
+    { name: 'Herramientas IA', level: 85 },
+    { name: 'Microsoft Office', level: 90 },
 ];
 
 // Experience data for Regina
@@ -547,7 +542,7 @@ export const CVDocument = () => (
                     <View style={styles.sidebarSection}>
                         <View style={styles.sectionHeader}>
                             <SkillsSectionIcon />
-                            <Text style={styles.sidebarTitle}>Habilidades</Text>
+                            <Text style={styles.sidebarTitle}>Herramientas Digitales</Text>
                         </View>
                         {SKILLS_DATA.map((skill, i) => (
                             <View key={i} style={styles.skillItem}>
