@@ -23,7 +23,7 @@ export const About: React.FC = () => {
                             Especialista en Gestión de Áreas Infantiles
                         </h3>
                         <p className="text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
-                            <strong>Coordinadora de Recursos Humanos</strong> con 6+ años de experiencia liderando equipos de hasta 50 personas
+                            <strong>Coordinadora de Recursos Humanos</strong> con 4+ años de experiencia liderando equipos de hasta 50 personas
                             y supervisando 23 sucursales simultáneamente. Especialista en reclutamiento estratégico, desarrollo de talento
                             y optimización de procesos operativos que han logrado <strong className="text-teal-600">reducir costos en 15%</strong> y
                             mejorar la <strong className="text-teal-600">retención de personal en 25%</strong>.
@@ -37,7 +37,7 @@ export const About: React.FC = () => {
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2 sm:gap-4">
                             {[
-                                { value: '6+', label: 'Años de Experiencia' },
+                                { value: '4+', label: 'Años de Experiencia' },
                                 { value: '23', label: 'Sucursales Supervisadas' },
                                 { value: '50+', label: 'Personas a Cargo' },
                                 { value: '100%', label: 'Compromiso' }

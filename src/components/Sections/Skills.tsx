@@ -53,7 +53,7 @@ export const Skills: React.FC = () => {
                             { icon: FaFileExcel, color: 'text-green-600', name: 'Excel', progress: 70 },
                             { icon: SiCanva, color: 'text-cyan-500', name: 'Canva', progress: 90 },
                             { icon: FaRobot, color: 'text-purple-600', name: 'Herramientas IA', progress: 85 },
-                            { icon: FaMicrosoft, color: 'text-blue-600', name: 'Office', progress: 90 },
+                            { icon: FaMicrosoft, color: 'text-blue-600', name: 'Microsoft Office', progress: 90 },
                         ].map((skill, index) => (
                             <div key={index} className="skill-card glass-card tech-hover-effect p-6 text-center">
                                 <div className="skill-icon mb-4 inline-block">
@@ -78,7 +78,7 @@ export const Skills: React.FC = () => {
                         title="Herramientas Digitales"
                         icon={FaMicrosoft}
                         items={[
-                            { name: 'Excel Intermedio', icon: FaFileExcel, color: 'text-green-600' },
+                            { name: 'Excel Avanzado', icon: FaFileExcel, color: 'text-green-600' },
                             { name: 'PowerPoint', icon: FaFilePowerpoint, color: 'text-orange-600' },
                             { name: 'Word', icon: FaFileWord, color: 'text-blue-600' },
                             { name: 'Canva', icon: SiCanva, color: 'text-cyan-500' },

@@ -18,7 +18,7 @@ const EXPERIENCE_DATA: ExperienceItem[] = [
         role: "Auxiliar en Marketing Digital",
         company: "Naré",
         period: "Mayo 2023 - Actualidad",
-        duration: "Actualidad",
+        duration: "2 años",
         description: "Ejecución de estrategias de marketing digital, gestión de redes sociales y análisis de métricas para optimizar el alcance y engagement de marca.",
         functions: [
             "Desarrollo e implementación de estrategias de marketing digital alineadas con objetivos de marca, incrementando el engagement promedio en 30%",
@@ -68,11 +68,11 @@ const EXPERIENCE_DATA: ExperienceItem[] = [
             "Atención y cuidado de 20-30 niños diarios (edades 1-10 años) en área de ludoteca, garantizando un ambiente seguro, educativo y recreativo",
             "Atención directa y personalizada a padres de familia, logrando un índice de satisfacción del 95% mediante comunicación efectiva y resolución proactiva de inquietudes",
             "Resolución de conflictos y manejo de situaciones complejas con padres y niños, aplicando técnicas de mediación y empatía que mantuvieron un ambiente positivo",
-            "Aplicación estricta de protocolos de seguridad, higiene y primeros auxilios según certificación profesional, manteniendo 4 años consecutivos sin incidentes",
+            "Aplicación estricta de protocolos de seguridad, higiene y primeros auxilios con constancia de protección civil, manteniendo 4 años consecutivos sin incidentes",
             "Diseño e implementación de actividades lúdicas y educativas adaptadas a diferentes grupos de edad, promoviendo el desarrollo psicomotriz y social"
         ],
         achievements: [
-            "4 años consecutivos sin incidentes de seguridad (récord de la sucursal)",
+            "4 años consecutivos sin incidentes de seguridad",
             "95% de satisfacción de padres de familia según encuestas internas",
             "Atención exitosa de 25,000+ visitas de niños durante el período",
             "Reconocimiento interno por excelencia en servicio al cliente"
@@ -93,7 +93,7 @@ export const Experience: React.FC = () => {
             <div className="max-w-6xl mx-auto px-4 relative z-10">
                 <SectionTitle
                     title="Experiencia Profesional"
-                    subtitle="+6 años en gestión administrativa y cuidado infantil"
+                    subtitle="+4 años en gestión administrativa y cuidado infantil"
                 />
 
                 <div className="space-y-4 sm:space-y-6 md:space-y-8">

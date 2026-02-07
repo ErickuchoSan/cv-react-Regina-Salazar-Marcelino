@@ -31,7 +31,7 @@ export const Hero: React.FC = () => {
                             Regina Salazar Marcelino
                         </h1>
                         <p className="text-xl md:text-2xl text-teal-300 mb-6 animate-fade-in-delay">
-                            Coordinadora de Recursos Humanos | Puericultista | +6 años de experiencia
+                            Coordinadora de Recursos Humanos | Puericultista | +4 años de experiencia
                         </p>
                         <p className="text-lg text-gray-300 mb-8 max-w-xl animate-fade-in-delay-2">
                             Especialista en gestión de áreas infantiles, liderazgo de equipos de 40+ personas
@@ -66,7 +66,7 @@ export const Hero: React.FC = () => {
                                 className="relative w-48 sm:w-56 md:w-64 lg:w-80 h-48 sm:h-56 md:h-64 lg:h-80 rounded-full object-cover border-4 border-teal-400/50 shadow-2xl z-10"
                             />
                             <div className="absolute -top-2 -right-2 bg-gradient-to-r from-teal-500 to-cyan-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg z-20">
-                                +6 años
+                                +4 años
                             </div>
                         </div>
                     </div>

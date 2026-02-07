@@ -78,7 +78,7 @@ const EXPERIENCE_DATA = [
             "Atención de 20-30 niños diarios (1-10 años), garantizando ambiente seguro y educativo",
             "Atención a padres logrando 95% de satisfacción mediante comunicación efectiva",
             "Resolución de conflictos con padres y niños aplicando técnicas de mediación y empatía",
-            "Aplicación de protocolos de seguridad y primeros auxilios: 4 años sin incidentes",
+            "Aplicación de protocolos de seguridad y primeros auxilios con constancia de protección civil: 4 años sin incidentes",
             "Diseño de actividades lúdicas adaptadas por edad para desarrollo psicomotriz y social"
         ]
     }
@@ -601,7 +601,7 @@ export const CVDocument = () => (
                     <View style={styles.section}>
                         <Text style={styles.sectionTitle}>Perfil Profesional</Text>
                         <Text style={styles.text}>
-                            Coordinadora de Recursos Humanos con 6+ años de experiencia liderando equipos de hasta 50 personas y
+                            Coordinadora de Recursos Humanos con 4+ años de experiencia liderando equipos de hasta 50 personas y
                             supervisando 23 sucursales. Especialista en reclutamiento estratégico y desarrollo de talento con logros
                             comprobados: reducción del 15% en costos operativos, mejora del 25% en retención de personal y
                             optimización del 40% en tiempos de análisis. Experta en gestión de áreas infantiles, manejo avanzado
@@ -646,7 +646,7 @@ export const CVDocument = () => (
                                 'Incremento del 20% en eficiencia operativa con gestión de 23 sucursales simultáneamente',
                                 'Reducción del 40% en tiempo de análisis con implementación de dashboards automatizados',
                                 'Optimización del proceso de reclutamiento: reducción de 45 a 30 días en tiempo de contratación',
-                                '4 años consecutivos sin incidentes de seguridad en área de cuidado infantil (récord)',
+                                '4 años consecutivos sin incidentes de seguridad en área de cuidado infantil',
                             ].map((achievement, i) => (
                                 <Text key={i} style={[styles.bulletPoint, { marginBottom: 3 }]}>✓ {achievement}</Text>
                             ))}
