@@ -648,7 +648,7 @@ export const CVDocument = () => (
                                 'Optimización del proceso de reclutamiento: reducción de 45 a 30 días en tiempo de contratación',
                                 '4 años consecutivos sin incidentes de seguridad en área de cuidado infantil',
                             ].map((achievement, i) => (
-                                <Text key={i} style={[styles.bulletPoint, { marginBottom: 6, lineHeight: 1.4 }]}>• {achievement}</Text>
+                                <Text key={i} style={[styles.bulletPoint, { marginBottom: 6, lineHeight: 1.4 }]}>•  {achievement}</Text>
                             ))}
                         </View>
                     </View>
