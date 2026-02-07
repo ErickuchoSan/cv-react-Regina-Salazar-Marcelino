@@ -46,7 +46,7 @@ export const Skills: React.FC = () => {
                     subtitle="Competencias técnicas y personales"
                 />
 
-                {/* Main Skills with Progress Bars */}
+                {/* Main Skills with Progress Bars - Herramientas Digitales */}
                 <div className="mb-16">
                     <h3 className="text-2xl font-bold text-center mb-12 text-gray-800 dark:text-gray-200">Herramientas Digitales</h3>
                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
@@ -68,6 +68,38 @@ export const Skills: React.FC = () => {
                                     ></div>
                                 </div>
                                 <span className="text-sm text-teal-600 font-semibold">{skill.level}</span>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                {/* Soft Skills with Progress Bars - Habilidades Blandas */}
+                <div className="mb-16">
+                    <h3 className="text-2xl font-bold text-center mb-12 text-gray-800 dark:text-gray-200">Habilidades Blandas</h3>
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+                        {[
+                            { icon: FaComments, color: 'text-blue-600', name: 'Comunicación Efectiva', progress: 95 },
+                            { icon: FaLightbulb, color: 'text-yellow-500', name: 'Creatividad y Estrategia', progress: 90 },
+                            { icon: FaUsers, color: 'text-teal-600', name: 'Liderazgo Colaborativo', progress: 95 },
+                            { icon: FaHandshake, color: 'text-amber-600', name: 'Toma de Decisiones', progress: 90 },
+                            { icon: FaChartBar, color: 'text-indigo-600', name: 'Pensamiento Crítico', progress: 90 },
+                            { icon: FaTasks, color: 'text-purple-600', name: 'Evaluación y Seguimiento', progress: 95 },
+                            { icon: FaCalendarCheck, color: 'text-pink-600', name: 'Responsabilidad', progress: 100 },
+                            { icon: FaLightbulb, color: 'text-green-500', name: 'Adaptabilidad', progress: 95 },
+                            { icon: FaHeart, color: 'text-red-500', name: 'Empatía', progress: 95 },
+                        ].map((skill, index) => (
+                            <div key={index} className="skill-card glass-card tech-hover-effect p-6 text-center">
+                                <div className="skill-icon mb-4 inline-block">
+                                    <skill.icon className={`text-4xl ${skill.color}`} />
+                                </div>
+                                <h4 className="skill-title text-lg font-semibold text-gray-800 dark:text-gray-200 mb-3">{skill.name}</h4>
+                                <div className="skill-bar w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3 mb-2 overflow-hidden">
+                                    <div
+                                        className="skill-progress bg-gradient-to-r from-teal-500 to-cyan-600 h-3 rounded-full relative"
+                                        style={{ width: `${skill.progress}%` }}
+                                    ></div>
+                                </div>
+                                <span className="text-sm text-teal-600 font-semibold">{skill.progress}%</span>
                             </div>
                         ))}
                     </div>

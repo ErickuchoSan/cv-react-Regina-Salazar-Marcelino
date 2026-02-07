@@ -34,6 +34,19 @@ const SKILLS_DATA = [
     { name: 'Microsoft Office', level: 90 },
 ];
 
+// Soft Skills data for Regina - Habilidades Blandas
+const SOFT_SKILLS_DATA = [
+    { name: 'Comunicación efectiva', level: 95 },
+    { name: 'Creatividad y estrategia', level: 90 },
+    { name: 'Liderazgo colaborativo', level: 95 },
+    { name: 'Toma de decisiones', level: 90 },
+    { name: 'Pensamiento crítico', level: 90 },
+    { name: 'Evaluación y seguimiento', level: 95 },
+    { name: 'Responsabilidad', level: 100 },
+    { name: 'Adaptabilidad', level: 95 },
+    { name: 'Empatía', level: 95 },
+];
+
 // Experience data for Regina
 const EXPERIENCE_DATA = [
     {
@@ -545,6 +558,22 @@ export const CVDocument = () => (
                             <Text style={styles.sidebarTitle}>Herramientas Digitales</Text>
                         </View>
                         {SKILLS_DATA.map((skill, i) => (
+                            <View key={i} style={styles.skillItem}>
+                                <View style={styles.skillHeader}>
+                                    <Text style={styles.skillName}>{skill.name}</Text>
+                                    <Text style={styles.skillPercent}>{skill.level}%</Text>
+                                </View>
+                                <ProgressBar level={skill.level} />
+                            </View>
+                        ))}
+                    </View>
+
+                    <View style={styles.sidebarSection}>
+                        <View style={styles.sectionHeader}>
+                            <SkillsSectionIcon />
+                            <Text style={styles.sidebarTitle}>Habilidades Blandas</Text>
+                        </View>
+                        {SOFT_SKILLS_DATA.map((skill, i) => (
                             <View key={i} style={styles.skillItem}>
                                 <View style={styles.skillHeader}>
                                     <Text style={styles.skillName}>{skill.name}</Text>
