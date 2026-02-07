@@ -4,7 +4,7 @@ import {
     FaMicrosoft, FaRobot, FaUsers, FaCalendarCheck,
     FaHandshake, FaLightbulb, FaComments, FaTasks, FaChartBar,
     FaChild, FaFirstAid, FaFileExcel, FaFileWord, FaFilePowerpoint, FaHeart,
-    FaBook, FaGamepad
+    FaBook, FaGamepad, FaBriefcase
 } from 'react-icons/fa';
 import { SiCanva, SiMicrosoftoffice } from 'react-icons/si';
 
@@ -54,7 +54,7 @@ export const Skills: React.FC = () => {
                             { icon: FaFileExcel, color: 'text-green-600', name: 'Excel', progress: 70, level: 'Intermedio' },
                             { icon: SiCanva, color: 'text-cyan-500', name: 'Canva', progress: 90, level: 'Avanzado' },
                             { icon: FaRobot, color: 'text-purple-600', name: 'Herramientas IA', progress: 85, level: 'Avanzado' },
-                            { icon: SiMicrosoftoffice, color: 'text-blue-600', name: 'Microsoft Office', progress: 90, level: 'Avanzado' },
+                            { icon: FaBriefcase, color: 'text-blue-600', name: 'Microsoft Office', progress: 90, level: 'Avanzado' },
                         ].map((skill, index) => (
                             <div key={index} className="skill-card glass-card tech-hover-effect p-6 text-center">
                                 <div className="skill-icon mb-4 inline-block">
@@ -77,7 +77,7 @@ export const Skills: React.FC = () => {
                 <div className="grid md:grid-cols-2 gap-4 sm:gap-6 md:gap-8 mb-16">
                     <TechCategory
                         title="Herramientas Digitales"
-                        icon={SiMicrosoftoffice}
+                        icon={FaBriefcase}
                         items={[
                             { name: 'Excel Intermedio', icon: FaFileExcel, color: 'text-green-600' },
                             { name: 'PowerPoint', icon: FaFilePowerpoint, color: 'text-orange-600' },
