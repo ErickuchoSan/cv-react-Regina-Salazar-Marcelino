@@ -3,7 +3,8 @@ import { SectionTitle } from '../UI/SectionTitle';
 import {
     FaMicrosoft, FaRobot, FaUsers, FaCalendarCheck,
     FaHandshake, FaLightbulb, FaComments, FaTasks, FaChartBar,
-    FaChild, FaFirstAid, FaFileExcel, FaFileWord, FaFilePowerpoint, FaHeart
+    FaChild, FaFirstAid, FaFileExcel, FaFileWord, FaFilePowerpoint, FaHeart,
+    FaBook, FaGamepad
 } from 'react-icons/fa';
 import { SiCanva } from 'react-icons/si';
 
@@ -50,10 +51,10 @@ export const Skills: React.FC = () => {
                     <h3 className="text-2xl font-bold text-center mb-12 text-gray-800 dark:text-gray-200">Herramientas Digitales</h3>
                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
                         {[
-                            { icon: FaFileExcel, color: 'text-green-600', name: 'Excel', progress: 70 },
-                            { icon: SiCanva, color: 'text-cyan-500', name: 'Canva', progress: 90 },
-                            { icon: FaRobot, color: 'text-purple-600', name: 'Herramientas IA', progress: 85 },
-                            { icon: FaMicrosoft, color: 'text-blue-600', name: 'Microsoft Office', progress: 90 },
+                            { icon: FaFileExcel, color: 'text-green-600', name: 'Excel', progress: 70, level: 'Intermedio' },
+                            { icon: SiCanva, color: 'text-cyan-500', name: 'Canva', progress: 90, level: 'Avanzado' },
+                            { icon: FaRobot, color: 'text-purple-600', name: 'Herramientas IA', progress: 85, level: 'Avanzado' },
+                            { icon: FaMicrosoft, color: 'text-blue-600', name: 'Microsoft Office', progress: 90, level: 'Avanzado' },
                         ].map((skill, index) => (
                             <div key={index} className="skill-card glass-card tech-hover-effect p-6 text-center">
                                 <div className="skill-icon mb-4 inline-block">
@@ -66,7 +67,7 @@ export const Skills: React.FC = () => {
                                         style={{ width: `${skill.progress}%` }}
                                     ></div>
                                 </div>
-                                <span className="text-sm text-teal-600 font-semibold">Avanzado</span>
+                                <span className="text-sm text-teal-600 font-semibold">{skill.level}</span>
                             </div>
                         ))}
                     </div>
@@ -78,7 +79,7 @@ export const Skills: React.FC = () => {
                         title="Herramientas Digitales"
                         icon={FaMicrosoft}
                         items={[
-                            { name: 'Excel Avanzado', icon: FaFileExcel, color: 'text-green-600' },
+                            { name: 'Excel Intermedio', icon: FaFileExcel, color: 'text-green-600' },
                             { name: 'PowerPoint', icon: FaFilePowerpoint, color: 'text-orange-600' },
                             { name: 'Word', icon: FaFileWord, color: 'text-blue-600' },
                             { name: 'Canva', icon: SiCanva, color: 'text-cyan-500' },
@@ -122,6 +123,8 @@ export const Skills: React.FC = () => {
                     <h3 className="text-2xl font-bold text-center mb-12 text-gray-800 dark:text-gray-200">Competencias Clave</h3>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                         {[
+                            { icon: FaBook, title: 'Autodidacta', desc: 'Aprendizaje continuo y desarrollo de habilidades por iniciativa propia' },
+                            { icon: FaGamepad, title: 'Lúdica', desc: 'Capacidad para crear experiencias recreativas y educativas' },
                             { icon: FaComments, title: 'Comunicación Efectiva', desc: 'Claridad y empatía en la transmisión de ideas' },
                             { icon: FaLightbulb, title: 'Creatividad y Estrategia', desc: 'Enfoque innovador para la resolución de problemas' },
                             { icon: FaUsers, title: 'Liderazgo Colaborativo', desc: 'Guía de equipos fomentando la participación' },
