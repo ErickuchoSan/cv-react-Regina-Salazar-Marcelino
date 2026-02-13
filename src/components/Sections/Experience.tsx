@@ -83,58 +83,52 @@ const EXPERIENCE_DATA: ExperienceItem[] = [
 
 export const Experience: React.FC = () => {
     return (
-        <section id="experiencia" className="enhanced-section section-tech-bg py-20 bg-white dark:bg-gray-800 transition-colors duration-300">
-            <div className="section-particles">
-                {[...Array(4)].map((_, i) => (
-                    <div key={i} className="section-particle" />
-                ))}
-            </div>
-
+        <section id="experiencia" className="py-20 relative bg-white/50">
             <div className="max-w-6xl mx-auto px-4 relative z-10">
-                <SectionTitle
-                    title="Experiencia Profesional"
-                    subtitle="+4 años en gestión administrativa y cuidado infantil"
-                />
+                <div className="text-center mb-16">
+                    <h2 className="section-title-humanist">Experiencia Profesional</h2>
+                    <p className="text-stone-500 mt-2 font-light text-lg">+4 años en gestión administrativa y cuidado infantil</p>
+                </div>
 
-                <div className="space-y-4 sm:space-y-6 md:space-y-8">
+                <div className="space-y-6">
                     {EXPERIENCE_DATA.map((exp, index) => (
-                        <div key={index} className="experience-card glass-card tech-hover-effect p-8">
-                            <div className="flex flex-col md:flex-row md:items-start gap-4 sm:gap-6">
-                                <div className="flex-shrink-0">
-                                    <div className="w-16 h-16 bg-gradient-to-br from-teal-500 to-cyan-600 rounded-xl flex items-center justify-center shadow-lg">
-                                        <exp.icon className="text-white text-2xl" />
+                        <div key={index} className="card-soft p-8 hover:border-teal-200 border-l-4 border-l-teal-500">
+                            <div className="flex flex-col md:flex-row md:items-start gap-6">
+                                <div className="flex-shrink-0 hidden md:block">
+                                    <div className="w-16 h-16 bg-teal-50 rounded-2xl flex items-center justify-center text-teal-600 shadow-sm">
+                                        <exp.icon className="text-2xl" />
                                     </div>
                                 </div>
 
                                 <div className="flex-grow">
                                     <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                                         <div>
-                                            <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200">
+                                            <h3 className="text-xl font-bold text-stone-800">
                                                 {exp.role}
                                             </h3>
-                                            <div className="flex items-center text-teal-600 font-medium mt-1">
+                                            <div className="flex items-center text-teal-700 font-medium mt-1">
                                                 <FaBuilding className="mr-2" />
                                                 {exp.company}
                                             </div>
                                         </div>
                                         <div className="flex items-center mt-2 md:mt-0">
-                                            <span className="bg-teal-100 dark:bg-teal-900 text-teal-700 dark:text-teal-300 px-3 py-1 rounded-full text-sm font-medium flex items-center">
+                                            <span className="bg-stone-100 text-stone-600 px-4 py-1.5 rounded-full text-sm font-medium flex items-center">
                                                 <FaCalendarAlt className="mr-2" />
                                                 {exp.period} • {exp.duration}
                                             </span>
                                         </div>
                                     </div>
 
-                                    <p className="text-gray-600 dark:text-gray-300 mb-4">
+                                    <p className="text-stone-600 mb-6 leading-relaxed">
                                         {exp.description}
                                     </p>
 
-                                    <div className="mb-4">
-                                        <h4 className="font-semibold text-gray-700 dark:text-gray-300 mb-2">Responsabilidades:</h4>
-                                        <ul className="grid md:grid-cols-2 gap-2">
+                                    <div className="mb-6">
+                                        <h4 className="font-bold text-stone-800 mb-3 text-sm uppercase tracking-wide">Responsabilidades Principales</h4>
+                                        <ul className="grid md:grid-cols-2 gap-y-2 gap-x-8">
                                             {exp.functions.map((func, i) => (
-                                                <li key={i} className="flex items-start text-sm text-gray-600 dark:text-gray-400">
-                                                    <span className="w-1.5 h-1.5 bg-teal-500 rounded-full mr-2 mt-1.5 flex-shrink-0"></span>
+                                                <li key={i} className="flex items-start text-sm text-stone-600">
+                                                    <span className="w-1.5 h-1.5 bg-teal-400 rounded-full mr-2 mt-1.5 flex-shrink-0"></span>
                                                     {func}
                                                 </li>
                                             ))}
@@ -142,12 +136,14 @@ export const Experience: React.FC = () => {
                                     </div>
 
                                     {exp.achievements && (
-                                        <div>
-                                            <h4 className="font-semibold text-gray-700 dark:text-gray-300 mb-2">Logros:</h4>
+                                        <div className="bg-teal-50/50 p-4 rounded-xl border border-teal-100">
+                                            <h4 className="font-bold text-teal-800 mb-3 text-sm flex items-center">
+                                                <span className="mr-2">🏆</span> Logros Destacados
+                                            </h4>
                                             <div className="flex flex-wrap gap-2">
                                                 {exp.achievements.map((achievement, i) => (
-                                                    <span key={i} className="bg-gradient-to-r from-teal-50 to-cyan-50 dark:from-teal-900/30 dark:to-cyan-900/30 text-teal-700 dark:text-teal-300 px-3 py-1 rounded-full text-sm border border-teal-200 dark:border-teal-700">
-                                                        ✓ {achievement}
+                                                    <span key={i} className="bg-white text-teal-700 px-3 py-1 rounded-full text-sm border border-teal-100 shadow-sm">
+                                                        {achievement}
                                                     </span>
                                                 ))}
                                             </div>

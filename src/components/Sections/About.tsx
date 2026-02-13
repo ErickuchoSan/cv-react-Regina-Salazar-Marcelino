@@ -4,100 +4,102 @@ import { FaGraduationCap, FaMapMarkerAlt, FaBriefcase, FaHeart } from 'react-ico
 
 export const About: React.FC = () => {
     return (
-        <section id="sobre-mi" className="enhanced-section section-tech-bg py-20 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
-            <div className="section-particles">
-                {[...Array(4)].map((_, i) => (
-                    <div key={i} className="section-particle" />
-                ))}
-            </div>
-
+        <section id="sobre-mi" className="py-20 relative overflow-hidden">
             <div className="max-w-6xl mx-auto px-4 relative z-10">
-                <SectionTitle
-                    title="Sobre Mí"
-                    subtitle="Coordinadora de Recursos Humanos"
-                />
+                <div className="text-center mb-16">
+                    <h2 className="section-title-humanist">Sobre Mí</h2>
+                    <p className="text-stone-500 mt-2 font-light text-lg">Coordinadora de Recursos Humanos</p>
+                </div>
 
-                <div className="grid md:grid-cols-2 gap-6 sm:gap-8 md:gap-12 items-start">
+                <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-start">
                     <div>
-                        <h3 className="text-2xl font-bold mb-6 text-gray-800 dark:text-gray-200">
+                        <h3 className="text-2xl font-bold mb-6 text-stone-800 font-serif">
                             Especialista en Gestión de Áreas Infantiles
                         </h3>
-                        <p className="text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+                        <p className="text-lg text-stone-600 mb-6 leading-relaxed font-light">
                             <strong>Coordinadora de Recursos Humanos</strong> con 4+ años de experiencia liderando equipos de hasta 50 personas
                             y supervisando 23 sucursales simultáneamente. Especialista en reclutamiento estratégico, desarrollo de talento
                             y optimización de procesos operativos que han logrado <strong className="text-teal-600">reducir costos en 15%</strong> y
                             mejorar la <strong className="text-teal-600">retención de personal en 25%</strong>.
                         </p>
-                        <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
+                        <p className="text-lg text-stone-600 mb-8 leading-relaxed font-light">
                             Experta en gestión de áreas infantiles con formación técnica como Puericultista y certificación en Primeros Auxilios.
                             Manejo avanzado de herramientas digitales (Excel, IA, Canva) para la gestión eficiente de RRHH y marketing digital.
                             Actualmente cursando Licenciatura en Gestión y Desarrollo Empresarial, combinando experiencia práctica con formación
                             académica continua.
                         </p>
 
-                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2 sm:gap-4">
+                        <div className="grid grid-cols-2 gap-4">
                             {[
                                 { value: '4+', label: 'Años de Experiencia' },
-                                { value: '23', label: 'Sucursales Supervisadas' },
-                                { value: '50+', label: 'Personas a Cargo' },
+                                { value: '23', label: 'Sucursales' },
+                                { value: '50+', label: 'Colaboradores' },
                                 { value: '100%', label: 'Compromiso' }
                             ].map((stat, index) => (
-                                <div key={index} className="stat-item glass-card tech-hover-effect p-4">
-                                    <div className="text-3xl font-bold text-teal-600">{stat.value}</div>
-                                    <div className="text-gray-600 dark:text-gray-400">{stat.label}</div>
+                                <div key={index} className="card-soft p-4 text-center">
+                                    <div className="text-3xl font-bold text-teal-600 mb-1">{stat.value}</div>
+                                    <div className="text-stone-500 text-sm">{stat.label}</div>
                                 </div>
                             ))}
                         </div>
                     </div>
 
-                    <div className="space-y-5">
-                        <div className="info-card glass-card tech-hover-effect p-6">
-                            <div className="flex items-center mb-4">
-                                <FaGraduationCap className="text-teal-600 text-2xl mr-3" />
-                                <h4 className="text-lg font-semibold text-gray-800 dark:text-gray-200">Educación</h4>
+                    <div className="grid gap-6">
+                        <div className="card-soft p-6 flex items-start">
+                            <div className="bg-teal-50 p-3 rounded-full mr-4 text-teal-600">
+                                <FaGraduationCap className="text-xl" />
                             </div>
-                            <div className="space-y-3">
-                                <div>
-                                    <p className="font-semibold text-gray-800 dark:text-gray-200">Lic. Gestión y Desarrollo Empresarial</p>
-                                    <p className="text-teal-600 text-sm font-medium">En curso • Universidad Virtual del Estado de Guanajuato</p>
+                            <div>
+                                <h4 className="text-lg font-bold text-stone-800 mb-2">Educación</h4>
+                                <div className="space-y-3">
+                                    <div>
+                                        <p className="font-semibold text-stone-700">Lic. Gestión y Desarrollo Empresarial</p>
+                                        <p className="text-teal-600 text-sm">En curso • UVEG</p>
+                                    </div>
+                                    <div className="pt-2 border-t border-stone-100">
+                                        <p className="font-semibold text-stone-700">Técnico Puericultista</p>
+                                        <p className="text-stone-500 text-sm">CETIS #10 • 2018</p>
+                                    </div>
                                 </div>
-                                <div className="pt-2 border-t border-gray-200 dark:border-gray-700">
-                                    <p className="font-semibold text-gray-800 dark:text-gray-200">Técnico Puericultista</p>
-                                    <p className="text-gray-600 dark:text-gray-400 text-sm">CETIS #10 • 2018</p>
-                                </div>
                             </div>
                         </div>
 
-                        <div className="info-card glass-card tech-hover-effect p-6">
-                            <div className="flex items-center mb-4">
-                                <FaBriefcase className="text-teal-600 text-2xl mr-3" />
-                                <h4 className="text-lg font-semibold text-gray-800 dark:text-gray-200">Disponibilidad</h4>
+                        <div className="card-soft p-6 flex items-start">
+                            <div className="bg-rose-50 p-3 rounded-full mr-4 text-rose-500">
+                                <FaBriefcase className="text-xl" />
                             </div>
-                            <p className="text-gray-600 dark:text-gray-300">
-                                <strong>Tiempo completo</strong> • Presencial/Híbrido<br />
-                                <span className="text-sm text-teal-600">Zona Sur CDMX</span>
-                            </p>
+                            <div>
+                                <h4 className="text-lg font-bold text-stone-800 mb-2">Disponibilidad</h4>
+                                <p className="text-stone-600">
+                                    <strong>Tiempo completo</strong> • Presencial/Híbrido<br />
+                                    <span className="text-sm text-stone-500">Zona Sur CDMX</span>
+                                </p>
+                            </div>
                         </div>
 
-                        <div className="info-card glass-card tech-hover-effect p-6">
-                            <div className="flex items-center mb-4">
-                                <FaMapMarkerAlt className="text-teal-600 text-2xl mr-3" />
-                                <h4 className="text-lg font-semibold text-gray-800 dark:text-gray-200">Ubicación</h4>
+                        <div className="card-soft p-6 flex items-start">
+                            <div className="bg-amber-50 p-3 rounded-full mr-4 text-amber-500">
+                                <FaMapMarkerAlt className="text-xl" />
                             </div>
-                            <p className="text-gray-600 dark:text-gray-300">
-                                San Nicolás Totolapan, Magdalena Contreras, CDMX
-                            </p>
+                            <div>
+                                <h4 className="text-lg font-bold text-stone-800 mb-2">Ubicación</h4>
+                                <p className="text-stone-600">
+                                    San Nicolás Totolapan, Magdalena Contreras, CDMX
+                                </p>
+                            </div>
                         </div>
 
-                        <div className="info-card glass-card tech-hover-effect p-6">
-                            <div className="flex items-center mb-4">
-                                <FaHeart className="text-teal-600 text-2xl mr-3" />
-                                <h4 className="text-lg font-semibold text-gray-800 dark:text-gray-200">Voluntariado</h4>
+                        <div className="card-soft p-6 flex items-start">
+                            <div className="bg-teal-50 p-3 rounded-full mr-4 text-teal-600">
+                                <FaHeart className="text-xl" />
                             </div>
-                            <p className="text-gray-600 dark:text-gray-300 text-sm">
-                                Fundación Infantil "La Esperanza de los Niños A.C." (9 meses)<br />
-                                <span className="text-teal-600">Actividades de apoyo infantil sin fines de lucro</span>
-                            </p>
+                            <div>
+                                <h4 className="text-lg font-bold text-stone-800 mb-2">Voluntariado</h4>
+                                <p className="text-stone-600 text-sm">
+                                    Fundación Infantil "La Esperanza de los Niños A.C." (9 meses)<br />
+                                    <span className="text-teal-600">Actividades de apoyo infantil</span>
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
