@@ -39,23 +39,23 @@ export interface InfoCard {
 export const INFO_CARDS: InfoCard[] = [
     {
         icon: FaBriefcase,
-        iconBgClass: 'bg-rose-50',
-        iconColorClass: 'text-rose-500',
+        iconBgClass: 'bg-rose-50 dark:bg-rose-900/30',
+        iconColorClass: 'text-rose-500 dark:text-rose-400',
         title: 'Disponibilidad',
         content: 'Tiempo completo • Presencial/Híbrido',
         subContent: 'Zona Sur CDMX'
     },
     {
         icon: FaMapMarkerAlt,
-        iconBgClass: 'bg-amber-50',
-        iconColorClass: 'text-amber-500',
+        iconBgClass: 'bg-amber-50 dark:bg-amber-900/30',
+        iconColorClass: 'text-amber-500 dark:text-amber-400',
         title: 'Ubicación',
         content: `San Nicolás Totolapan, ${CONTACT.location}`
     },
     {
         icon: FaHeart,
-        iconBgClass: 'bg-teal-50',
-        iconColorClass: 'text-teal-600',
+        iconBgClass: 'bg-teal-50 dark:bg-teal-900/30',
+        iconColorClass: 'text-teal-600 dark:text-teal-400',
         title: 'Voluntariado',
         content: 'Fundación Infantil "La Esperanza de los Niños A.C." (9 meses)',
         subContent: 'Actividades de apoyo infantil'
