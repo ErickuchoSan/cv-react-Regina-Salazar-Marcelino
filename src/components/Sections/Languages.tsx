@@ -7,8 +7,7 @@ export const Languages: React.FC = () => {
         {
             name: 'Español',
             level: 'Nativo',
-            percentage: 100,
-            details: ['Lengua materna', 'Comunicación profesional']
+            details: ['Lengua materna', 'Comunicación profesional escrita y oral']
         }
     ];
 
@@ -24,31 +23,29 @@ export const Languages: React.FC = () => {
                     <div className="w-full max-w-md">
                         {languages.map((lang, index) => (
                             <div key={index} className="glass-card tech-hover-effect p-6">
-                                <div className="flex items-center justify-between mb-4">
-                                    <div className="flex items-center">
-                                        <FaLanguage className="text-teal-600 text-2xl mr-3" />
-                                        <div>
-                                            <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200">{lang.name}</h3>
-                                            <span className="text-sm font-semibold text-green-600">
-                                                {lang.level}
-                                            </span>
-                                        </div>
+                                <div className="flex items-center mb-4">
+                                    <FaLanguage className="text-teal-600 text-2xl mr-3" />
+                                    <div>
+                                        <h3 className="text-xl font-bold text-gray-800 dark:text-gray-200">{lang.name}</h3>
+                                        <span className="inline-block bg-teal-100 text-teal-800 px-3 py-1 rounded-full text-sm font-semibold">
+                                            {lang.level}
+                                        </span>
                                     </div>
-
-
-                                    <ul className="space-y-1">
-                                        {lang.details.map((detail, i) => (
-                                            <li key={i} className="text-sm text-gray-600 dark:text-gray-400 flex items-center">
-                                                <span className="w-1.5 h-1.5 bg-teal-500 rounded-full mr-2"></span>
-                                                {detail}
-                                            </li>
-                                        ))}
-                                    </ul>
                                 </div>
-                        ))}
+
+                                <ul className="space-y-1">
+                                    {lang.details.map((detail, i) => (
+                                        <li key={i} className="text-sm text-gray-600 dark:text-gray-400 flex items-center">
+                                            <span className="w-1.5 h-1.5 bg-teal-500 rounded-full mr-2"></span>
+                                            {detail}
+                                        </li>
+                                    ))}
+                                </ul>
                             </div>
+                        ))}
+                    </div>
                 </div>
-                </div>
+            </div>
         </section>
     );
 };

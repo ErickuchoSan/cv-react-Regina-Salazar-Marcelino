@@ -1,4 +1,4 @@
-import { Page, Text, View, Document, StyleSheet, Image, Font, Link, Svg, Path } from '@react-pdf/renderer';
+import { Page, Text, View, Document, StyleSheet, Image, Font, Link } from '@react-pdf/renderer';
 
 // Register Roboto font
 Font.register({
@@ -10,426 +10,243 @@ Font.register({
     ],
 });
 
-// REGINA'S COLORS APPLIED TO ERICK'S LAYOUT
-const COLORS = {
-    headerBg: '#f0fdfa',     // Light warm teal for header background
-    primary: '#0d9488',      // Teal 600 for titles and links
-    primaryLight: '#ccfbf1', // Teal 100 for badges background
-    accent: '#f43f5e',       // Rose 500 for secondary accents
-    textMain: '#334155',     // Dark slate text for body
-    textSecondary: '#64748b',// Gray text for dates and descriptions
-    badgeBorder: '#99f6e4',  // Teal 200 for badge borders
+// REGINA'S COLORS
+const C = {
+    headerBg: '#f0fdfa',
+    primary: '#0d9488',
+    accent: '#f43f5e',
+    badgeBorder: '#99f6e4',
+    badgeBg: '#f0fdfa',
+    textMain: '#1e293b',
+    textSub: '#475569',
+    textMuted: '#64748b',
     white: '#ffffff',
-    divider: '#0d9488',      // Primary teal for section dividers
+    divider: '#0d9488',
 };
 
-// Data (NO PERCENTAGES)
-const SKILLS_DATA = [
-    { name: 'Excel' },
-    { name: 'Canva' },
-    { name: 'Herramientas IA' },
-    { name: 'Microsoft Office' },
-];
-
-const SOFT_SKILLS_DATA = [
-    { name: 'Comunicación efectiva' },
-    { name: 'Creatividad y estrategia' },
-    { name: 'Liderazgo colaborativo' },
-    { name: 'Toma de decisiones' },
-    { name: 'Pensamiento crítico' },
-    { name: 'Evaluación y seguimiento' },
-    { name: 'Responsabilidad' },
-];
-
-const EXPERIENCE_DATA = [
-    {
-        role: "Auxiliar en Marketing Digital",
-        company: "Naré",
-        period: "Mayo 2023 - Actualidad",
-        description: "Ejecución de estrategias de marketing digital, gestión de redes sociales y análisis de métricas.",
-        functions: [
-            "Desarrollo de estrategias de marketing digital que incrementaron el engagement en 30%",
-            "Creación de 20+ piezas de contenido mensual para redes sociales con Canva, Photoshop e Illustrator",
-            "Gestión de calendarios editoriales mejorando el alcance orgánico en 25%",
-            "Research de influencers: análisis de engagement, demografía y autenticidad",
-            "Seguimiento de KPIs (engagement, crecimiento, CTR) y ajuste de estrategias"
-        ]
-    },
-    {
-        role: "Coordinadora Administrativa de Áreas Infantiles",
-        company: "Sonora Kids Group",
-        period: "Ene 2022 - Feb 2026",
-        description: "Coordinación integral de 23 sucursales con enfoque en eficiencia operativa y desarrollo de talento.",
-        functions: [
-            "Supervisión de 23 sucursales (12 presenciales + 11 remotas) con 50 colaboradores, incrementando eficiencia operativa en 20%",
-            "Liderazgo de reclutamiento (100+ candidatos anuales), reduciendo tiempo de contratación de 45 a 30 días",
-            "Diseño de 15+ capacitaciones anuales (200+ colaboradores), mejorando retención de personal en 25%",
-            "Negociación con proveedores que generó reducción del 15% en costos operativos",
-            "Implementación de dashboards en Excel que redujeron tiempo de análisis en 40%"
-        ],
-        achievements: [
-            "Reducción del 15% en costos operativos mediante negociación estratégica",
-            "Mejora del 25% en retención de personal con planes de capacitación",
-            "Optimización de reclutamiento: reducción de 45 a 30 días",
-        ]
-    },
-    {
-        role: "Cuidadora Infantil",
-        company: "Sonora Grill Group",
-        period: "Ene 2018 - Ene 2022",
-        description: "Atención profesional de niños con enfoque en seguridad, desarrollo infantil y excelencia en servicio.",
-        functions: [
-            "Atención de 20-30 niños diarios (1-10 años), garantizando ambiente seguro y educativo",
-            "Atención a padres logrando 95% de satisfacción mediante comunicación efectiva",
-            "Resolución de conflictos con padres y niños aplicando técnicas de mediación y empatía",
-            "Diseño de actividades lúdicas adaptadas por edad para desarrollo psicomotriz y social"
-        ]
-    }
-];
-
 const styles = StyleSheet.create({
-    page: {
-        flexDirection: 'column',
-        backgroundColor: COLORS.white,
-        fontFamily: 'Roboto',
-        padding: 0,
-    },
-    // HEADER TIPO TARJETA CENTRADA
-    headerContainer: {
-        backgroundColor: COLORS.headerBg,
-        paddingVertical: 24,
-        paddingHorizontal: 30,
+    page: { flexDirection: 'column', backgroundColor: C.white, fontFamily: 'Roboto', padding: 0 },
+
+    // HEADER
+    header: {
+        backgroundColor: C.headerBg,
+        paddingVertical: 20,
+        paddingHorizontal: 28,
         flexDirection: 'row',
         alignItems: 'center',
-        marginHorizontal: 30,
-        marginTop: 25,
+        marginHorizontal: 28,
+        marginTop: 22,
         borderRadius: 8,
     },
-    headerImageContainer: {
-        marginRight: 20,
-    },
-    profileImage: {
-        width: 75,
-        height: 75,
-        borderRadius: 37.5,
-    },
-    headerContent: {
-        flex: 1,
-    },
-    name: {
-        fontSize: 22,
-        fontWeight: 700,
-        color: COLORS.primary,
-        marginBottom: 6,
-        textTransform: 'uppercase',
-        letterSpacing: 0.5,
-    },
-    role: {
-        fontSize: 11,
-        color: COLORS.primary,
-        fontWeight: 700,
-        textTransform: 'uppercase',
-        letterSpacing: 1,
-        marginBottom: 10,
-    },
-    contactRow: {
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        alignItems: 'center',
-        gap: 8,
-    },
-    contactText: {
-        fontSize: 8.5,
-        color: COLORS.textMain,
-    },
-    contactDivider: {
-        fontSize: 9,
-        color: COLORS.primary,
-    },
-    contactLink: {
-        fontSize: 8.5,
-        color: COLORS.textMain,
-        textDecoration: 'none',
-    },
+    photo: { width: 72, height: 72, borderRadius: 36, marginRight: 18 },
+    headerText: { flex: 1 },
+    name: { fontSize: 20, fontWeight: 700, color: C.primary, textTransform: 'uppercase', letterSpacing: 0.5, marginBottom: 4 },
+    roleText: { fontSize: 10, color: C.textMain, fontWeight: 700, textTransform: 'uppercase', letterSpacing: 1, marginBottom: 8 },
+    contactRow: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', gap: 6 },
+    contactItem: { fontSize: 8, color: C.textSub },
+    contactLink: { fontSize: 8, color: C.primary, textDecoration: 'none' },
+    divChar: { fontSize: 8, color: C.primary },
+
     // BODY
-    bodyContainer: {
-        paddingTop: 20,
-        paddingHorizontal: 35,
-        paddingBottom: 20,
-    },
-    sectionTitle: {
-        fontSize: 12,
-        fontWeight: 700,
-        color: COLORS.textMain,
-        textTransform: 'uppercase',
-        marginBottom: 6,
-        letterSpacing: 0.5,
-    },
-    sectionDivider: {
-        height: 1.5,
-        backgroundColor: COLORS.divider,
-        marginBottom: 12,
-    },
-    // SUMMARY
-    profileSummary: {
-        fontSize: 9.5,
-        color: COLORS.textSecondary,
-        lineHeight: 1.4,
-        marginBottom: 20,
-        textAlign: 'justify'
-    },
-    // BADGES (Skills) sin porcentajes
-    badgeContainer: {
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        gap: 6,
-        marginBottom: 20,
-    },
-    badge: {
-        backgroundColor: COLORS.white,
-        borderWidth: 1,
-        borderColor: COLORS.badgeBorder,
-        borderRadius: 4,
-        paddingVertical: 6,
-        paddingHorizontal: 10,
-    },
-    badgeText: {
-        fontSize: 8.5,
-        color: COLORS.textMain,
-        fontWeight: 500,
-    },
+    body: { paddingTop: 18, paddingHorizontal: 32, paddingBottom: 18 },
+    secTitle: { fontSize: 11, fontWeight: 700, color: C.textMain, textTransform: 'uppercase', letterSpacing: 0.5, marginBottom: 5 },
+    secLine: { height: 1.5, backgroundColor: C.divider, marginBottom: 10 },
+
+    // PROFILE SUMMARY
+    summary: { fontSize: 9, color: C.textSub, lineHeight: 1.45, marginBottom: 16, textAlign: 'justify' },
+
+    // BADGES
+    badgeRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 5, marginBottom: 14 },
+    badge: { backgroundColor: C.badgeBg, borderWidth: 1, borderColor: C.badgeBorder, borderRadius: 4, paddingVertical: 4, paddingHorizontal: 8 },
+    badgeText: { fontSize: 8, color: C.textMain, fontWeight: 500 },
+
+    // TWO COLUMNS
+    twoCol: { flexDirection: 'row', justifyContent: 'space-between', marginBottom: 14 },
+    col46: { width: '46%' },
+
+    // EDUCATION & LANG
+    eduItem: { marginBottom: 8 },
+    eduDeg: { fontSize: 9, fontWeight: 700, color: C.textMain, marginBottom: 1 },
+    eduSch: { fontSize: 8, color: C.textSub },
+    eduDate: { fontSize: 7.5, color: C.textMuted, marginTop: 1 },
+    langRow: { flexDirection: 'row', justifyContent: 'space-between', marginBottom: 3 },
+    langName: { fontSize: 8.5, fontWeight: 500, color: C.textMain },
+    langLevel: { fontSize: 8.5, color: C.textSub },
+
     // EXPERIENCE
-    expItem: {
-        marginBottom: 20,
-    },
-    expHeader: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'baseline',
-        marginBottom: 2,
-    },
-    expRole: {
-        fontSize: 11,
-        fontWeight: 700,
-        color: COLORS.textMain,
-    },
-    expPeriod: {
-        fontSize: 8.5,
-        color: COLORS.textSecondary,
-        fontWeight: 500,
-    },
-    expCompany: {
-        fontSize: 9.5,
-        color: COLORS.primary,
-        marginBottom: 4,
-        fontWeight: 500,
-    },
-    expDesc: {
-        fontSize: 8.5,
-        color: COLORS.textSecondary,
-        fontStyle: 'italic',
-        marginBottom: 6,
-        lineHeight: 1.3,
-    },
-    bulletPointContainer: {
-        flexDirection: 'row',
-        marginBottom: 3,
-        paddingLeft: 8,
-    },
-    bulletPointDot: {
-        fontSize: 8.5,
-        color: COLORS.textSecondary,
-        marginRight: 6,
-    },
-    bulletPointText: {
-        fontSize: 8.5,
-        color: COLORS.textSecondary,
-        lineHeight: 1.3,
-        flex: 1,
-    },
-    achievementsLabel: {
-        fontSize: 9,
-        fontWeight: 700,
-        color: COLORS.textMain,
-        marginTop: 6,
-        marginBottom: 4,
-    },
-    // 2 COLUMNS FOR ED/LANG
-    twoColContainer: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        marginTop: 10,
-        marginBottom: 20,
-    },
-    colHalf: {
-        width: '46%',
-    },
-    eduItem: {
-        marginBottom: 10,
-    },
-    eduDegree: {
-        fontSize: 9.5,
-        fontWeight: 700,
-        color: COLORS.textMain,
-        marginBottom: 2,
-    },
-    eduSchool: {
-        fontSize: 8.5,
-        color: COLORS.textSecondary,
-    },
-    eduDate: {
-        fontSize: 8.5,
-        color: COLORS.textSecondary,
-        marginTop: 2,
-    },
-    langRow: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        marginBottom: 4,
-    },
-    langName: {
-        fontSize: 8.5,
-        fontWeight: 500,
-        color: COLORS.textMain,
-    },
-    langLevel: {
-        fontSize: 8.5,
-        color: COLORS.textSecondary,
-    }
+    expItem: { marginBottom: 14 },
+    expHeader: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 1 },
+    expRole: { fontSize: 10, fontWeight: 700, color: C.textMain },
+    expPeriod: { fontSize: 7.5, color: C.textMuted },
+    expCompany: { fontSize: 8.5, color: C.primary, fontWeight: 500, marginBottom: 4 },
+    expDesc: { fontSize: 8, color: C.textSub, fontStyle: 'italic', marginBottom: 5, lineHeight: 1.3 },
+    bulletRow: { flexDirection: 'row', marginBottom: 2.5, paddingLeft: 6 },
+    bulletDot: { fontSize: 8, color: C.textSub, marginRight: 5 },
+    bulletText: { fontSize: 8, color: C.textSub, lineHeight: 1.3, flex: 1 },
+    achievLabel: { fontSize: 8.5, fontWeight: 700, color: C.textMain, marginTop: 5, marginBottom: 3 },
 });
+
+const SKILLS = ['Excel (Intermedio)', 'Canva', 'Herramientas IA', 'Microsoft Office', 'Google Workspace', 'Reclutamiento Digital', 'Gestión de Nómina'];
+const COMPETENCIAS = ['Liderazgo Colaborativo', 'Comunicación Efectiva', 'Toma de Decisiones', 'Pensamiento Crítico', 'Adaptabilidad', 'Resolución de Conflictos', 'Evaluación y Seguimiento'];
+
+const EXPERIENCE = [
+    {
+        role: 'Auxiliar en Marketing Digital',
+        company: 'Naré',
+        period: 'Mayo 2023 – Actualidad',
+        desc: 'Gestión integral de marca digital, estrategia de contenidos y análisis de métricas de desempeño.',
+        bullets: [
+            'Diseño e implementación de estrategias de marketing digital que incrementaron el engagement en 30%',
+            'Creación mensual de 20+ piezas para redes sociales con Canva, Photoshop e Illustrator',
+            'Gestión de calendarios editoriales con mejora del 25% en alcance orgánico',
+            'Research y evaluación de influencers (engagement, demografía, autenticidad)',
+            'Seguimiento de KPIs (CTR, crecimiento, conversiones) y ajuste dinámico de estrategias',
+        ],
+        achievements: null,
+    },
+    {
+        role: 'Coordinadora Administrativa – Área de RRHH',
+        company: 'Sonora Kids Group',
+        period: 'Ene 2022 – Feb 2026',
+        desc: 'Liderazgo de procesos de recursos humanos, administración de personal y coordinación operativa de 23 sucursales.',
+        bullets: [
+            'Supervisión de 23 sucursales (12 presenciales / 11 remotas) con equipo de 50 colaboradores',
+            'Dirección del ciclo completo de reclutamiento y selección (100+ candidatos/año); tiempo de contratación reducido de 45 a 30 días',
+            'Diseño e impartición de 15+ programas de capacitación anuales para 200+ colaboradores',
+            'Control de nómina, altas, bajas y asistencias para 40–50 colaboradores de manera simultánea',
+            'Negociación con proveedores que generó reducción del 15% en costos operativos',
+            'Implementación de dashboards en Excel para reportes de RRHH, reduciendo tiempos de análisis en 40%',
+        ],
+        achievements: [
+            'Retención de personal mejorada en 25% mediante planes de capacitación continua',
+            'Eficiencia operativa incrementada en 20% en la red de sucursales',
+            'Reducción de costos operativos en 15% vía negociación estratégica con proveedores',
+        ],
+    },
+    {
+        role: 'Cuidadora Infantil Certificada',
+        company: 'Sonora Grill Group',
+        period: 'Ene 2018 – Ene 2022',
+        desc: 'Atención profesional de menores, comunicación asertiva con padres y aplicación de protocolos de seguridad.',
+        bullets: [
+            'Atención diaria a grupos de 20–30 niños (1–10 años) con 4 años consecutivos sin incidentes',
+            'Índice de satisfacción del 95% en padres mediante comunicación empática y efectiva',
+            'Aplicación de protocolos de primeros auxilios y seguridad, minimizando riesgos',
+            'Diseño de actividades lúdicas por edad para estimular el desarrollo psicomotriz y social',
+        ],
+        achievements: null,
+    },
+];
 
 export const CVDocument = () => (
     <Document>
         <Page size="A4" style={styles.page}>
-            {/* ENCABEZADO TIPO TARJETA CENTRADA */}
-            <View style={styles.headerContainer}>
-                <View style={styles.headerImageContainer}>
-                    <Image
-                        style={styles.profileImage}
-                        src="/assets/images/profile.jpeg"
-                    />
-                </View>
-                <View style={styles.headerContent}>
+            {/* HEADER */}
+            <View style={styles.header}>
+                <Image style={styles.photo} src="/assets/images/profile.jpeg" />
+                <View style={styles.headerText}>
                     <Text style={styles.name}>Regina Salazar Marcelino</Text>
-                    <Text style={styles.role}>COORDINADORA DE RECURSOS HUMANOS</Text>
-
+                    <Text style={styles.roleText}>Coordinadora de Recursos Humanos</Text>
                     <View style={styles.contactRow}>
-                        <Text style={styles.contactText}>Magdalena Contreras, CDMX</Text>
-                        <Text style={styles.contactDivider}>|</Text>
-                        <Text style={styles.contactText}>+52 56 3015 4490</Text>
-                        <Text style={styles.contactDivider}>|</Text>
-                        <Link src="mailto:regina.salazar.ma@gmail.com" style={styles.contactLink}>
-                            regina.salazar.ma@gmail.com
-                        </Link>
+                        <Link src="mailto:regina.salazar.ma@gmail.com" style={styles.contactLink}>regina.salazar.ma@gmail.com</Link>
+                        <Text style={styles.divChar}>|</Text>
+                        <Link src="https://wa.me/525630154490" style={styles.contactLink}>56 3015 4490</Link>
+                        <Text style={styles.divChar}>|</Text>
+                        <Text style={styles.contactItem}>Magdalena Contreras, CDMX</Text>
                     </View>
                 </View>
             </View>
 
-            <View style={styles.bodyContainer}>
-
-                {/* PERFIL PROFESIONAL */}
-                <Text style={styles.sectionTitle}>Perfil Profesional</Text>
-                <View style={styles.sectionDivider} />
-                <Text style={styles.profileSummary}>
-                    Coordinadora de Recursos Humanos con 4+ años de experiencia liderando equipos y supervisando operaciones. Especialista en eficiencia operativa, reclutamiento estratégico y desarrollo de talento humano. Enfoque en crear ambientes de trabajo positivos y productivos orientados a resultados.
+            <View style={styles.body}>
+                {/* PERFIL */}
+                <Text style={styles.secTitle}>Perfil Profesional</Text>
+                <View style={styles.secLine} />
+                <Text style={styles.summary}>
+                    Coordinadora de Recursos Humanos con 4+ años de experiencia liderando equipos de hasta 50 personas y gestionando operaciones de 23 sucursales. Especialista en reclutamiento estratégico, administración de nómina, capacitación de personal y optimización de procesos. Orientada a resultados con logros comprobados: reducción del 15% en costos, mejora del 25% en retención y 40% de incremento en eficiencia analítica. Disponible de inmediato para posiciones en RRHH, Administración o Coordinación de Personal.
                 </Text>
 
-                {/* HABILIDADES TÉCNICAS */}
-                <Text style={styles.sectionTitle}>Herramientas Digitales</Text>
-                <View style={styles.sectionDivider} />
-                <View style={styles.badgeContainer}>
-                    {SKILLS_DATA.map((skill, i) => (
-                        <View key={i} style={styles.badge}>
-                            <Text style={styles.badgeText}>{skill.name}</Text>
-                        </View>
+                {/* HERRAMIENTAS */}
+                <Text style={styles.secTitle}>Herramientas Digitales</Text>
+                <View style={styles.secLine} />
+                <View style={styles.badgeRow}>
+                    {SKILLS.map((s, i) => (
+                        <View key={i} style={styles.badge}><Text style={styles.badgeText}>{s}</Text></View>
                     ))}
                 </View>
 
-                {/* COMPETENCIAS CLAVE */}
-                <Text style={styles.sectionTitle}>Competencias Clave</Text>
-                <View style={styles.sectionDivider} />
-                <View style={styles.badgeContainer}>
-                    {SOFT_SKILLS_DATA.map((skill, i) => (
-                        <View key={i} style={styles.badge}>
-                            <Text style={styles.badgeText}>{skill.name}</Text>
-                        </View>
+                {/* COMPETENCIAS */}
+                <Text style={styles.secTitle}>Competencias Clave</Text>
+                <View style={styles.secLine} />
+                <View style={styles.badgeRow}>
+                    {COMPETENCIAS.map((s, i) => (
+                        <View key={i} style={styles.badge}><Text style={styles.badgeText}>{s}</Text></View>
                     ))}
                 </View>
 
-                {/* EDUCACIÓN E IDIOMAS */}
-                <View style={styles.twoColContainer}>
-                    <View style={styles.colHalf}>
-                        <Text style={styles.sectionTitle}>Educación</Text>
-                        <View style={styles.sectionDivider} />
-
+                {/* EDUCACIÓN E IDIOMAS en 2 columnas */}
+                <View style={styles.twoCol}>
+                    <View style={styles.col46}>
+                        <Text style={styles.secTitle}>Educación</Text>
+                        <View style={styles.secLine} />
                         <View style={styles.eduItem}>
-                            <Text style={styles.eduDegree}>Lic. Gestión y Desarrollo Empresarial</Text>
-                            <Text style={styles.eduSchool}>UVEG</Text>
-                            <Text style={styles.eduDate}>2024 - En curso (100% en línea)</Text>
+                            <Text style={styles.eduDeg}>Lic. en Gestión y Desarrollo Empresarial</Text>
+                            <Text style={styles.eduSch}>UVEG – En curso</Text>
+                            <Text style={styles.eduDate}>2024 – Actualidad (100% en línea)</Text>
                         </View>
-
                         <View style={styles.eduItem}>
-                            <Text style={styles.eduDegree}>Técnico Puericultista</Text>
-                            <Text style={styles.eduSchool}>CETIS #10</Text>
-                            <Text style={styles.eduDate}>2015 - 2018</Text>
+                            <Text style={styles.eduDeg}>Técnico Puericultista</Text>
+                            <Text style={styles.eduSch}>CETIS #10</Text>
+                            <Text style={styles.eduDate}>2015 – 2018</Text>
                         </View>
                     </View>
-
-                    <View style={styles.colHalf}>
-                        <Text style={styles.sectionTitle}>Idiomas y Constancias</Text>
-                        <View style={styles.sectionDivider} />
+                    <View style={styles.col46}>
+                        <Text style={styles.secTitle}>Idiomas y Constancias</Text>
+                        <View style={styles.secLine} />
                         <View style={styles.langRow}>
                             <Text style={styles.langName}>Español</Text>
                             <Text style={styles.langLevel}>Nativo</Text>
                         </View>
-
-                        <View style={{ marginTop: 10 }}>
-                            <View style={styles.bulletPointContainer}>
-                                <Text style={styles.bulletPointDot}>•</Text>
-                                <Text style={styles.bulletPointText}>Primeros Auxilios</Text>
-                            </View>
-                            <View style={styles.bulletPointContainer}>
-                                <Text style={styles.bulletPointDot}>•</Text>
-                                <Text style={styles.bulletPointText}>Manejo de Contenido Digital</Text>
-                            </View>
+                        <View style={{ marginTop: 8 }}>
+                            {['Primeros Auxilios (Protección Civil)', 'Manejo de Contenido Digital'].map((c, i) => (
+                                <View key={i} style={styles.bulletRow}>
+                                    <Text style={styles.bulletDot}>•</Text>
+                                    <Text style={styles.bulletText}>{c}</Text>
+                                </View>
+                            ))}
                         </View>
                     </View>
                 </View>
 
-                {/* EXPERIENCIA PROFESIONAL */}
-                <Text style={styles.sectionTitle}>Experiencia Profesional</Text>
-                <View style={styles.sectionDivider} />
-
-                {EXPERIENCE_DATA.map((exp, index) => (
-                    <View key={index} style={styles.expItem}>
+                {/* EXPERIENCIA */}
+                <Text style={styles.secTitle}>Experiencia Profesional</Text>
+                <View style={styles.secLine} />
+                {EXPERIENCE.map((exp, idx) => (
+                    <View key={idx} style={styles.expItem}>
                         <View style={styles.expHeader}>
                             <Text style={styles.expRole}>{exp.role}</Text>
                             <Text style={styles.expPeriod}>{exp.period}</Text>
                         </View>
                         <Text style={styles.expCompany}>{exp.company}</Text>
-                        <Text style={styles.expDesc}>{exp.description}</Text>
-
-                        {exp.functions.map((func, i) => (
-                            <View key={i} style={styles.bulletPointContainer}>
-                                <Text style={styles.bulletPointDot}>•</Text>
-                                <Text style={styles.bulletPointText}>{func}</Text>
+                        <Text style={styles.expDesc}>{exp.desc}</Text>
+                        {exp.bullets.map((b, i) => (
+                            <View key={i} style={styles.bulletRow}>
+                                <Text style={styles.bulletDot}>•</Text>
+                                <Text style={styles.bulletText}>{b}</Text>
                             </View>
                         ))}
-
                         {exp.achievements && (
                             <View>
-                                <Text style={styles.achievementsLabel}>Logros Destacados:</Text>
-                                {exp.achievements.map((ach, i) => (
-                                    <View key={i} style={styles.bulletPointContainer}>
-                                        <Text style={styles.bulletPointDot}>•</Text>
-                                        <Text style={styles.bulletPointText}>{ach}</Text>
+                                <Text style={styles.achievLabel}>Logros Destacados:</Text>
+                                {exp.achievements.map((a, i) => (
+                                    <View key={i} style={styles.bulletRow}>
+                                        <Text style={styles.bulletDot}>•</Text>
+                                        <Text style={styles.bulletText}>{a}</Text>
                                     </View>
                                 ))}
                             </View>
                         )}
                     </View>
                 ))}
-
             </View>
         </Page>
     </Document>

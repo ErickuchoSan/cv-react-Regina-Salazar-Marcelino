@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
 import { SectionTitle } from '../UI/SectionTitle';
-import { FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
+import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaWhatsapp } from 'react-icons/fa';
+
+const PHONE_NUMBER = '525630154490'; // WhatsApp needs country code, no spaces
+const EMAIL = 'regina.salazar.ma@gmail.com';
+const MAPS_URL = 'https://www.google.com/maps/search/Magdalena+Contreras+CDMX';
 
 export const Contact: React.FC = () => {
     const [formData, setFormData] = useState({
         name: '',
-        email: '',
+        apellidoPaterno: '',
+        apellidoMaterno: '',
         subject: '',
         message: ''
     });
@@ -16,9 +21,10 @@ export const Contact: React.FC = () => {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        // Handle form submission logic here
-        console.log('Form submitted:', formData);
-        alert('Mensaje enviado (simulación)');
+        const fullName = `${formData.name} ${formData.apellidoPaterno} ${formData.apellidoMaterno}`.trim();
+        const text = `Hola Regina 👋, te escribo desde tu portafolio web.\n\n*Nombre:* ${fullName}\n*Asunto:* ${formData.subject}\n*Mensaje:* ${formData.message}`;
+        const encoded = encodeURIComponent(text);
+        window.open(`https://wa.me/${PHONE_NUMBER}?text=${encoded}`, '_blank');
     };
 
     return (
@@ -40,79 +46,114 @@ export const Contact: React.FC = () => {
                     <div>
                         <h3 className="text-2xl font-bold mb-8 text-gray-800 dark:text-gray-200">Información de Contacto</h3>
                         <div className="space-y-6">
-                            <div className="contact-item glass-card tech-hover-effect p-4 flex items-start space-x-4">
-                                <div className="contact-icon w-12 h-12 bg-teal-100 dark:bg-teal-900 rounded-lg flex items-center justify-center text-teal-600 dark:text-teal-300">
+                            {/* Email */}
+                            <a
+                                href={`mailto:${EMAIL}`}
+                                className="contact-item glass-card tech-hover-effect p-4 flex items-start space-x-4 no-underline block"
+                                aria-label="Enviar correo a Regina"
+                            >
+                                <div className="contact-icon w-12 h-12 bg-teal-100 dark:bg-teal-900 rounded-lg flex items-center justify-center text-teal-600 dark:text-teal-300 flex-shrink-0">
                                     <FaEnvelope className="text-xl" />
                                 </div>
                                 <div>
                                     <h4 className="font-semibold text-gray-800 dark:text-gray-200">Email</h4>
-                                    <a href="mailto:regina.salazar.ma@gmail.com" className="text-teal-600 hover:text-teal-700 transition-colors">
-                                        regina.salazar.ma@gmail.com
-                                    </a>
+                                    <span className="text-teal-600 hover:text-teal-700 transition-colors text-sm">
+                                        {EMAIL}
+                                    </span>
                                 </div>
-                            </div>
+                            </a>
 
-                            <div className="contact-item glass-card tech-hover-effect p-4 flex items-start space-x-4">
-                                <div className="contact-icon w-12 h-12 bg-teal-100 dark:bg-teal-900 rounded-lg flex items-center justify-center text-teal-600 dark:text-teal-300">
-                                    <FaPhone className="text-xl" />
+                            {/* WhatsApp */}
+                            <a
+                                href={`https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent('Hola Regina 👋, te escribo desde tu portafolio web. Tengo una oportunidad laboral para ti.')}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="contact-item glass-card tech-hover-effect p-4 flex items-start space-x-4 no-underline block"
+                                aria-label="Escribir por WhatsApp a Regina"
+                            >
+                                <div className="contact-icon w-12 h-12 bg-green-100 dark:bg-green-900 rounded-lg flex items-center justify-center text-green-600 dark:text-green-300 flex-shrink-0">
+                                    <FaWhatsapp className="text-xl" />
                                 </div>
                                 <div>
-                                    <h4 className="font-semibold text-gray-800 dark:text-gray-200">Teléfono</h4>
-                                    <a href="tel:+525630154490" className="text-teal-600 hover:text-teal-700 transition-colors">
+                                    <h4 className="font-semibold text-gray-800 dark:text-gray-200">WhatsApp</h4>
+                                    <span className="text-green-600 hover:text-green-700 transition-colors text-sm">
                                         56 3015 4490
-                                    </a>
+                                    </span>
                                 </div>
-                            </div>
+                            </a>
 
-                            <div className="contact-item glass-card tech-hover-effect p-4 flex items-start space-x-4">
-                                <div className="contact-icon w-12 h-12 bg-teal-100 dark:bg-teal-900 rounded-lg flex items-center justify-center text-teal-600 dark:text-teal-300">
+                            {/* Maps */}
+                            <a
+                                href={MAPS_URL}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="contact-item glass-card tech-hover-effect p-4 flex items-start space-x-4 no-underline block"
+                                aria-label="Ver ubicación en Google Maps"
+                            >
+                                <div className="contact-icon w-12 h-12 bg-rose-100 dark:bg-rose-900 rounded-lg flex items-center justify-center text-rose-500 dark:text-rose-300 flex-shrink-0">
                                     <FaMapMarkerAlt className="text-xl" />
                                 </div>
                                 <div>
                                     <h4 className="font-semibold text-gray-800 dark:text-gray-200">Ubicación</h4>
-                                    <p className="text-gray-600 dark:text-gray-300">
+                                    <span className="text-rose-500 hover:text-rose-600 transition-colors text-sm">
                                         Magdalena Contreras, CDMX
-                                    </p>
+                                    </span>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                     </div>
 
-                    {/* Form */}
+                    {/* WhatsApp Form */}
                     <div>
                         <h3 className="text-2xl font-bold mb-8 text-gray-800 dark:text-gray-200">Envíame un Mensaje</h3>
                         <form className="form-container" onSubmit={handleSubmit} noValidate>
-                            <div className="form-grid grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+                            {/* Nombre */}
+                            <div className="form-field mb-4">
+                                <label htmlFor="name" className="form-label mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300">Nombre *</label>
+                                <input
+                                    type="text"
+                                    id="name"
+                                    name="name"
+                                    value={formData.name}
+                                    onChange={handleChange}
+                                    className="form-input w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white/80 dark:bg-gray-800/80 focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all"
+                                    required
+                                    placeholder="Tu nombre"
+                                />
+                            </div>
+
+                            {/* Apellidos */}
+                            <div className="form-grid grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
                                 <div className="form-field">
-                                    <label htmlFor="name" className="form-label mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300">Nombre *</label>
+                                    <label htmlFor="apellidoPaterno" className="form-label mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300">Apellido Paterno *</label>
                                     <input
                                         type="text"
-                                        id="name"
-                                        name="name"
-                                        value={formData.name}
+                                        id="apellidoPaterno"
+                                        name="apellidoPaterno"
+                                        value={formData.apellidoPaterno}
                                         onChange={handleChange}
                                         className="form-input w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white/80 dark:bg-gray-800/80 focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all"
                                         required
-                                        placeholder="Tu nombre completo"
+                                        placeholder="Apellido paterno"
                                     />
                                 </div>
                                 <div className="form-field">
-                                    <label htmlFor="email" className="form-label mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300">Email *</label>
+                                    <label htmlFor="apellidoMaterno" className="form-label mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300">Apellido Materno</label>
                                     <input
-                                        type="email"
-                                        id="email"
-                                        name="email"
-                                        value={formData.email}
+                                        type="text"
+                                        id="apellidoMaterno"
+                                        name="apellidoMaterno"
+                                        value={formData.apellidoMaterno}
                                         onChange={handleChange}
                                         className="form-input w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white/80 dark:bg-gray-800/80 focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all"
-                                        required
-                                        placeholder="tu@email.com"
+                                        placeholder="Apellido materno"
                                     />
                                 </div>
                             </div>
 
-                            <div className="form-field mb-6">
-                                <label htmlFor="subject" className="form-label mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300">Asunto</label>
+                            {/* Asunto */}
+                            <div className="form-field mb-4">
+                                <label htmlFor="subject" className="form-label mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300">Asunto *</label>
                                 <input
                                     type="text"
                                     id="subject"
@@ -120,10 +161,12 @@ export const Contact: React.FC = () => {
                                     value={formData.subject}
                                     onChange={handleChange}
                                     className="form-input w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white/80 dark:bg-gray-800/80 focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all"
-                                    placeholder="Asunto del mensaje"
+                                    required
+                                    placeholder="Ej. Oferta de trabajo – Coordinadora RH"
                                 />
                             </div>
 
+                            {/* Mensaje */}
                             <div className="form-field mb-6">
                                 <label htmlFor="message" className="form-label mb-2 block text-sm font-medium text-gray-700 dark:text-gray-300">Mensaje *</label>
                                 <textarea
@@ -133,14 +176,17 @@ export const Contact: React.FC = () => {
                                     onChange={handleChange}
                                     className="form-input form-textarea w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white/80 dark:bg-gray-800/80 focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all h-32 resize-none"
                                     required
-                                    placeholder="Tu mensaje..."
+                                    placeholder="Cuéntame sobre la vacante o tu mensaje..."
                                 ></textarea>
                             </div>
 
                             <button type="submit" className="btn-tech-primary w-full justify-center">
-                                Enviar Mensaje
-                                <FaEnvelope className="ml-2" />
+                                Enviar por WhatsApp
+                                <FaWhatsapp className="ml-2 text-lg" />
                             </button>
+                            <p className="text-xs text-gray-400 mt-3 text-center">
+                                Al dar clic se abrirá WhatsApp con tu mensaje listo para enviar.
+                            </p>
                         </form>
                     </div>
                 </div>
