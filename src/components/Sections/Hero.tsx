@@ -40,13 +40,13 @@ export const Hero: React.FC = () => {
                             >
                                 {({ loading }) => (
                                     <>
-                                        <FaDownload className="mr-2" />
+                                        <FaDownload className="mr-2" aria-hidden="true" />
                                         {loading ? 'Generando...' : 'Descargar CV'}
                                     </>
                                 )}
                             </PDFDownloadLink>
                             <a href="#contacto" className="btn-humanist-secondary">
-                                <FaEnvelope className="mr-2" />
+                                <FaEnvelope className="mr-2" aria-hidden="true" />
                                 Contactar
                             </a>
                         </div>

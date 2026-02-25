@@ -1,4 +1,9 @@
 import { Page, Text, View, Document, StyleSheet, Image, Font, Link } from '@react-pdf/renderer';
+import { CONTACT } from '../../data/contact';
+import { PDF_SKILLS, PDF_COMPETENCIAS } from '../../data/skills';
+import { PDF_EXPERIENCE } from '../../data/experience';
+
+// DRY: CVDocument usa datos centralizados
 
 // Register Roboto font
 Font.register({
@@ -87,58 +92,6 @@ const styles = StyleSheet.create({
     achievLabel: { fontSize: 8.5, fontWeight: 700, color: C.textMain, marginTop: 5, marginBottom: 3 },
 });
 
-const SKILLS = ['Excel (Intermedio)', 'Canva', 'Herramientas IA', 'Microsoft Office', 'Google Workspace', 'Reclutamiento Digital', 'Gestión de Nómina'];
-const COMPETENCIAS = ['Liderazgo Colaborativo', 'Comunicación Efectiva', 'Toma de Decisiones', 'Pensamiento Crítico', 'Adaptabilidad', 'Resolución de Conflictos', 'Evaluación y Seguimiento'];
-
-const EXPERIENCE = [
-    {
-        role: 'Auxiliar en Marketing Digital',
-        company: 'Naré',
-        period: 'Mayo 2023 – Actualidad',
-        desc: 'Gestión integral de marca digital, estrategia de contenidos y análisis de métricas de desempeño.',
-        bullets: [
-            'Diseño e implementación de estrategias de marketing digital que incrementaron el engagement en 30%',
-            'Creación mensual de 20+ piezas para redes sociales con Canva, Photoshop e Illustrator',
-            'Gestión de calendarios editoriales con mejora del 25% en alcance orgánico',
-            'Research y evaluación de influencers (engagement, demografía, autenticidad)',
-            'Seguimiento de KPIs (CTR, crecimiento, conversiones) y ajuste dinámico de estrategias',
-        ],
-        achievements: null,
-    },
-    {
-        role: 'Coordinadora Administrativa – Área de RRHH',
-        company: 'Sonora Kids Group',
-        period: 'Ene 2022 – Feb 2026',
-        desc: 'Liderazgo de procesos de recursos humanos, administración de personal y coordinación operativa de 23 sucursales.',
-        bullets: [
-            'Supervisión de 23 sucursales (12 presenciales / 11 remotas) con equipo de 50 colaboradores',
-            'Dirección del ciclo completo de reclutamiento y selección (100+ candidatos/año); tiempo de contratación reducido de 45 a 30 días',
-            'Diseño e impartición de 15+ programas de capacitación anuales para 200+ colaboradores',
-            'Control de nómina, altas, bajas y asistencias para 40–50 colaboradores de manera simultánea',
-            'Negociación con proveedores que generó reducción del 15% en costos operativos',
-            'Implementación de dashboards en Excel para reportes de RRHH, reduciendo tiempos de análisis en 40%',
-        ],
-        achievements: [
-            'Retención de personal mejorada en 25% mediante planes de capacitación continua',
-            'Eficiencia operativa incrementada en 20% en la red de sucursales',
-            'Reducción de costos operativos en 15% vía negociación estratégica con proveedores',
-        ],
-    },
-    {
-        role: 'Cuidadora Infantil Certificada',
-        company: 'Sonora Grill Group',
-        period: 'Ene 2018 – Ene 2022',
-        desc: 'Atención profesional de menores, comunicación asertiva con padres y aplicación de protocolos de seguridad.',
-        bullets: [
-            'Atención diaria a grupos de 20–30 niños (1–10 años) con 4 años consecutivos sin incidentes',
-            'Índice de satisfacción del 95% en padres mediante comunicación empática y efectiva',
-            'Aplicación de protocolos de primeros auxilios y seguridad, minimizando riesgos',
-            'Diseño de actividades lúdicas por edad para estimular el desarrollo psicomotriz y social',
-        ],
-        achievements: null,
-    },
-];
-
 export const CVDocument = () => (
     <Document>
         <Page size="A4" style={styles.page}>
@@ -146,14 +99,14 @@ export const CVDocument = () => (
             <View style={styles.header}>
                 <Image style={styles.photo} src="/assets/images/profile.jpeg" />
                 <View style={styles.headerText}>
-                    <Text style={styles.name}>Regina Salazar Marcelino</Text>
-                    <Text style={styles.roleText}>Coordinadora de Recursos Humanos</Text>
+                    <Text style={styles.name}>{CONTACT.name}</Text>
+                    <Text style={styles.roleText}>{CONTACT.role}</Text>
                     <View style={styles.contactRow}>
-                        <Link src="mailto:regina.salazar.ma@gmail.com" style={styles.contactLink}>regina.salazar.ma@gmail.com</Link>
+                        <Link src={`mailto:${CONTACT.email}`} style={styles.contactLink}>{CONTACT.email}</Link>
                         <Text style={styles.divChar}>|</Text>
-                        <Link src="https://wa.me/525630154490" style={styles.contactLink}>56 3015 4490</Link>
+                        <Link src={`https://wa.me/${CONTACT.phone}`} style={styles.contactLink}>{CONTACT.displayPhone}</Link>
                         <Text style={styles.divChar}>|</Text>
-                        <Text style={styles.contactItem}>Magdalena Contreras, CDMX</Text>
+                        <Text style={styles.contactItem}>{CONTACT.location}</Text>
                     </View>
                 </View>
             </View>
@@ -170,7 +123,7 @@ export const CVDocument = () => (
                 <Text style={styles.secTitle}>Herramientas Digitales</Text>
                 <View style={styles.secLine} />
                 <View style={styles.badgeRow}>
-                    {SKILLS.map((s, i) => (
+                    {PDF_SKILLS.map((s, i) => (
                         <View key={i} style={styles.badge}><Text style={styles.badgeText}>{s}</Text></View>
                     ))}
                 </View>
@@ -179,7 +132,7 @@ export const CVDocument = () => (
                 <Text style={styles.secTitle}>Competencias Clave</Text>
                 <View style={styles.secLine} />
                 <View style={styles.badgeRow}>
-                    {COMPETENCIAS.map((s, i) => (
+                    {PDF_COMPETENCIAS.map((s, i) => (
                         <View key={i} style={styles.badge}><Text style={styles.badgeText}>{s}</Text></View>
                     ))}
                 </View>
@@ -221,7 +174,7 @@ export const CVDocument = () => (
                 {/* EXPERIENCIA */}
                 <Text style={styles.secTitle}>Experiencia Profesional</Text>
                 <View style={styles.secLine} />
-                {EXPERIENCE.map((exp, idx) => (
+                {PDF_EXPERIENCE.map((exp, idx) => (
                     <View key={idx} style={styles.expItem} break={idx === 1}>
                         <View style={styles.expHeader}>
                             <Text style={styles.expRole}>{exp.role}</Text>

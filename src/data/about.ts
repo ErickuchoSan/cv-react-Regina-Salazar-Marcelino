@@ -1,0 +1,66 @@
+import { FaGraduationCap, FaMapMarkerAlt, FaBriefcase, FaHeart } from 'react-icons/fa';
+import type { IconType } from 'react-icons';
+import { CONTACT } from './contact';
+
+// Single Source of Truth: Datos de la sección "Sobre Mí"
+
+export interface Stat {
+    value: string;
+    label: string;
+}
+
+export const STATS: Stat[] = [
+    { value: '4+', label: 'Años de Experiencia' },
+    { value: '23', label: 'Sucursales' },
+    { value: '50+', label: 'Colaboradores' },
+    { value: '100%', label: 'Compromiso' }
+];
+
+export interface Education {
+    degree: string;
+    school: string;
+    status: string;
+}
+
+export const EDUCATION: Education[] = [
+    { degree: 'Lic. Gestión y Desarrollo Empresarial', school: 'UVEG', status: 'En curso' },
+    { degree: 'Técnico Puericultista', school: 'CETIS #10', status: '2018' }
+];
+
+export interface InfoCard {
+    icon: IconType;
+    iconBgClass: string;
+    iconColorClass: string;
+    title: string;
+    content: string;
+    subContent?: string;
+}
+
+export const INFO_CARDS: InfoCard[] = [
+    {
+        icon: FaBriefcase,
+        iconBgClass: 'bg-rose-50',
+        iconColorClass: 'text-rose-500',
+        title: 'Disponibilidad',
+        content: 'Tiempo completo • Presencial/Híbrido',
+        subContent: 'Zona Sur CDMX'
+    },
+    {
+        icon: FaMapMarkerAlt,
+        iconBgClass: 'bg-amber-50',
+        iconColorClass: 'text-amber-500',
+        title: 'Ubicación',
+        content: `San Nicolás Totolapan, ${CONTACT.location}`
+    },
+    {
+        icon: FaHeart,
+        iconBgClass: 'bg-teal-50',
+        iconColorClass: 'text-teal-600',
+        title: 'Voluntariado',
+        content: 'Fundación Infantil "La Esperanza de los Niños A.C." (9 meses)',
+        subContent: 'Actividades de apoyo infantil'
+    }
+];
+
+// Exportar iconos para uso en componente
+export { FaGraduationCap };

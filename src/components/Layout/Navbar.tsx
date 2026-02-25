@@ -1,15 +1,9 @@
 import React, { useState } from 'react';
 import { useTheme } from '../../hooks/useTheme';
 import { FaMoon, FaSun, FaBars, FaTimes } from 'react-icons/fa';
+import { NAV_LINKS } from '../../data/navigation';
 
-const NAV_LINKS = [
-    { href: '#inicio', label: 'Inicio' },
-    { href: '#sobre-mi', label: 'Sobre Mí' },
-    { href: '#experiencia', label: 'Experiencia' },
-    { href: '#habilidades', label: 'Habilidades' },
-    { href: '#proyectos', label: 'Proyectos' },
-    { href: '#contacto', label: 'Contacto' },
-];
+// DRY: Navbar usa datos de navegación centralizados
 
 export const Navbar: React.FC = () => {
     const { theme, toggleTheme } = useTheme();
@@ -44,21 +38,22 @@ export const Navbar: React.FC = () => {
                     </div>
 
                     <div className="flex items-center space-x-4">
-                        {/* Theme Toggle - Optional, keeping distinct styles */}
+                        {/* Theme Toggle */}
                         <button
                             onClick={toggleTheme}
                             className="p-2 text-stone-400 hover:text-teal-600 transition-colors duration-300"
-                            aria-label="Toggle theme"
+                            aria-label="Cambiar tema"
                         >
-                            {theme === 'light' ? <FaMoon /> : <FaSun />}
+                            {theme === 'light' ? <FaMoon aria-hidden="true" /> : <FaSun aria-hidden="true" />}
                         </button>
 
                         <button
                             onClick={toggleMenu}
                             className="md:hidden p-2 text-stone-600 hover:text-teal-600 transition-colors duration-300"
-                            aria-label="Toggle menu"
+                            aria-label="Abrir menú de navegación"
+                            aria-expanded={isMenuOpen}
                         >
-                            {isMenuOpen ? <FaTimes className="text-xl" /> : <FaBars className="text-xl" />}
+                            {isMenuOpen ? <FaTimes className="text-xl" aria-hidden="true" /> : <FaBars className="text-xl" aria-hidden="true" />}
                         </button>
                     </div>
                 </div>
