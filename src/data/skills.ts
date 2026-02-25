@@ -80,13 +80,13 @@ export const TECH_CATEGORIES: TechCategoryData[] = [
         ],
     },
     {
-        title: 'Especialización Infantil',
-        icon: FaChild,
+        title: 'Certificaciones y Formación',
+        icon: FaFirstAid,
         items: [
+            { name: 'Primeros Auxilios (Protección Civil)', icon: FaFirstAid, color: 'text-red-600' },
             { name: 'Técnico Puericultista', icon: FaChild, color: 'text-pink-500' },
-            { name: 'Primeros Auxilios', icon: FaFirstAid, color: 'text-red-600' },
-            { name: 'Atención a Padres', icon: FaUsers, color: 'text-teal-600' },
-            { name: 'Actividades Lúdicas', icon: FaLightbulb, color: 'text-yellow-500' },
+            { name: 'Atención al Cliente', icon: FaUsers, color: 'text-teal-600' },
+            { name: 'Comunicación Efectiva', icon: FaComments, color: 'text-blue-500' },
         ],
     },
 ];

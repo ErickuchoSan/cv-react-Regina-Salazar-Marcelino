@@ -11,5 +11,5 @@ export const CONTACT = {
         const defaultMsg = 'Hola Regina, te escribo desde tu portafolio web. Tengo una oportunidad laboral para ti.';
         return `https://wa.me/525630154490?text=${encodeURIComponent(message || defaultMsg)}`;
     },
-    description: 'Coordinadora Administrativa especializada en gestión de áreas infantiles, liderazgo de equipos y operaciones.',
+    description: 'Profesional de Recursos Humanos especializada en reclutamiento, nómina, capacitación y desarrollo organizacional.',
 } as const;
