@@ -1,5 +1,4 @@
 import React from 'react';
-import { SectionTitle } from '../UI/SectionTitle';
 import { FaGraduationCap, FaMapMarkerAlt, FaBriefcase, FaHeart } from 'react-icons/fa';
 
 export const About: React.FC = () => {

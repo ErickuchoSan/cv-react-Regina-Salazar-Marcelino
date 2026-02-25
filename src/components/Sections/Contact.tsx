@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { SectionTitle } from '../UI/SectionTitle';
-import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaWhatsapp } from 'react-icons/fa';
+import { FaEnvelope, FaMapMarkerAlt, FaWhatsapp } from 'react-icons/fa';
 
 const PHONE_NUMBER = '525630154490'; // WhatsApp needs country code, no spaces
 const EMAIL = 'regina.salazar.ma@gmail.com';

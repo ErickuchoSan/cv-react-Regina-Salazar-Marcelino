@@ -1,5 +1,4 @@
 import React from 'react';
-import { SectionTitle } from '../UI/SectionTitle';
 import { FaBuilding, FaCalendarAlt, FaChild, FaUsers, FaBullhorn } from 'react-icons/fa';
 
 interface ExperienceItem {
