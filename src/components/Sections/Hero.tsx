@@ -17,7 +17,7 @@ export const Hero: React.FC = () => {
                     {/* Text Content */}
                     <div className="text-center md:text-left order-2 md:order-1">
                         <span className="inline-block px-4 py-1.5 rounded-full text-sm font-semibold mb-6 tracking-wide uppercase shadow-sm bg-teal-100 text-teal-800 dark:bg-teal-900/50 dark:text-teal-300">
-                            Recursos Humanos & Puericultura
+                            Recursos Humanos & Gestión de Talento
                         </span>
 
                         <h1 className="text-5xl lg:text-7xl font-bold mb-6 leading-tight font-serif text-gray-800 dark:text-gray-100">
@@ -28,8 +28,8 @@ export const Hero: React.FC = () => {
                         <div className="h-1 w-20 bg-rose-400 dark:bg-rose-500 mb-8 mx-auto md:mx-0 rounded-full"></div>
 
                         <p className="text-xl mb-8 leading-relaxed max-w-xl mx-auto md:mx-0 font-light text-gray-600 dark:text-gray-300">
-                            Creando entornos donde el <strong className="text-gray-800 dark:text-gray-100">talento humano</strong> y el <strong className="text-gray-800 dark:text-gray-100">desarrollo infantil</strong> florecen.
-                            Gestión empática, liderazgo operativo y visión estratégica.
+                            Especialista en <strong className="text-gray-800 dark:text-gray-100">reclutamiento</strong>, <strong className="text-gray-800 dark:text-gray-100">nómina</strong> y <strong className="text-gray-800 dark:text-gray-100">desarrollo de talento</strong>.
+                            Liderazgo de equipos, optimización de procesos y resultados comprobados.
                         </p>
 
                         <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">

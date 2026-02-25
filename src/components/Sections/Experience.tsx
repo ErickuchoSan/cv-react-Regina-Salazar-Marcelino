@@ -7,7 +7,7 @@ export const Experience: React.FC = () => (
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="text-center mb-16">
                 <h2 className="section-title-humanist">Experiencia Profesional</h2>
-                <p className="text-gray-500 dark:text-gray-400 mt-2 font-light text-lg">+4 años en gestión administrativa y cuidado infantil</p>
+                <p className="text-gray-500 dark:text-gray-400 mt-2 font-light text-lg">+4 años en gestión de Recursos Humanos y administración de personal</p>
             </div>
 
             <div className="space-y-6">
