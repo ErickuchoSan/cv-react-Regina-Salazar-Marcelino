@@ -34,31 +34,21 @@ export const Languages: React.FC = () => {
                                             </span>
                                         </div>
                                     </div>
-                                    <div className="text-3xl font-bold text-teal-600">
-                                        {lang.percentage}%
-                                    </div>
-                                </div>
 
-                                <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3 mb-4 overflow-hidden">
-                                    <div
-                                        className="h-3 rounded-full transition-all duration-500 bg-gradient-to-r from-green-500 to-green-600"
-                                        style={{ width: `${lang.percentage}%` }}
-                                    />
-                                </div>
 
-                                <ul className="space-y-1">
-                                    {lang.details.map((detail, i) => (
-                                        <li key={i} className="text-sm text-gray-600 dark:text-gray-400 flex items-center">
-                                            <span className="w-1.5 h-1.5 bg-teal-500 rounded-full mr-2"></span>
-                                            {detail}
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
+                                    <ul className="space-y-1">
+                                        {lang.details.map((detail, i) => (
+                                            <li key={i} className="text-sm text-gray-600 dark:text-gray-400 flex items-center">
+                                                <span className="w-1.5 h-1.5 bg-teal-500 rounded-full mr-2"></span>
+                                                {detail}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
                         ))}
-                    </div>
+                            </div>
                 </div>
-            </div>
+                </div>
         </section>
     );
 };

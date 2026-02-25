@@ -61,13 +61,7 @@ export const Skills: React.FC = () => {
                                     <skill.icon className={`text-4xl ${skill.color}`} />
                                 </div>
                                 <h4 className="skill-title text-lg font-semibold text-gray-800 dark:text-gray-200 mb-3">{skill.name}</h4>
-                                <div className="skill-bar w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3 mb-2 overflow-hidden">
-                                    <div
-                                        className="skill-progress bg-gradient-to-r from-teal-500 to-cyan-600 h-3 rounded-full relative"
-                                        style={{ width: `${skill.progress}%` }}
-                                    ></div>
-                                </div>
-                                <span className="text-sm text-teal-600 font-semibold">{skill.level}</span>
+                                <span className="inline-block bg-teal-100 text-teal-800 px-3 py-1 rounded-full text-sm font-semibold">{skill.level}</span>
                             </div>
                         ))}
                     </div>
@@ -93,13 +87,6 @@ export const Skills: React.FC = () => {
                                     <skill.icon className={`text-4xl ${skill.color}`} />
                                 </div>
                                 <h4 className="skill-title text-lg font-semibold text-gray-800 dark:text-gray-200 mb-3">{skill.name}</h4>
-                                <div className="skill-bar w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3 mb-2 overflow-hidden">
-                                    <div
-                                        className="skill-progress bg-gradient-to-r from-teal-500 to-cyan-600 h-3 rounded-full relative"
-                                        style={{ width: `${skill.progress}%` }}
-                                    ></div>
-                                </div>
-                                <span className="text-sm text-teal-600 font-semibold">{skill.progress}%</span>
                             </div>
                         ))}
                     </div>
