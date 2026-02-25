@@ -311,14 +311,14 @@ export const CVDocument = () => (
                     <Text style={styles.roleText}>{CONTACT.role}</Text>
                     <View style={styles.contactRow}>
                         <Link src={`mailto:${CONTACT.email}`} style={styles.contactLink}>
-                            ✉ {CONTACT.email}
+                            {CONTACT.email}
                         </Link>
-                        <Text style={styles.contactDivider}>•</Text>
+                        <Text style={styles.contactDivider}>|</Text>
                         <Link src={`https://wa.me/${CONTACT.phone}`} style={styles.contactLink}>
-                            📱 {CONTACT.displayPhone}
+                            Tel: {CONTACT.displayPhone}
                         </Link>
-                        <Text style={styles.contactDivider}>•</Text>
-                        <Text style={styles.contactItem}>📍 {CONTACT.location}</Text>
+                        <Text style={styles.contactDivider}>|</Text>
+                        <Text style={styles.contactItem}>{CONTACT.location}</Text>
                     </View>
                 </View>
             </View>
@@ -328,7 +328,7 @@ export const CVDocument = () => (
                 <Text style={styles.secTitle}>Perfil Profesional</Text>
                 <View style={styles.secLine} />
                 <Text style={styles.summary}>
-                    Coordinadora de Recursos Humanos con 4+ años de experiencia liderando equipos de hasta 50 personas y gestionando operaciones en 23 sucursales. Especialista en reclutamiento estratégico, administración de nómina, capacitación de personal y optimización de procesos. Orientada a resultados con logros comprobados: reducción del 15% en costos operativos, mejora del 25% en retención de personal y 40% de incremento en eficiencia analítica. Disponible de inmediato para posiciones en RRHH, Administración o Coordinación de Personal.
+                    Profesional de Recursos Humanos con 4+ años de experiencia en gestión integral de RRHH: reclutamiento y selección, administración de nómina, capacitación y desarrollo organizacional. Experiencia liderando equipos de hasta 50 colaboradores y coordinando operaciones en 23 sucursales. Resultados comprobados: reducción del 25% en rotación de personal, optimización del 33% en tiempos de contratación y ahorro del 15% en costos operativos. Manejo de Excel avanzado, portales de empleo y herramientas digitales. Licenciatura en Gestión Empresarial en curso. Disponibilidad inmediata.
                 </Text>
 
                 {/* HERRAMIENTAS DIGITALES */}
@@ -406,7 +406,7 @@ export const CVDocument = () => (
                         ))}
                         {exp.achievements && (
                             <View style={styles.achieveBox}>
-                                <Text style={styles.achieveLabel}>🏆 Logros Destacados</Text>
+                                <Text style={styles.achieveLabel}>LOGROS DESTACADOS</Text>
                                 {exp.achievements.map((a, i) => (
                                     <View key={i} style={styles.achieveRow}>
                                         <Text style={styles.achieveStar}>★</Text>

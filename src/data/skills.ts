@@ -111,6 +111,23 @@ export const COMPETENCIES: Competency[] = [
     { icon: FaHeart, title: 'Empatía', desc: 'Conexión genuina con las necesidades del equipo' },
 ];
 
-// Skills para PDF (strings simples)
-export const PDF_SKILLS = ['Excel (Intermedio)', 'Canva', 'Herramientas IA', 'Microsoft Office', 'Google Workspace', 'Reclutamiento Digital', 'Gestión de Nómina'];
-export const PDF_COMPETENCIAS = ['Liderazgo Colaborativo', 'Comunicación Efectiva', 'Toma de Decisiones', 'Pensamiento Crítico', 'Adaptabilidad', 'Resolución de Conflictos', 'Evaluación y Seguimiento'];
+// Skills para PDF - Enfocados a RRHH y Gestión de Talento
+export const PDF_SKILLS = [
+    'Excel (Tablas dinámicas, BUSCARV)',
+    'Microsoft Office 365',
+    'Google Workspace',
+    'Canva Pro',
+    'Herramientas IA (ChatGPT, Gemini)',
+    'Sistemas de Nómina',
+    'Portales de Empleo (OCC, Indeed, LinkedIn)',
+];
+export const PDF_COMPETENCIAS = [
+    'Reclutamiento y Selección',
+    'Gestión de Nómina',
+    'Capacitación y Desarrollo',
+    'Administración de Personal',
+    'Clima Laboral',
+    'Liderazgo de Equipos',
+    'Negociación con Proveedores',
+    'Análisis de KPIs',
+];
