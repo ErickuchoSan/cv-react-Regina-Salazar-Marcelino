@@ -386,8 +386,12 @@ export const CVDocument = () => (
                         </View>
                     </View>
                 </View>
+            </View>
+        </Page>
 
-                {/* EXPERIENCIA PROFESIONAL */}
+        {/* PÁGINA 2 - EXPERIENCIA PROFESIONAL */}
+        <Page size="A4" style={styles.page}>
+            <View style={styles.body}>
                 <Text style={styles.secTitle}>Experiencia Profesional</Text>
                 <View style={styles.secLine} />
                 {PDF_EXPERIENCE.map((exp, idx) => (
