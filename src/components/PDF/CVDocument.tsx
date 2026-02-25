@@ -222,7 +222,7 @@ export const CVDocument = () => (
                 <Text style={styles.secTitle}>Experiencia Profesional</Text>
                 <View style={styles.secLine} />
                 {EXPERIENCE.map((exp, idx) => (
-                    <View key={idx} style={styles.expItem} wrap={false}>
+                    <View key={idx} style={styles.expItem} break={idx === 1}>
                         <View style={styles.expHeader}>
                             <Text style={styles.expRole}>{exp.role}</Text>
                             <Text style={styles.expPeriod}>{exp.period}</Text>
