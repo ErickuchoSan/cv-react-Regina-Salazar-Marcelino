@@ -1,5 +1,4 @@
-
-import { Page, Text, View, Document, StyleSheet, Image, Font, Link, Svg, Path } from '@react-pdf/renderer';
+import { Page, Text, View, Document, StyleSheet, Image, Font, Link } from '@react-pdf/renderer';
 
 // Register Roboto font
 Font.register({
@@ -13,15 +12,15 @@ Font.register({
 
 // HUMANIST PALETTE (Warm, Professional, Soft)
 const COLORS = {
-    primary: '#0d9488', // Teal 600
-    primaryLight: '#ccfbf1', // Teal 100 (Backgrounds)
-    accent: '#f43f5e', // Rose 500
-    textMain: '#334155', // Slate 700
-    textSecondary: '#64748b', // Slate 500
-    textLight: '#94a3b8', // Slate 400
+    headerBg: '#f0fdfa',     // Teal 50 for header
+    primary: '#0d9488',      // Teal 600
+    primaryLight: '#ccfbf1', // Teal 100 
+    accent: '#f43f5e',       // Rose 500
+    textMain: '#334155',     // Slate 700
+    textSecondary: '#64748b',// Slate 500
+    badgeBg: '#ffffff',
+    badgeBorder: '#cbd5e1',
     white: '#ffffff',
-    bgHeader: '#f0fdfa', // Teal 50
-    divider: '#cbd5e1', // Slate 300
 };
 
 // Skills data
@@ -90,27 +89,26 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         backgroundColor: COLORS.white,
         fontFamily: 'Roboto',
-        padding: 0, // Reset padding for full-width header
+        padding: 0,
     },
-    // HEADER (Elegant Top Bar)
+    // HEADER
     headerContainer: {
-        backgroundColor: COLORS.bgHeader,
-        padding: 30,
-        paddingBottom: 25,
+        backgroundColor: COLORS.headerBg,
+        paddingVertical: 24,
+        paddingHorizontal: 30,
         flexDirection: 'row',
         alignItems: 'center',
-        borderBottomWidth: 1,
-        borderBottomColor: COLORS.primaryLight,
+        marginHorizontal: 30,
+        marginTop: 25,
+        borderRadius: 8,
     },
     headerImageContainer: {
-        marginRight: 25,
+        marginRight: 20,
     },
     profileImage: {
-        width: 80,
-        height: 80,
-        borderRadius: 40,
-        borderWidth: 3,
-        borderColor: COLORS.white,
+        width: 75,
+        height: 75,
+        borderRadius: 37.5,
     },
     headerContent: {
         flex: 1,
@@ -119,82 +117,89 @@ const styles = StyleSheet.create({
         fontSize: 22,
         fontWeight: 700,
         color: COLORS.primary,
-        marginBottom: 4,
+        marginBottom: 6,
+        textTransform: 'uppercase',
         letterSpacing: 0.5,
     },
     role: {
         fontSize: 11,
         color: COLORS.textMain,
-        fontWeight: 500,
-        textTransform: 'uppercase',
-        letterSpacing: 1,
-        marginBottom: 8,
-    },
-    // CONTACT BAR (Inside Header)
-    contactRow: {
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        gap: 12,
-        marginTop: 5,
-    },
-    contactItem: {
-        flexDirection: 'row',
-        alignItems: 'center',
-    },
-    contactIcon: {
-        width: 9,
-        height: 9,
-        marginRight: 4,
-    },
-    contactText: {
-        fontSize: 8,
-        color: COLORS.textSecondary,
-    },
-    contactLink: {
-        fontSize: 8,
-        color: COLORS.primary,
-        textDecoration: 'none',
-    },
-    // MAIN CONTENT (2 Columns with padding)
-    bodyContainer: {
-        flexDirection: 'row',
-        padding: 30,
-        gap: 25,
-    },
-    leftColumn: {
-        width: '65%', // Wider main content
-    },
-    rightColumn: {
-        width: '35%', // Narrower sidebar info
-    },
-    // SECTIONS
-    sectionTitle: {
-        fontSize: 10,
         fontWeight: 700,
-        color: COLORS.primary,
         textTransform: 'uppercase',
         letterSpacing: 1,
         marginBottom: 10,
-        paddingBottom: 2,
-        borderBottomWidth: 1,
-        borderBottomColor: COLORS.primaryLight,
+    },
+    contactRow: {
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        alignItems: 'center',
+        gap: 8,
+    },
+    contactText: {
+        fontSize: 8.5,
+        color: COLORS.textSecondary,
+    },
+    contactDivider: {
+        fontSize: 9,
+        color: COLORS.primaryLight,
+    },
+    contactLink: {
+        fontSize: 8.5,
+        color: COLORS.primary,
+        textDecoration: 'none',
+    },
+    // BODY
+    bodyContainer: {
+        paddingTop: 15,
+        paddingHorizontal: 35,
+        paddingBottom: 20,
+    },
+    sectionTitle: {
+        fontSize: 12,
+        fontWeight: 700,
+        color: '#1e293b',
+        textTransform: 'uppercase',
+        marginBottom: 6,
+        letterSpacing: 0.5,
+    },
+    sectionDivider: {
+        height: 1.5,
+        backgroundColor: COLORS.primary,
+        marginBottom: 12,
     },
     // SUMMARY
     profileSummary: {
-        fontSize: 9,
+        fontSize: 9.5,
         color: COLORS.textMain,
-        lineHeight: 1.5,
-        marginBottom: 20,
-        fontStyle: 'italic',
+        lineHeight: 1.4,
+        marginBottom: 16,
+        textAlign: 'justify'
+    },
+    // BADGES (Skills)
+    badgeContainer: {
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        gap: 6,
+        marginBottom: 16,
+    },
+    badge: {
         backgroundColor: COLORS.white,
-        padding: 10,
+        borderWidth: 1,
+        borderColor: COLORS.primaryLight,
         borderRadius: 4,
+        paddingVertical: 4,
+        paddingHorizontal: 8,
         borderLeftWidth: 3,
         borderLeftColor: COLORS.accent,
     },
-    // EXPERIENCE ITEMS
+    badgeText: {
+        fontSize: 8.5,
+        color: COLORS.textMain,
+        fontWeight: 500,
+    },
+    // EXPERIENCE
     expItem: {
-        marginBottom: 15,
+        marginBottom: 14,
     },
     expHeader: {
         flexDirection: 'row',
@@ -203,122 +208,94 @@ const styles = StyleSheet.create({
         marginBottom: 2,
     },
     expRole: {
-        fontSize: 9.5,
+        fontSize: 10.5,
         fontWeight: 700,
-        color: COLORS.textMain,
-    },
-    expCompany: {
-        fontSize: 8.5,
-        color: COLORS.primary,
-        fontWeight: 500,
+        color: '#1e293b',
     },
     expPeriod: {
-        fontSize: 7.5,
-        color: COLORS.textLight,
-        fontStyle: 'italic',
+        fontSize: 8.5,
+        color: COLORS.textSecondary,
+        fontWeight: 500,
+    },
+    expCompany: {
+        fontSize: 9.5,
+        color: COLORS.primary,
+        marginBottom: 4,
+        fontWeight: 500,
     },
     expDesc: {
         fontSize: 8.5,
         color: COLORS.textSecondary,
-        marginBottom: 4,
-        lineHeight: 1.3,
-    },
-    bulletPoint: {
-        fontSize: 8,
-        color: COLORS.textSecondary,
-        marginLeft: 8,
-        marginBottom: 2,
-        lineHeight: 1.3,
-    },
-    // SIDEBAR ITEMS
-    sideSection: {
-        marginBottom: 20,
-    },
-    skillRow: {
+        fontStyle: 'italic',
         marginBottom: 6,
+        lineHeight: 1.3,
     },
-    skillHeader: {
+    bulletPointContainer: {
+        flexDirection: 'row',
+        marginBottom: 3,
+        paddingLeft: 8,
+    },
+    bulletPointDot: {
+        fontSize: 8.5,
+        color: COLORS.textSecondary,
+        marginRight: 6,
+    },
+    bulletPointText: {
+        fontSize: 8.5,
+        color: COLORS.textMain,
+        lineHeight: 1.3,
+        flex: 1,
+    },
+    // 2 COLUMNS FOR ED/LANG
+    twoColContainer: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        marginBottom: 2,
     },
-    skillName: {
-        fontSize: 8,
-        color: COLORS.textMain,
-    },
-    skillLevel: {
-        fontSize: 7,
-        color: COLORS.primary,
-        fontWeight: 700,
-    },
-    progressBarBg: {
-        height: 3,
-        backgroundColor: COLORS.divider,
-        borderRadius: 1.5,
-    },
-    progressBarFill: {
-        height: 3,
-        backgroundColor: COLORS.accent, // Rose accent for skills
-        borderRadius: 1.5,
+    colHalf: {
+        width: '46%',
     },
     eduItem: {
         marginBottom: 10,
     },
     eduDegree: {
-        fontSize: 8.5,
+        fontSize: 9.5,
         fontWeight: 700,
-        color: COLORS.textMain,
+        color: '#1e293b',
+        marginBottom: 2,
     },
     eduSchool: {
-        fontSize: 8,
+        fontSize: 8.5,
         color: COLORS.textSecondary,
     },
     eduDate: {
-        fontSize: 7.5,
-        color: COLORS.primary,
-        marginTop: 1,
+        fontSize: 8.5,
+        color: COLORS.textSecondary,
+        marginTop: 2,
     },
-    certTwist: {
+    langRow: {
         flexDirection: 'row',
+        justifyContent: 'space-between',
         marginBottom: 4,
     },
-    certText: {
-        fontSize: 8,
+    langName: {
+        fontSize: 8.5,
+        fontWeight: 500,
+        color: COLORS.textMain,
+    },
+    langLevel: {
+        fontSize: 8.5,
         color: COLORS.textSecondary,
     }
 });
 
-// ICONS
-const EmailIcon = () => (
-    <Svg style={styles.contactIcon} viewBox="0 0 24 24">
-        <Path fill={COLORS.accent} d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
-    </Svg>
-);
-const PhoneIcon = () => (
-    <Svg style={styles.contactIcon} viewBox="0 0 24 24">
-        <Path fill={COLORS.accent} d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
-    </Svg>
-);
-const LocationIcon = () => (
-    <Svg style={styles.contactIcon} viewBox="0 0 24 24">
-        <Path fill={COLORS.accent} d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
-    </Svg>
-);
-
-const ProgressBar = ({ level }: { level: number }) => (
-    <View style={styles.progressBarBg}>
-        <View style={[styles.progressBarFill, { width: `${level}%` }]} />
-    </View>
-);
-
 export const CVDocument = () => (
     <Document>
         <Page size="A4" style={styles.page}>
-            {/* 1. Header Section (Full Width, Warm Msg) */}
-            <View style={styles.headerContainer}>
+            {/* ENCABEZADO TIPO TARJETA OSCURA */}
+            <View style={[styles.headerContainer, { borderBottomWidth: 1, borderBottomColor: COLORS.primaryLight, borderRadius: 0, marginHorizontal: 0, marginTop: 0 }]}>
                 <View style={styles.headerImageContainer}>
                     <Image
-                        style={styles.profileImage}
+                        style={[styles.profileImage, { borderWidth: 3, borderColor: COLORS.white }]}
                         src="/assets/images/profile.jpeg"
                     />
                 </View>
@@ -327,123 +304,110 @@ export const CVDocument = () => (
                     <Text style={styles.role}>Coordinadora de Recursos Humanos</Text>
 
                     <View style={styles.contactRow}>
-                        <View style={styles.contactItem}>
-                            <EmailIcon />
-                            <Link src="mailto:regina.salazar.ma@gmail.com" style={styles.contactLink}>
-                                regina.salazar.ma@gmail.com
-                            </Link>
-                        </View>
-                        <View style={styles.contactItem}>
-                            <PhoneIcon />
-                            <Text style={styles.contactText}>56 3015 4490</Text>
-                        </View>
-                        <View style={styles.contactItem}>
-                            <LocationIcon />
-                            <Text style={styles.contactText}>Magdalena Contreras, CDMX</Text>
-                        </View>
+                        <Text style={styles.contactText}>Magdalena Contreras, CDMX</Text>
+                        <Text style={styles.contactDivider}>|</Text>
+                        <Text style={styles.contactText}>+52 56 3015 4490</Text>
+                        <Text style={styles.contactDivider}>|</Text>
+                        <Link src="mailto:regina.salazar.ma@gmail.com" style={styles.contactLink}>
+                            regina.salazar.ma@gmail.com
+                        </Link>
                     </View>
                 </View>
             </View>
 
-            {/* 2. Body Layout */}
             <View style={styles.bodyContainer}>
 
-                {/* LEFT CONTENT COLUMN */}
-                <View style={styles.leftColumn}>
-                    {/* Profile Summary */}
-                    <Text style={styles.profileSummary}>
-                        Coordinadora de Recursos Humanos con 4+ años de experiencia liderando equipos y supervisando operaciones.
-                        Especialista en eficiencia operativa, reclutamiento estratégico y desarrollo de talento humano.
-                        Enfoque en crear ambientes de trabajo positivos y productivos.
-                    </Text>
+                {/* PERFIL PROFESIONAL */}
+                <Text style={styles.sectionTitle}>Perfil Profesional</Text>
+                <View style={styles.sectionDivider} />
+                <Text style={styles.profileSummary}>
+                    Coordinadora de Recursos Humanos con 4+ años de experiencia liderando equipos y supervisando operaciones. Especialista en eficiencia operativa, reclutamiento estratégico y desarrollo de talento humano. Enfoque en crear ambientes de trabajo positivos y productivos orientados a resultados.
+                </Text>
 
-                    {/* Experience Section */}
-                    <Text style={styles.sectionTitle}>Experiencia Profesional</Text>
-                    {EXPERIENCE_DATA.map((exp, index) => (
-                        <View key={index} style={styles.expItem}>
-                            <View style={styles.expHeader}>
-                                <View>
-                                    <Text style={styles.expRole}>{exp.role}</Text>
-                                    <Text style={styles.expCompany}>{exp.company}</Text>
-                                </View>
-                                <Text style={styles.expPeriod}>{exp.period}</Text>
-                            </View>
-                            <Text style={styles.expDesc}>{exp.description}</Text>
-                            {exp.functions.slice(0, 4).map((func, i) => (
-                                <Text key={i} style={styles.bulletPoint}>• {func}</Text>
-                            ))}
+                {/* HABILIDADES TÉCNICAS */}
+                <Text style={styles.sectionTitle}>Herramientas Digitales</Text>
+                <View style={styles.sectionDivider} />
+                <View style={styles.badgeContainer}>
+                    {SKILLS_DATA.map((skill, i) => (
+                        <View key={i} style={styles.badge}>
+                            <Text style={styles.badgeText}>{skill.name}</Text>
                         </View>
                     ))}
-
-                    {/* Key Achievements (Optional, condensed) */}
-                    <Text style={[styles.sectionTitle, { marginTop: 10 }]}>Logros Clave</Text>
-                    <View style={{ marginBottom: 10 }}>
-                        <Text style={styles.bulletPoint}>• Reducción del 15% en costos operativos mediante negociación estratégica.</Text>
-                        <Text style={styles.bulletPoint}>• Mejora del 25% en retención de personal con planes de capacitación.</Text>
-                        <Text style={styles.bulletPoint}>• Optimización de reclutamiento: reducción de 45 a 30 días.</Text>
-                    </View>
                 </View>
 
-                {/* RIGHT SIDEBAR COLUMN */}
-                <View style={styles.rightColumn}>
+                {/* COMPETENCIAS CLAVE */}
+                <Text style={styles.sectionTitle}>Competencias Clave</Text>
+                <View style={styles.sectionDivider} />
+                <View style={styles.badgeContainer}>
+                    {SOFT_SKILLS_DATA.map((skill, i) => (
+                        <View key={i} style={styles.badge}>
+                            <Text style={styles.badgeText}>{skill.name}</Text>
+                        </View>
+                    ))}
+                </View>
 
-                    {/* Education */}
-                    <View style={styles.sideSection}>
+                {/* EXPERIENCIA PROFESIONAL */}
+                <Text style={styles.sectionTitle}>Experiencia Profesional</Text>
+                <View style={styles.sectionDivider} />
+
+                {EXPERIENCE_DATA.map((exp, index) => (
+                    <View key={index} style={styles.expItem}>
+                        <View style={styles.expHeader}>
+                            <Text style={styles.expRole}>{exp.role}</Text>
+                            <Text style={styles.expPeriod}>{exp.period}</Text>
+                        </View>
+                        <Text style={styles.expCompany}>{exp.company}</Text>
+                        <Text style={styles.expDesc}>{exp.description}</Text>
+
+                        {exp.functions.map((func, i) => (
+                            <View key={i} style={styles.bulletPointContainer}>
+                                <Text style={styles.bulletPointDot}>•</Text>
+                                <Text style={styles.bulletPointText}>{func}</Text>
+                            </View>
+                        ))}
+                    </View>
+                ))}
+
+                {/* EDUCACIÓN E IDIOMAS */}
+                <View style={styles.twoColContainer}>
+                    <View style={styles.colHalf}>
                         <Text style={styles.sectionTitle}>Educación</Text>
+                        <View style={styles.sectionDivider} />
+
                         <View style={styles.eduItem}>
                             <Text style={styles.eduDegree}>Lic. Gestión y Desarrollo Empresarial</Text>
-                            <Text style={styles.eduSchool}>UVEG (En curso)</Text>
-                            <Text style={styles.eduDate}>100% en línea</Text>
+                            <Text style={styles.eduSchool}>UVEG</Text>
+                            <Text style={styles.eduDate}>2024 - En curso (100% en línea)</Text>
                         </View>
+
                         <View style={styles.eduItem}>
                             <Text style={styles.eduDegree}>Técnico Puericultista</Text>
                             <Text style={styles.eduSchool}>CETIS #10</Text>
-                            <Text style={styles.eduDate}>2018</Text>
+                            <Text style={styles.eduDate}>2015 - 2018</Text>
                         </View>
                     </View>
 
-                    {/* Habilidades Blandas */}
-                    <View style={styles.sideSection}>
-                        <Text style={styles.sectionTitle}>Habilidades Blandas</Text>
-                        {SOFT_SKILLS_DATA.slice(0, 6).map((skill, i) => (
-                            <View key={i} style={styles.skillRow}>
-                                <View style={styles.skillHeader}>
-                                    <Text style={styles.skillName}>{skill.name}</Text>
-                                </View>
-                                <ProgressBar level={skill.level} />
-                            </View>
-                        ))}
-                    </View>
+                    <View style={styles.colHalf}>
+                        <Text style={styles.sectionTitle}>Idiomas y Constancias</Text>
+                        <View style={styles.sectionDivider} />
+                        <View style={styles.langRow}>
+                            <Text style={styles.langName}>Español</Text>
+                            <Text style={styles.langLevel}>Nativo</Text>
+                        </View>
 
-                    {/* Herramientas Digitales */}
-                    <View style={styles.sideSection}>
-                        <Text style={styles.sectionTitle}>Herramientas</Text>
-                        {SKILLS_DATA.map((skill, i) => (
-                            <View key={i} style={styles.skillRow}>
-                                <View style={styles.skillHeader}>
-                                    <Text style={styles.skillName}>{skill.name}</Text>
-                                </View>
-                                <ProgressBar level={skill.level} />
+                        <View style={{ marginTop: 10 }}>
+                            <View style={styles.bulletPointContainer}>
+                                <Text style={styles.bulletPointDot}>•</Text>
+                                <Text style={styles.bulletPointText}>Primeros Auxilios</Text>
                             </View>
-                        ))}
-                    </View>
-
-                    {/* Idiomas */}
-                    <View style={styles.sideSection}>
-                        <Text style={styles.sectionTitle}>Idiomas</Text>
-                        <View style={styles.skillRow}>
-                            <Text style={styles.skillName}>Español (Nativo)</Text>
+                            <View style={styles.bulletPointContainer}>
+                                <Text style={styles.bulletPointDot}>•</Text>
+                                <Text style={styles.bulletPointText}>Manejo de Contenido Digital</Text>
+                            </View>
                         </View>
                     </View>
-
-                    {/* Certs */}
-                    <View style={styles.sideSection}>
-                        <Text style={styles.sectionTitle}>Constancias</Text>
-                        <Text style={styles.bulletPoint}>• Primeros Auxilios</Text>
-                        <Text style={styles.bulletPoint}>• Contenido Digital</Text>
-                    </View>
-
                 </View>
+
             </View>
         </Page>
     </Document>
