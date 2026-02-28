@@ -12,18 +12,23 @@ export const About: React.FC = () => (
             <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-start">
                 <div>
                     <h3 className="text-2xl font-bold mb-6 font-serif text-gray-800 dark:text-gray-100">
-                        Especialista en Gestión de Talento Humano
+                        Especialista en Capital Humano y Gestión de Talento
                     </h3>
                     <p className="text-lg mb-6 leading-relaxed font-light text-gray-600 dark:text-gray-300">
-                        <strong className="text-gray-800 dark:text-gray-100">Coordinadora de Recursos Humanos</strong> con 4+ años de experiencia en gestión integral de RRHH:
-                        reclutamiento y selección, administración de nómina, capacitación y desarrollo organizacional. Liderazgo de equipos de hasta 50 colaboradores
-                        y coordinación de operaciones en 23 sucursales con resultados comprobados: <strong className="text-teal-600 dark:text-teal-400">reducción del 25% en rotación</strong>,
-                        <strong className="text-teal-600 dark:text-teal-400"> optimización del 33% en tiempos de contratación</strong> y <strong className="text-teal-600 dark:text-teal-400">ahorro del 15% en costos operativos</strong>.
+                        <strong className="text-gray-800 dark:text-gray-100">Coordinadora de Recursos Humanos</strong> con 4+ años de experiencia integral en RR.HH.:
+                        reclutamiento y selección por competencias, administración de nómina (altas, bajas, incidencias, finiquitos),
+                        diseño de programas de capacitación y onboarding, y supervisión del clima organizacional.
+                        Gestión simultánea de <strong className="text-teal-600 dark:text-teal-400">23 sucursales</strong> y{' '}
+                        <strong className="text-teal-600 dark:text-teal-400">50+ colaboradores</strong> con resultados comprobados:{' '}
+                        <strong className="text-teal-600 dark:text-teal-400">−25% rotación</strong>,{' '}
+                        <strong className="text-teal-600 dark:text-teal-400">−33% tiempo de contratación</strong> y{' '}
+                        <strong className="text-teal-600 dark:text-teal-400">−15% costos operativos</strong>.
                     </p>
                     <p className="text-lg mb-8 leading-relaxed font-light text-gray-600 dark:text-gray-300">
-                        Manejo avanzado de Excel (tablas dinámicas, BUSCARV), portales de empleo (OCC, Indeed, LinkedIn) y herramientas digitales para la gestión eficiente de RRHH.
-                        Certificación en Primeros Auxilios y formación técnica complementaria. Actualmente cursando Licenciatura en Gestión y Desarrollo Empresarial,
-                        combinando experiencia práctica con formación académica continua. <strong className="text-teal-600 dark:text-teal-400">Disponibilidad inmediata.</strong>
+                        Manejo avanzado de Excel (tablas dinámicas, BUSCARV, dashboards de KPIs de RRHH), portales de empleo (OCC, Indeed, LinkedIn)
+                        y herramientas de IA aplicadas a la gestión de personal. Certificación en Primeros Auxilios y formación técnica complementaria.
+                        Actualmente cursando Licenciatura en Gestión y Desarrollo Empresarial (UVEG), combinando experiencia práctica con formación académica continua.{' '}
+                        <strong className="text-teal-600 dark:text-teal-400">Disponibilidad inmediata.</strong>
                     </p>
 
                     <div className="grid grid-cols-2 gap-4">

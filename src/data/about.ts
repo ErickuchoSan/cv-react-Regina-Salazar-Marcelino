@@ -10,10 +10,10 @@ export interface Stat {
 }
 
 export const STATS: Stat[] = [
-    { value: '4+', label: 'Años de Experiencia' },
-    { value: '23', label: 'Sucursales' },
-    { value: '50+', label: 'Colaboradores' },
-    { value: '100%', label: 'Compromiso' }
+    { value: '4+', label: 'Años en RR.HH.' },
+    { value: '23', label: 'Sucursales Gestionadas' },
+    { value: '50+', label: 'Colaboradores a Cargo' },
+    { value: '−25%', label: 'Reducción en Rotación' }
 ];
 
 export interface Education {
@@ -23,7 +23,7 @@ export interface Education {
 }
 
 export const EDUCATION: Education[] = [
-    { degree: 'Lic. Gestión y Desarrollo Empresarial', school: 'UVEG', status: 'En curso' },
+    { degree: 'Lic. en Gestión y Desarrollo Empresarial', school: 'UVEG', status: 'En curso' },
     { degree: 'Técnico Puericultista', school: 'CETIS #10', status: '2018' }
 ];
 
@@ -42,8 +42,8 @@ export const INFO_CARDS: InfoCard[] = [
         iconBgClass: 'bg-rose-50 dark:bg-rose-900/30',
         iconColorClass: 'text-rose-500 dark:text-rose-400',
         title: 'Disponibilidad',
-        content: 'Tiempo completo • Presencial/Híbrido',
-        subContent: 'Zona Sur CDMX'
+        content: 'Tiempo completo • Presencial / Híbrido',
+        subContent: 'Zona Sur CDMX – Disponibilidad inmediata'
     },
     {
         icon: FaMapMarkerAlt,
@@ -58,7 +58,7 @@ export const INFO_CARDS: InfoCard[] = [
         iconColorClass: 'text-teal-600 dark:text-teal-400',
         title: 'Voluntariado',
         content: 'Fundación Infantil "La Esperanza de los Niños A.C." (9 meses)',
-        subContent: 'Actividades de apoyo infantil'
+        subContent: 'Apoyo infantil y actividades de desarrollo'
     }
 ];
 

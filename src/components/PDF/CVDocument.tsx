@@ -3,250 +3,457 @@ import { CONTACT } from '../../data/contact';
 import { PDF_SKILLS, PDF_COMPETENCIAS } from '../../data/skills';
 import { PDF_EXPERIENCE } from '../../data/experience';
 
-// Register Roboto font
+// ─── Fuente ────────────────────────────────────────────────────────────────────
 Font.register({
     family: 'Roboto',
     fonts: [
         { src: 'https://cdnjs.cloudflare.com/ajax/libs/ink/3.1.10/fonts/Roboto/roboto-regular-webfont.ttf' },
         { src: 'https://cdnjs.cloudflare.com/ajax/libs/ink/3.1.10/fonts/Roboto/roboto-medium-webfont.ttf', fontWeight: 500 },
         { src: 'https://cdnjs.cloudflare.com/ajax/libs/ink/3.1.10/fonts/Roboto/roboto-bold-webfont.ttf', fontWeight: 700 },
-        { src: 'https://cdnjs.cloudflare.com/ajax/libs/ink/3.1.10/fonts/Roboto/roboto-lightitalic-webfont.ttf', fontStyle: 'italic' },
+        { src: 'https://cdnjs.cloudflare.com/ajax/libs/ink/3.1.10/fonts/Roboto/roboto-light-webfont.ttf', fontWeight: 300 },
+        { src: 'https://cdnjs.cloudflare.com/ajax/libs/ink/3.1.10/fonts/Roboto/roboto-lightitalic-webfont.ttf', fontStyle: 'italic', fontWeight: 300 },
     ],
 });
 
-// Professional Color Palette
+// ─── Paleta de Colores ──────────────────────────────────────────────────────────
 const C = {
-    primary: '#0d9488',       // Teal 600
-    primaryLight: '#ccfbf1',  // Teal 100
-    primaryDark: '#115e59',   // Teal 800
-    accent: '#0891b2',        // Cyan 600
-    headerBg: '#f0fdfa',      // Teal 50
-    white: '#ffffff',
-    textDark: '#0f172a',      // Slate 900
-    textMain: '#1e293b',      // Slate 800
-    textSub: '#475569',       // Slate 600
-    textMuted: '#64748b',     // Slate 500
-    border: '#e2e8f0',        // Slate 200
-    badgeBg: '#f0fdfa',
-    badgeBorder: '#99f6e4',
-    achieveBg: '#fef3c7',     // Amber 100
-    achieveText: '#92400e',   // Amber 800
+    // Sidebar – Azul marino profesional
+    sidebar:     '#1a2e4a',
+    sidebarAlt:  '#223355',
+    sidebarLine: '#2d4a73',
+    sidebarText: '#cdd8e8',
+    sidebarMuted:'#8fa8c8',
+    accent:      '#4fb3d8',   // Azul claro / turquesa
+    accentWarm:  '#f0b429',   // Ámbar dorado para logros
+    // Cuerpo principal
+    white:       '#ffffff',
+    bgAlt:       '#f7f9fc',
+    bgSection:   '#edf2f8',
+    textDark:    '#0f1c2e',
+    textMain:    '#1e3048',
+    textSub:     '#4a6080',
+    textMuted:   '#7a92ab',
+    border:      '#dce6f0',
+    // Badges
+    badgeBg:     '#e8f4fd',
+    badgeBorder: '#b3d8f0',
+    badgeText:   '#1a4a6e',
+    // Logros
+    achieveBg:   '#fffbeb',
+    achieveBorder:'#fbbf24',
+    achieveText: '#92400e',
 };
 
-const styles = StyleSheet.create({
+// ─── Estilos ────────────────────────────────────────────────────────────────────
+const S = StyleSheet.create({
+    // ── Página
     page: {
-        flexDirection: 'column',
+        flexDirection: 'row',
         backgroundColor: C.white,
         fontFamily: 'Roboto',
         padding: 0,
     },
 
-    // HEADER - Modern Design
-    header: {
-        backgroundColor: C.headerBg,
-        paddingVertical: 24,
-        paddingHorizontal: 32,
-        flexDirection: 'row',
+    // ══ SIDEBAR ════════════════════════════════════════════════════════════════
+    sidebar: {
+        width: 185,
+        backgroundColor: C.sidebar,
+        paddingTop: 30,
+        paddingBottom: 30,
+        paddingHorizontal: 18,
+        flexDirection: 'column',
+    },
+
+    // Foto
+    photoContainer: {
         alignItems: 'center',
-        marginHorizontal: 24,
-        marginTop: 24,
-        borderRadius: 12,
-        borderLeftWidth: 4,
-        borderLeftColor: C.primary,
+        marginBottom: 14,
     },
     photo: {
-        width: 80,
-        height: 80,
-        borderRadius: 40,
-        marginRight: 20,
+        width: 90,
+        height: 90,
+        borderRadius: 45,
         borderWidth: 3,
-        borderColor: C.white,
+        borderColor: C.accent,
     },
-    headerText: { flex: 1 },
-    name: {
-        fontSize: 22,
-        fontWeight: 700,
-        color: C.primary,
-        textTransform: 'uppercase',
-        letterSpacing: 1,
-        marginBottom: 4,
-    },
-    roleText: {
-        fontSize: 11,
-        color: C.textMain,
-        fontWeight: 500,
-        textTransform: 'uppercase',
-        letterSpacing: 0.5,
-        marginBottom: 10,
-    },
-    contactRow: {
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        alignItems: 'center',
-        gap: 8,
-    },
-    contactItem: { fontSize: 9, color: C.textSub },
-    contactLink: { fontSize: 9, color: C.primary, textDecoration: 'none', fontWeight: 500 },
-    contactDivider: { fontSize: 9, color: C.primary, marginHorizontal: 4 },
-
-    // BODY
-    body: { paddingTop: 20, paddingHorizontal: 28, paddingBottom: 20 },
-
-    // SECTION HEADERS
-    sectionHeader: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        marginBottom: 8,
-    },
-    sectionIcon: {
-        width: 20,
-        height: 20,
-        borderRadius: 4,
-        backgroundColor: C.primary,
-        marginRight: 8,
+    initialsBox: {
+        width: 90,
+        height: 90,
+        borderRadius: 45,
+        backgroundColor: C.sidebarAlt,
+        borderWidth: 3,
+        borderColor: C.accent,
         alignItems: 'center',
         justifyContent: 'center',
     },
-    sectionIconText: {
+    initials: {
+        fontSize: 26,
+        fontWeight: 700,
+        color: C.accent,
+    },
+
+    // Nombre y puesto (sidebar)
+    sidebarName: {
+        fontSize: 13,
+        fontWeight: 700,
         color: C.white,
-        fontSize: 10,
+        textAlign: 'center',
+        textTransform: 'uppercase',
+        letterSpacing: 0.5,
+        marginBottom: 4,
+    },
+    sidebarRole: {
+        fontSize: 8.5,
+        color: C.accent,
+        textAlign: 'center',
+        fontWeight: 500,
+        textTransform: 'uppercase',
+        letterSpacing: 0.5,
+        marginBottom: 18,
+    },
+
+    // Separador sidebar
+    sidebarDivider: {
+        height: 1,
+        backgroundColor: C.sidebarLine,
+        marginBottom: 14,
+    },
+
+    // Título de sección sidebar
+    sideSecTitle: {
+        fontSize: 8.5,
+        fontWeight: 700,
+        color: C.accent,
+        textTransform: 'uppercase',
+        letterSpacing: 1,
+        marginBottom: 8,
+    },
+
+    // ── Contacto sidebar
+    contactBlock: {
+        marginBottom: 16,
+    },
+    contactItem: {
+        flexDirection: 'row',
+        marginBottom: 6,
+        alignItems: 'flex-start',
+    },
+    contactDot: {
+        width: 5,
+        height: 5,
+        borderRadius: 2.5,
+        backgroundColor: C.accent,
+        marginRight: 7,
+        marginTop: 3,
+    },
+    contactText: {
+        fontSize: 8,
+        color: C.sidebarText,
+        flex: 1,
+        lineHeight: 1.3,
+    },
+    contactLink: {
+        fontSize: 8,
+        color: C.accent,
+        flex: 1,
+        textDecoration: 'none',
+        lineHeight: 1.3,
+    },
+
+    // ── Competencias sidebar (pills)
+    compBlock: {
+        marginBottom: 16,
+    },
+    compPill: {
+        backgroundColor: C.sidebarAlt,
+        borderLeftWidth: 2,
+        borderLeftColor: C.accent,
+        paddingVertical: 4,
+        paddingHorizontal: 8,
+        marginBottom: 4,
+        borderRadius: 2,
+    },
+    compText: {
+        fontSize: 7.5,
+        color: C.sidebarText,
+        lineHeight: 1.2,
+    },
+
+    // ── Educación sidebar
+    eduBlock: {
+        marginBottom: 16,
+    },
+    eduItem: {
+        marginBottom: 10,
+    },
+    eduDeg: {
+        fontSize: 8,
+        fontWeight: 700,
+        color: C.white,
+        marginBottom: 2,
+        lineHeight: 1.3,
+    },
+    eduSch: {
+        fontSize: 7.5,
+        color: C.accent,
+        fontWeight: 500,
+    },
+    eduDate: {
+        fontSize: 7,
+        color: C.sidebarMuted,
+        marginTop: 2,
+    },
+
+    // ── Idiomas sidebar
+    langBlock: {
+        marginBottom: 16,
+    },
+    langRow: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        marginBottom: 4,
+    },
+    langName: {
+        fontSize: 8,
+        color: C.sidebarText,
+        fontWeight: 500,
+    },
+    langBadge: {
+        backgroundColor: C.accent,
+        borderRadius: 8,
+        paddingVertical: 1,
+        paddingHorizontal: 6,
+    },
+    langBadgeText: {
+        fontSize: 7,
+        color: C.sidebar,
         fontWeight: 700,
     },
-    secTitle: {
-        fontSize: 12,
+
+    // ── Herramientas sidebar
+    toolBlock: {
+        marginBottom: 16,
+    },
+    toolItem: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginBottom: 5,
+    },
+    toolDot: {
+        width: 4,
+        height: 4,
+        borderRadius: 2,
+        backgroundColor: C.accent,
+        marginRight: 7,
+    },
+    toolText: {
+        fontSize: 7.5,
+        color: C.sidebarText,
+        flex: 1,
+        lineHeight: 1.2,
+    },
+
+    // ── Certificaciones sidebar
+    certBlock: {
+        marginBottom: 16,
+    },
+    certItem: {
+        flexDirection: 'row',
+        alignItems: 'flex-start',
+        marginBottom: 5,
+    },
+    certDot: {
+        width: 4,
+        height: 4,
+        borderRadius: 2,
+        backgroundColor: C.accentWarm,
+        marginRight: 7,
+        marginTop: 3,
+    },
+    certText: {
+        fontSize: 7.5,
+        color: C.sidebarText,
+        flex: 1,
+        lineHeight: 1.3,
+    },
+
+    // ── Voluntariado sidebar
+    volBlock: {
+        marginBottom: 8,
+    },
+    volText: {
+        fontSize: 7.5,
+        color: C.sidebarText,
+        lineHeight: 1.35,
+    },
+    volOrg: {
+        fontSize: 7,
+        color: C.sidebarMuted,
+        marginTop: 2,
+    },
+
+    // ══ CONTENIDO PRINCIPAL ════════════════════════════════════════════════════
+    main: {
+        flex: 1,
+        paddingTop: 30,
+        paddingBottom: 30,
+        paddingHorizontal: 24,
+        flexDirection: 'column',
+    },
+
+    // ── Cabecera principal (página 2)
+    mainHeader: {
+        marginBottom: 20,
+        paddingBottom: 12,
+        borderBottomWidth: 2,
+        borderBottomColor: C.accent,
+    },
+    mainName: {
+        fontSize: 22,
         fontWeight: 700,
         color: C.textDark,
         textTransform: 'uppercase',
-        letterSpacing: 0.5,
+        letterSpacing: 1.5,
+        marginBottom: 3,
+    },
+    mainRole: {
+        fontSize: 10,
+        fontWeight: 500,
+        color: C.accent,
+        textTransform: 'uppercase',
+        letterSpacing: 1,
+    },
+
+    // ── Sección principal – título
+    secHeader: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginBottom: 6,
+        marginTop: 14,
+    },
+    secAccentBar: {
+        width: 4,
+        height: 16,
+        backgroundColor: C.accent,
+        borderRadius: 2,
+        marginRight: 8,
+    },
+    secTitle: {
+        fontSize: 10,
+        fontWeight: 700,
+        color: C.textDark,
+        textTransform: 'uppercase',
+        letterSpacing: 0.8,
     },
     secLine: {
-        height: 2,
-        backgroundColor: C.primary,
-        marginBottom: 12,
-        borderRadius: 1,
+        height: 1,
+        backgroundColor: C.border,
+        marginBottom: 10,
     },
 
-    // PROFILE SUMMARY
+    // ── Perfil profesional (summary)
     summary: {
-        fontSize: 9.5,
+        fontSize: 9,
         color: C.textSub,
-        lineHeight: 1.5,
-        marginBottom: 18,
+        lineHeight: 1.6,
         textAlign: 'justify',
-        paddingHorizontal: 4,
     },
 
-    // BADGES - Modern Pills
+    // ── Métricas clave (3 cajitas)
+    metricsRow: {
+        flexDirection: 'row',
+        gap: 8,
+        marginTop: 10,
+        marginBottom: 4,
+    },
+    metricBox: {
+        flex: 1,
+        backgroundColor: C.bgSection,
+        borderRadius: 6,
+        paddingVertical: 8,
+        paddingHorizontal: 6,
+        alignItems: 'center',
+        borderTopWidth: 2,
+        borderTopColor: C.accent,
+    },
+    metricValue: {
+        fontSize: 16,
+        fontWeight: 700,
+        color: C.accent,
+        marginBottom: 2,
+    },
+    metricLabel: {
+        fontSize: 7,
+        color: C.textSub,
+        textAlign: 'center',
+        lineHeight: 1.3,
+    },
+
+    // ── Herramientas digitales (badges compactos)
     badgeRow: {
         flexDirection: 'row',
         flexWrap: 'wrap',
-        gap: 6,
-        marginBottom: 16,
+        gap: 5,
+        marginBottom: 4,
     },
     badge: {
         backgroundColor: C.badgeBg,
         borderWidth: 1,
         borderColor: C.badgeBorder,
-        borderRadius: 12,
-        paddingVertical: 4,
-        paddingHorizontal: 10,
+        borderRadius: 10,
+        paddingVertical: 3,
+        paddingHorizontal: 9,
     },
     badgeText: {
-        fontSize: 8,
-        color: C.primaryDark,
+        fontSize: 7.5,
+        color: C.badgeText,
         fontWeight: 500,
     },
 
-    // TWO COLUMNS
-    twoCol: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        marginBottom: 16,
-        gap: 20,
+    // ══ EXPERIENCIA (página 2) ════════════════════════════════════════════════
+    expItem: {
+        marginBottom: 14,
+        paddingBottom: 12,
+        borderBottomWidth: 1,
+        borderBottomColor: C.border,
     },
-    col50: { width: '48%' },
-
-    // EDUCATION
-    eduItem: { marginBottom: 10 },
-    eduDeg: {
-        fontSize: 10,
-        fontWeight: 700,
-        color: C.textMain,
-        marginBottom: 2,
+    expItemLast: {
+        marginBottom: 14,
     },
-    eduSch: {
-        fontSize: 9,
-        color: C.primary,
-        fontWeight: 500,
-    },
-    eduDate: {
-        fontSize: 8,
-        color: C.textMuted,
-        marginTop: 2,
-    },
-
-    // LANGUAGES
-    langRow: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        marginBottom: 4,
-        paddingVertical: 4,
-        paddingHorizontal: 8,
-        backgroundColor: C.headerBg,
-        borderRadius: 4,
-    },
-    langName: { fontSize: 9, fontWeight: 500, color: C.textMain },
-    langLevel: { fontSize: 9, color: C.primary, fontWeight: 500 },
-
-    // CERTIFICATIONS
-    certItem: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        marginBottom: 4,
-    },
-    certDot: {
-        width: 6,
-        height: 6,
-        borderRadius: 3,
-        backgroundColor: C.primary,
-        marginRight: 8,
-    },
-    certText: { fontSize: 8.5, color: C.textSub, flex: 1 },
-
-    // EXPERIENCE
-    expItem: { marginBottom: 16 },
     expHeader: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'flex-start',
-        marginBottom: 3,
+        marginBottom: 2,
     },
     expRole: {
-        fontSize: 11,
+        fontSize: 10.5,
         fontWeight: 700,
         color: C.textDark,
         flex: 1,
     },
-    expPeriod: {
-        fontSize: 8,
-        color: C.white,
-        backgroundColor: C.primary,
+    expPeriodPill: {
+        backgroundColor: C.accent,
+        borderRadius: 10,
         paddingVertical: 2,
         paddingHorizontal: 8,
-        borderRadius: 10,
+    },
+    expPeriod: {
+        fontSize: 7.5,
+        color: C.white,
         fontWeight: 500,
     },
     expCompany: {
-        fontSize: 9,
-        color: C.primary,
+        fontSize: 8.5,
+        color: C.textSub,
         fontWeight: 500,
         marginBottom: 6,
     },
     expDesc: {
-        fontSize: 8.5,
-        color: C.textSub,
+        fontSize: 8,
+        color: C.textMuted,
         fontStyle: 'italic',
-        marginBottom: 8,
+        marginBottom: 6,
         lineHeight: 1.4,
         paddingLeft: 8,
         borderLeftWidth: 2,
@@ -257,164 +464,296 @@ const styles = StyleSheet.create({
         marginBottom: 3,
         paddingLeft: 4,
     },
-    bulletDot: {
+    bulletArrow: {
         fontSize: 8,
-        color: C.primary,
-        marginRight: 6,
+        color: C.accent,
+        marginRight: 5,
         fontWeight: 700,
     },
     bulletText: {
-        fontSize: 8.5,
+        fontSize: 8,
         color: C.textSub,
         lineHeight: 1.35,
         flex: 1,
     },
 
-    // ACHIEVEMENTS - Highlighted
+    // ── Logros
     achieveBox: {
         backgroundColor: C.achieveBg,
         borderRadius: 6,
-        padding: 10,
+        padding: 8,
         marginTop: 8,
+        borderLeftWidth: 3,
+        borderLeftColor: C.accentWarm,
     },
     achieveLabel: {
-        fontSize: 9,
+        fontSize: 8,
         fontWeight: 700,
         color: C.achieveText,
-        marginBottom: 6,
+        textTransform: 'uppercase',
+        letterSpacing: 0.5,
+        marginBottom: 5,
     },
     achieveRow: {
         flexDirection: 'row',
         marginBottom: 3,
+        alignItems: 'flex-start',
     },
     achieveStar: {
-        fontSize: 8,
-        color: C.achieveText,
-        marginRight: 6,
+        fontSize: 7.5,
+        color: C.accentWarm,
+        marginRight: 5,
+        marginTop: 1,
     },
     achieveText: {
-        fontSize: 8.5,
+        fontSize: 8,
         color: C.achieveText,
         flex: 1,
         lineHeight: 1.3,
     },
 });
 
+// ─── Helper: Sección con barra lateral y línea ──────────────────────────────────
+const SideSecTitle = ({ title }: { title: string }) => (
+    <Text style={S.sideSecTitle}>{title}</Text>
+);
+
+// ─── Helper: Sección principal con barra de acento ─────────────────────────────
+const MainSection = ({ title }: { title: string }) => (
+    <>
+        <View style={S.secHeader}>
+            <View style={S.secAccentBar} />
+            <Text style={S.secTitle}>{title}</Text>
+        </View>
+        <View style={S.secLine} />
+    </>
+);
+
+// ─── Componente principal ──────────────────────────────────────────────────────
 export const CVDocument = () => (
     <Document>
-        <Page size="A4" style={styles.page}>
-            {/* HEADER */}
-            <View style={styles.header}>
-                <Image style={styles.photo} src="/assets/images/profile.jpeg" />
-                <View style={styles.headerText}>
-                    <Text style={styles.name}>{CONTACT.name}</Text>
-                    <Text style={styles.roleText}>{CONTACT.role}</Text>
-                    <View style={styles.contactRow}>
-                        <Link src={`mailto:${CONTACT.email}`} style={styles.contactLink}>
+
+        {/* ═══════════════════ PÁGINA 1 ═══════════════════ */}
+        <Page size="A4" style={S.page}>
+
+            {/* ── Sidebar */}
+            <View style={S.sidebar}>
+
+                {/* Foto */}
+                <View style={S.photoContainer}>
+                    <Image style={S.photo} src="/assets/images/profile.jpeg" />
+                </View>
+
+                {/* Nombre y puesto */}
+                <Text style={S.sidebarName}>{CONTACT.name}</Text>
+                <Text style={S.sidebarRole}>{CONTACT.role}</Text>
+                <View style={S.sidebarDivider} />
+
+                {/* Contacto */}
+                <View style={S.contactBlock}>
+                    <SideSecTitle title="Contacto" />
+
+                    <View style={S.contactItem}>
+                        <View style={S.contactDot} />
+                        <Link src={`mailto:${CONTACT.email}`} style={S.contactLink}>
                             {CONTACT.email}
                         </Link>
-                        <Text style={styles.contactDivider}>|</Text>
-                        <Link src={`https://wa.me/${CONTACT.phone}`} style={styles.contactLink}>
-                            Tel: {CONTACT.displayPhone}
+                    </View>
+
+                    <View style={S.contactItem}>
+                        <View style={S.contactDot} />
+                        <Link src={`https://wa.me/${CONTACT.phone}`} style={S.contactLink}>
+                            {CONTACT.displayPhone}
                         </Link>
-                        <Text style={styles.contactDivider}>|</Text>
-                        <Text style={styles.contactItem}>{CONTACT.location}</Text>
+                    </View>
+
+                    <View style={S.contactItem}>
+                        <View style={S.contactDot} />
+                        <Text style={S.contactText}>{CONTACT.location}</Text>
+                    </View>
+
+                    <View style={S.contactItem}>
+                        <View style={S.contactDot} />
+                        <Text style={S.contactText}>Disponibilidad inmediata</Text>
                     </View>
                 </View>
+
+                <View style={S.sidebarDivider} />
+
+                {/* Educación */}
+                <View style={S.eduBlock}>
+                    <SideSecTitle title="Educación" />
+                    <View style={S.eduItem}>
+                        <Text style={S.eduDeg}>Lic. en Gestión y Desarrollo Empresarial</Text>
+                        <Text style={S.eduSch}>UVEG</Text>
+                        <Text style={S.eduDate}>2024 – Actualidad • En línea</Text>
+                    </View>
+                    <View style={S.eduItem}>
+                        <Text style={S.eduDeg}>Técnico Puericultista</Text>
+                        <Text style={S.eduSch}>CETIS #10</Text>
+                        <Text style={S.eduDate}>2015 – 2018</Text>
+                    </View>
+                </View>
+
+                <View style={S.sidebarDivider} />
+
+                {/* Idiomas */}
+                <View style={S.langBlock}>
+                    <SideSecTitle title="Idiomas" />
+                    <View style={S.langRow}>
+                        <Text style={S.langName}>Español</Text>
+                        <View style={S.langBadge}>
+                            <Text style={S.langBadgeText}>Nativo</Text>
+                        </View>
+                    </View>
+                </View>
+
+                <View style={S.sidebarDivider} />
+
+                {/* Certificaciones */}
+                <View style={S.certBlock}>
+                    <SideSecTitle title="Certificaciones" />
+                    {['Primeros Auxilios – Protección Civil', 'Manejo de Contenido Digital'].map((c, i) => (
+                        <View key={i} style={S.certItem}>
+                            <View style={S.certDot} />
+                            <Text style={S.certText}>{c}</Text>
+                        </View>
+                    ))}
+                </View>
+
+                <View style={S.sidebarDivider} />
+
+                {/* Voluntariado */}
+                <View style={S.volBlock}>
+                    <SideSecTitle title="Voluntariado" />
+                    <Text style={S.volText}>Fundación Infantil{'\n'}"La Esperanza de los Niños A.C."</Text>
+                    <Text style={S.volOrg}>9 meses • Apoyo infantil</Text>
+                </View>
+
             </View>
 
-            <View style={styles.body}>
-                {/* PERFIL PROFESIONAL */}
-                <Text style={styles.secTitle}>Perfil Profesional</Text>
-                <View style={styles.secLine} />
-                <Text style={styles.summary}>
-                    Profesional de Recursos Humanos con 4+ años de experiencia en gestión integral de RRHH: reclutamiento y selección, administración de nómina, capacitación y desarrollo organizacional. Experiencia liderando equipos de hasta 50 colaboradores y coordinando operaciones en 23 sucursales. Resultados comprobados: reducción del 25% en rotación de personal, optimización del 33% en tiempos de contratación y ahorro del 15% en costos operativos. Manejo de Excel avanzado, portales de empleo y herramientas digitales. Licenciatura en Gestión Empresarial en curso. Disponibilidad inmediata.
+            {/* ── Cuerpo principal */}
+            <View style={S.main}>
+
+                {/* Perfil profesional */}
+                <MainSection title="Perfil Profesional" />
+                <Text style={S.summary}>
+                    Profesional de Recursos Humanos con más de 4 años de experiencia en gestión integral de RRHH: reclutamiento y selección, administración de nómina, capacitación y desarrollo organizacional. He liderado equipos de hasta 50 colaboradores y coordinado operaciones en 23 sucursales. Resultados comprobados: reducción del 25% en rotación de personal, optimización del 33% en tiempos de contratación y ahorro del 15% en costos operativos. Dominio de Excel avanzado, portales de empleo y herramientas digitales. Licenciatura en Gestión Empresarial en curso. Disponibilidad inmediata.
                 </Text>
 
-                {/* HERRAMIENTAS DIGITALES */}
-                <Text style={styles.secTitle}>Herramientas Digitales</Text>
-                <View style={styles.secLine} />
-                <View style={styles.badgeRow}>
+                {/* Métricas clave */}
+                <View style={S.metricsRow}>
+                    <View style={S.metricBox}>
+                        <Text style={S.metricValue}>4+</Text>
+                        <Text style={S.metricLabel}>Años de{'\n'}Experiencia</Text>
+                    </View>
+                    <View style={S.metricBox}>
+                        <Text style={S.metricValue}>23</Text>
+                        <Text style={S.metricLabel}>Sucursales{'\n'}Gestionadas</Text>
+                    </View>
+                    <View style={S.metricBox}>
+                        <Text style={S.metricValue}>50+</Text>
+                        <Text style={S.metricLabel}>Colaboradores{'\n'}a cargo</Text>
+                    </View>
+                    <View style={S.metricBox}>
+                        <Text style={S.metricValue}>−25%</Text>
+                        <Text style={S.metricLabel}>Rotación{'\n'}reducida</Text>
+                    </View>
+                </View>
+
+                {/* Competencias clave */}
+                <MainSection title="Competencias Clave de RR.HH." />
+                <View style={S.badgeRow}>
+                    {PDF_COMPETENCIAS.map((c, i) => (
+                        <View key={i} style={S.badge}>
+                            <Text style={S.badgeText}>{c}</Text>
+                        </View>
+                    ))}
+                </View>
+
+                {/* Herramientas digitales */}
+                <MainSection title="Herramientas Digitales" />
+                <View style={S.badgeRow}>
                     {PDF_SKILLS.map((s, i) => (
-                        <View key={i} style={styles.badge}>
-                            <Text style={styles.badgeText}>{s}</Text>
+                        <View key={i} style={S.badge}>
+                            <Text style={S.badgeText}>{s}</Text>
                         </View>
                     ))}
                 </View>
 
-                {/* COMPETENCIAS CLAVE */}
-                <Text style={styles.secTitle}>Competencias Clave</Text>
-                <View style={styles.secLine} />
-                <View style={styles.badgeRow}>
-                    {PDF_COMPETENCIAS.map((s, i) => (
-                        <View key={i} style={styles.badge}>
-                            <Text style={styles.badgeText}>{s}</Text>
-                        </View>
-                    ))}
-                </View>
-
-                {/* EDUCACIÓN E IDIOMAS - 2 Columnas */}
-                <View style={styles.twoCol}>
-                    <View style={styles.col50}>
-                        <Text style={styles.secTitle}>Educación</Text>
-                        <View style={styles.secLine} />
-                        <View style={styles.eduItem}>
-                            <Text style={styles.eduDeg}>Lic. en Gestión y Desarrollo Empresarial</Text>
-                            <Text style={styles.eduSch}>UVEG – En curso</Text>
-                            <Text style={styles.eduDate}>2024 – Actualidad • 100% en línea</Text>
-                        </View>
-                        <View style={styles.eduItem}>
-                            <Text style={styles.eduDeg}>Técnico Puericultista</Text>
-                            <Text style={styles.eduSch}>CETIS #10</Text>
-                            <Text style={styles.eduDate}>2015 – 2018</Text>
-                        </View>
-                    </View>
-                    <View style={styles.col50}>
-                        <Text style={styles.secTitle}>Idiomas y Certificaciones</Text>
-                        <View style={styles.secLine} />
-                        <View style={styles.langRow}>
-                            <Text style={styles.langName}>Español</Text>
-                            <Text style={styles.langLevel}>Nativo</Text>
-                        </View>
-                        <View style={{ marginTop: 10 }}>
-                            {['Primeros Auxilios – Protección Civil', 'Manejo de Contenido Digital'].map((c, i) => (
-                                <View key={i} style={styles.certItem}>
-                                    <View style={styles.certDot} />
-                                    <Text style={styles.certText}>{c}</Text>
-                                </View>
-                            ))}
-                        </View>
-                    </View>
-                </View>
             </View>
         </Page>
 
-        {/* PÁGINA 2 - EXPERIENCIA PROFESIONAL */}
-        <Page size="A4" style={styles.page}>
-            <View style={styles.body}>
-                <Text style={styles.secTitle}>Experiencia Profesional</Text>
-                <View style={styles.secLine} />
-                {PDF_EXPERIENCE.map((exp, idx) => (
-                    <View key={idx} style={styles.expItem} wrap={false}>
-                        <View style={styles.expHeader}>
-                            <Text style={styles.expRole}>{exp.role}</Text>
-                            <Text style={styles.expPeriod}>{exp.period}</Text>
+        {/* ═══════════════════ PÁGINA 2 – EXPERIENCIA ═══════════════════ */}
+        <Page size="A4" style={S.page}>
+
+            {/* Sidebar decorativo p.2 */}
+            <View style={[S.sidebar, { paddingTop: 24 }]}>
+                {/* Nombre compacto */}
+                <Text style={[S.sidebarName, { fontSize: 11, marginBottom: 2 }]}>{CONTACT.name}</Text>
+                <Text style={[S.sidebarRole, { marginBottom: 18 }]}>{CONTACT.role}</Text>
+                <View style={S.sidebarDivider} />
+
+                {/* Competencias (lista) */}
+                <View style={S.compBlock}>
+                    <SideSecTitle title="Áreas de Especialidad" />
+                    {PDF_COMPETENCIAS.map((c, i) => (
+                        <View key={i} style={S.compPill}>
+                            <Text style={S.compText}>{c}</Text>
                         </View>
-                        <Text style={styles.expCompany}>{exp.company}</Text>
-                        <Text style={styles.expDesc}>{exp.desc}</Text>
+                    ))}
+                </View>
+
+                <View style={S.sidebarDivider} />
+
+                {/* Herramientas (lista) */}
+                <View style={S.toolBlock}>
+                    <SideSecTitle title="Herramientas" />
+                    {PDF_SKILLS.map((s, i) => (
+                        <View key={i} style={S.toolItem}>
+                            <View style={S.toolDot} />
+                            <Text style={S.toolText}>{s}</Text>
+                        </View>
+                    ))}
+                </View>
+            </View>
+
+            {/* ── Cuerpo principal p.2 */}
+            <View style={S.main}>
+                <MainSection title="Experiencia Profesional" />
+
+                {PDF_EXPERIENCE.map((exp, idx) => (
+                    <View
+                        key={idx}
+                        style={idx < PDF_EXPERIENCE.length - 1 ? S.expItem : S.expItemLast}
+                        wrap={false}
+                    >
+                        {/* Cabecera del puesto */}
+                        <View style={S.expHeader}>
+                            <Text style={S.expRole}>{exp.role}</Text>
+                            <View style={S.expPeriodPill}>
+                                <Text style={S.expPeriod}>{exp.period}</Text>
+                            </View>
+                        </View>
+                        <Text style={S.expCompany}>{exp.company}</Text>
+                        <Text style={S.expDesc}>{exp.desc}</Text>
+
+                        {/* Bullets de funciones */}
                         {exp.bullets.map((b, i) => (
-                            <View key={i} style={styles.bulletRow}>
-                                <Text style={styles.bulletDot}>▸</Text>
-                                <Text style={styles.bulletText}>{b}</Text>
+                            <View key={i} style={S.bulletRow}>
+                                <Text style={S.bulletArrow}>▸</Text>
+                                <Text style={S.bulletText}>{b}</Text>
                             </View>
                         ))}
+
+                        {/* Logros destacados */}
                         {exp.achievements && (
-                            <View style={styles.achieveBox}>
-                                <Text style={styles.achieveLabel}>LOGROS DESTACADOS</Text>
+                            <View style={S.achieveBox}>
+                                <Text style={S.achieveLabel}>⭐ Logros Destacados</Text>
                                 {exp.achievements.map((a, i) => (
-                                    <View key={i} style={styles.achieveRow}>
-                                        <Text style={styles.achieveStar}>★</Text>
-                                        <Text style={styles.achieveText}>{a}</Text>
+                                    <View key={i} style={S.achieveRow}>
+                                        <Text style={S.achieveStar}>✦</Text>
+                                        <Text style={S.achieveText}>{a}</Text>
                                     </View>
                                 ))}
                             </View>
@@ -423,5 +762,6 @@ export const CVDocument = () => (
                 ))}
             </View>
         </Page>
+
     </Document>
 );

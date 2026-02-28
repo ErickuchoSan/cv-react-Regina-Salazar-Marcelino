@@ -20,20 +20,22 @@ export const EXPERIENCE_DATA: ExperienceItem[] = [
         company: "Sonora Kids Group",
         period: "Ene 2022 - Feb 2026",
         duration: "4 años",
-        description: "Gestión integral del área de RRHH: reclutamiento, nómina, capacitación y desarrollo organizacional para red de 23 sucursales.",
+        description: "Responsable integral del área de Capital Humano: reclutamiento y selección por competencias, gestión de nómina, capacitación, control de indicadores de RRHH y desarrollo organizacional para una red activa de 23 sucursales.",
         functions: [
-            "Administración de nómina quincenal para 40-50 colaboradores: altas, bajas, incidencias, vacaciones y cálculo de finiquitos",
-            "Reclutamiento end-to-end: publicación en portales (OCC, Indeed, LinkedIn), filtrado de CVs, entrevistas por competencias y proceso de onboarding",
-            "Diseño e impartición de 15+ programas de capacitación anuales (inducción, servicio al cliente, protocolos de seguridad) alcanzando 200+ colaboradores",
-            "Supervisión de clima laboral mediante encuestas y seguimiento a indicadores de rotación, ausentismo y satisfacción del personal",
-            "Negociación estratégica con proveedores de uniformes, material y servicios, generando ahorro del 15% en costos operativos anuales",
-            "Elaboración de reportes gerenciales en Excel con dashboards de KPIs: headcount, rotación, costos de personal y métricas de RRHH"
+            "Gestión completa de nómina quincenal (altas, bajas, incidencias, finiquitos y liquidaciones) para una plantilla de 40–50 colaboradores, garantizando cero errores en 4 años consecutivos",
+            "Reclutamiento end-to-end: publicación de vacantes en OCC, Indeed y LinkedIn, aplicación de entrevistas por competencias, coordinación de exámenes psicométricos y proceso de onboarding estructurado",
+            "Diseño e impartición de 15+ programas de capacitación anuales: inducción, servicio al cliente, protocolos de seguridad e higiene y desarrollo de habilidades, alcanzando a 200+ colaboradores",
+            "Supervisión continua del clima organizacional mediante encuestas de satisfacción, análisis de indicadores de rotación y ausentismo, y planes de acción de mejora",
+            "Negociación estratégica con proveedores de uniformes, consumibles y servicios generales, logrando reducción del 15% en costos operativos anuales",
+            "Elaboración de dashboards gerenciales en Excel con KPIs de RRHH: headcount, tasa de rotación, costo por contratación, ausentismo y tiempo promedio de cobertura de vacantes",
+            "Coordinación de 23 sucursales (12 presenciales + 11 a distancia), asegurando cumplimiento de normas laborales y operativas en cada unidad"
         ],
         achievements: [
-            "Reducción de rotación de personal del 25% mediante programas de desarrollo y mejora de clima laboral",
-            "Tiempo de contratación optimizado de 45 a 30 días (-33%) con proceso de selección estructurado",
-            "Gestión simultánea de 23 sucursales y 50 colaboradores con cero incidencias de nómina",
-            "Implementación de dashboards que redujeron tiempo de análisis en 40%"
+            "Reducción del 25% en rotación de personal mediante programas de engagement y mejora del clima laboral",
+            "Tiempo de cobertura de vacantes optimizado de 45 a 30 días (–33%) implementando proceso de selección por competencias",
+            "Cero incidencias de nómina en 4 años de gestión simultánea de 23 sucursales y hasta 50 colaboradores",
+            "Dashboards de RRHH que redujeron el tiempo de análisis de indicadores en un 40%",
+            "Ahorro acumulado del 15% en costos de proveedores mediante negociación estructurada"
         ],
         icon: FaUsers
     },
@@ -41,19 +43,19 @@ export const EXPERIENCE_DATA: ExperienceItem[] = [
         role: "Auxiliar de Marketing y Employer Branding",
         company: "Naré",
         period: "Mayo 2023 - Actualidad",
-        duration: "2 años",
-        description: "Comunicación digital, employer branding y apoyo en estrategias de atracción de talento mediante contenido de valor.",
+        duration: "2+ años",
+        description: "Apoyo en estrategias de comunicación interna, employer branding y atracción de talento a través de contenido digital de alto impacto. Generación de identidad de marca empleadora sólida y coherente.",
         functions: [
-            "Desarrollo de contenido para employer branding: cultura organizacional, vacantes atractivas y vida en la empresa",
-            "Creación, planeación y publicación de 20+ piezas de contenido mensual utilizando Canva y herramientas de diseño",
-            "Análisis de métricas de redes sociales (engagement, alcance, conversiones) para optimización de estrategias de atracción de talento",
-            "Coordinación de calendarios editoriales alineados con objetivos de comunicación interna y employer branding",
-            "Apoyo en campañas de atracción de talento mediante contenido digital atractivo y publicaciones estratégicas"
+            "Desarrollo de contenido orientado a employer branding: cultura organizacional, publicación de vacantes atractivas y narrativa de vida en la empresa",
+            "Producción de 20+ piezas de contenido mensual en Canva para redes sociales, comunicación interna y campañas de atracción de talento",
+            "Análisis de métricas digitales (engagement, alcance orgánico, conversiones) para optimizar la estrategia de atracción de candidatos",
+            "Coordinación de calendarios editoriales alineados con los objetivos de comunicación interna y RRHH",
+            "Campaña activa de employer branding que posicionó a la empresa como lugar deseable para trabajar"
         ],
         achievements: [
-            "Incremento del 30% en engagement mediante contenido estratégico de employer branding",
-            "Mejora del 25% en alcance orgánico con optimización de horarios de publicación",
-            "Producción de 240+ piezas de contenido de alta calidad anualmente"
+            "Incremento del 30% en engagement en publicaciones de cultura y vacantes",
+            "Mejora del 25% en alcance orgánico con optimización de horarios y formatos de publicación",
+            "Producción anual de 240+ piezas de contenido de alta calidad para atracción de talento"
         ],
         icon: FaBullhorn
     },
@@ -62,18 +64,18 @@ export const EXPERIENCE_DATA: ExperienceItem[] = [
         company: "Sonora Grill Group",
         period: "Ene 2018 - Ene 2022",
         duration: "4 años",
-        description: "Atención al cliente, coordinación operativa y aplicación de protocolos de seguridad y calidad en área de servicios.",
+        description: "Coordinación operativa, atención y gestión de grupos de clientes, aplicación rigurosa de protocolos de seguridad e higiene y resolución de conflictos con alto índice de satisfacción.",
         functions: [
-            "Atención y servicio a clientes manteniendo un índice de satisfacción del 95% según encuestas internas",
-            "Coordinación de actividades grupales y manejo efectivo de grupos de 20-30 personas diarias",
-            "Aplicación estricta de protocolos de seguridad e higiene con certificación en Primeros Auxilios por Protección Civil",
-            "Resolución de conflictos y comunicación efectiva con clientes, aplicando técnicas de mediación y empatía",
-            "Diseño e implementación de actividades recreativas adaptadas a diferentes grupos de edad"
+            "Atención personalizada a clientes manteniendo un índice de satisfacción del 95% validado por encuestas internas",
+            "Coordinación y supervisión de grupos de 20–30 personas diarias, organizando actividades con dinámica y empatía",
+            "Cumplimiento y supervisión de protocolos de seguridad e higiene con certificación vigente en Primeros Auxilios por Protección Civil",
+            "Gestión y resolución de conflictos con clientes aplicando técnicas de mediación, escucha activa y comunicación asertiva",
+            "Diseño e implementación de actividades recreativas inclusivas adaptadas a distintos grupos de edad y necesidades"
         ],
         achievements: [
-            "4 años consecutivos sin incidentes de seguridad",
-            "95% de satisfacción de clientes según encuestas internas",
-            "Reconocimiento interno por excelencia en servicio al cliente"
+            "4 años consecutivos sin incidentes de seguridad gracias a la aplicación estricta de protocolos",
+            "95% de satisfacción de clientes sostenido durante 4 años según encuestas internas periódicas",
+            "Reconocimiento interno por excelencia en servicio al cliente y liderazgo de grupos"
         ],
         icon: FaChild
     }
@@ -94,31 +96,31 @@ export const PDF_EXPERIENCE: PDFExperienceItem[] = [
         role: 'Coordinadora de Recursos Humanos',
         company: 'Sonora Kids Group (Grupo Sonora Grill)',
         period: 'Ene 2022 – Feb 2026',
-        desc: 'Gestión integral del área de RRHH: reclutamiento, nómina, capacitación y desarrollo organizacional para red de 23 sucursales.',
+        desc: 'Responsable integral del área de Capital Humano: reclutamiento por competencias, gestión de nómina, capacitación, indicadores de RRHH y desarrollo organizacional para red de 23 sucursales.',
         bullets: [
-            'Administración de nómina quincenal para 40-50 colaboradores: altas, bajas, incidencias, vacaciones y finiquitos',
-            'Reclutamiento end-to-end: publicación en portales (OCC, Indeed), filtrado de CVs, entrevistas por competencias y onboarding',
-            'Diseño e impartición de 15+ programas de capacitación anuales (inducción, servicio al cliente, seguridad)',
-            'Supervisión de clima laboral y seguimiento a indicadores de rotación, ausentismo y satisfacción',
-            'Negociación con proveedores de uniformes, material y servicios generando ahorro del 15% anual',
-            'Elaboración de reportes gerenciales en Excel: dashboards de KPIs, headcount y costos de personal',
+            'Gestión de nómina quincenal (altas, bajas, incidencias, finiquitos y liquidaciones) para plantilla de 40–50 colaboradores con cero errores en 4 años',
+            'Reclutamiento end-to-end: publicación en OCC, Indeed y LinkedIn, entrevistas por competencias, exámenes psicométricos y onboarding estructurado',
+            'Diseño e impartición de 15+ programas de capacitación anuales (inducción, servicio al cliente, seguridad e higiene) para 200+ colaboradores',
+            'Supervisión de clima organizacional mediante encuestas, análisis de rotación/ausentismo y planes de mejora',
+            'Negociación con proveedores de uniformes y servicios logrando reducción del 15% en costos operativos anuales',
+            'Elaboración de dashboards en Excel con KPIs: headcount, rotación, costo por contratación y tiempo de cobertura de vacantes',
         ],
         achievements: [
-            'Reducción de rotación de personal del 25% mediante programas de desarrollo y clima laboral',
-            'Tiempo de contratación optimizado de 45 a 30 días (-33%) con proceso de selección estructurado',
-            'Gestión simultánea de 23 sucursales y 50 colaboradores con cero incidencias de nómina',
+            'Reducción del 25% en rotación de personal con programas de engagement y mejora de clima laboral',
+            'Tiempo de cobertura de vacantes optimizado de 45 a 30 días (–33%) con proceso de selección por competencias',
+            'Cero incidencias de nómina en 4 años gestionando simultáneamente 23 sucursales y hasta 50 colaboradores',
         ],
     },
     {
         role: 'Auxiliar de Marketing y Employer Branding',
         company: 'Naré',
         period: 'Mayo 2023 – Actualidad',
-        desc: 'Comunicación digital, employer branding y apoyo en estrategias de atracción de talento.',
+        desc: 'Comunicación interna, employer branding y estrategias de atracción de talento mediante contenido digital de alto impacto.',
         bullets: [
-            'Desarrollo de contenido para employer branding: cultura organizacional, vacantes y vida en la empresa',
-            'Creación de 20+ piezas mensuales con Canva para comunicación interna y redes sociales',
-            'Análisis de métricas de engagement y alcance para optimización de estrategias de atracción',
-            'Coordinación de publicaciones en redes alineadas con objetivos de atracción de talento',
+            'Diseño de contenido para employer branding: cultura organizacional, vacantes atractivas y vida en la empresa',
+            'Producción de 20+ piezas de contenido mensual en Canva para redes sociales y campañas de atracción de talento',
+            'Análisis de métricas de engagement y alcance para optimizar estrategias de atracción de candidatos',
+            'Coordinación de calendario editorial alineado con objetivos de comunicación interna y RRHH',
         ],
         achievements: null,
     },
@@ -126,12 +128,12 @@ export const PDF_EXPERIENCE: PDFExperienceItem[] = [
         role: 'Asistente de Operaciones y Atención al Cliente',
         company: 'Sonora Grill Group',
         period: 'Ene 2018 – Ene 2022',
-        desc: 'Atención al cliente, coordinación operativa y aplicación de protocolos de seguridad y calidad.',
+        desc: 'Coordinación operativa, atención al cliente, gestión de grupos y aplicación de protocolos de seguridad e higiene.',
         bullets: [
-            'Atención y servicio a clientes con índice de satisfacción del 95% según encuestas internas',
-            'Coordinación de actividades grupales y manejo de grupos de 20-30 personas diarias',
-            'Aplicación de protocolos de seguridad con certificación en Primeros Auxilios por Protección Civil',
-            'Resolución de conflictos y comunicación efectiva con clientes, logrando 4 años sin incidentes',
+            'Atención a clientes con índice de satisfacción del 95% sostenido durante 4 años según encuestas internas',
+            'Coordinación de grupos de 20–30 personas diarias con enfoque en experiencia y actividades recreativas',
+            'Supervisión y cumplimiento de protocolos de seguridad e higiene con certificación en Primeros Auxilios (Protección Civil)',
+            'Resolución de conflictos con mediación, escucha activa y comunicación asertiva logrando 4 años sin incidentes',
         ],
         achievements: null,
     },
