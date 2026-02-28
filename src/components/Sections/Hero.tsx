@@ -5,13 +5,13 @@ import { CVDocument } from '../PDF/CVDocument';
 
 export const Hero: React.FC = () => {
     return (
-        <section id="inicio" className="hero-humanist-bg min-h-screen flex items-center pt-16 relative overflow-hidden">
+        <section id="inicio" className="hero-humanist-bg min-h-screen flex items-center pt-20 relative overflow-hidden">
             {/* Organic Background Elements */}
             <div className="organic-blob blob-1" aria-hidden="true" />
             <div className="organic-blob blob-2" aria-hidden="true" />
             <div className="organic-blob blob-3" aria-hidden="true" />
 
-            <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-10 md:py-0">
+            <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-14 md:py-10">
                 <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
 
                     {/* Text Content */}
