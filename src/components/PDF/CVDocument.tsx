@@ -729,7 +729,7 @@ export const CVDocument = () => (
 
             {/* ── Cuerpo principal p.2 */}
             <View style={[S.main, { paddingTop: 20 }]}>
-                <MainSection title="Experiencia Profesional (cont.)" />
+                <MainSection title="Experiencia Profesional" />
 
                 {PDF_EXPERIENCE.slice(1).map((exp, idx) => (
                     <View
