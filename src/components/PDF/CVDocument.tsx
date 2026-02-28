@@ -18,29 +18,29 @@ Font.register({
 // ─── Paleta de Colores ──────────────────────────────────────────────────────────
 const C = {
     // Sidebar – Azul marino profesional
-    sidebar:     '#1a2e4a',
-    sidebarAlt:  '#223355',
+    sidebar: '#1a2e4a',
+    sidebarAlt: '#223355',
     sidebarLine: '#2d4a73',
     sidebarText: '#cdd8e8',
-    sidebarMuted:'#8fa8c8',
-    accent:      '#4fb3d8',   // Azul claro / turquesa
-    accentWarm:  '#f0b429',   // Ámbar dorado para logros
+    sidebarMuted: '#8fa8c8',
+    accent: '#4fb3d8',   // Azul claro / turquesa
+    accentWarm: '#f0b429',   // Ámbar dorado para logros
     // Cuerpo principal
-    white:       '#ffffff',
-    bgAlt:       '#f7f9fc',
-    bgSection:   '#edf2f8',
-    textDark:    '#0f1c2e',
-    textMain:    '#1e3048',
-    textSub:     '#4a6080',
-    textMuted:   '#7a92ab',
-    border:      '#dce6f0',
+    white: '#ffffff',
+    bgAlt: '#f7f9fc',
+    bgSection: '#edf2f8',
+    textDark: '#0f1c2e',
+    textMain: '#1e3048',
+    textSub: '#4a6080',
+    textMuted: '#7a92ab',
+    border: '#dce6f0',
     // Badges
-    badgeBg:     '#e8f4fd',
+    badgeBg: '#e8f4fd',
     badgeBorder: '#b3d8f0',
-    badgeText:   '#1a4a6e',
+    badgeText: '#1a4a6e',
     // Logros
-    achieveBg:   '#fffbeb',
-    achieveBorder:'#fbbf24',
+    achieveBg: '#fffbeb',
+    achieveBorder: '#fbbf24',
     achieveText: '#92400e',
 };
 
@@ -450,14 +450,11 @@ const S = StyleSheet.create({
         marginBottom: 6,
     },
     expDesc: {
-        fontSize: 8,
-        color: C.textMuted,
-        fontStyle: 'italic',
+        fontSize: 8.5,
+        color: C.textMain,
+        fontWeight: 700,
         marginBottom: 6,
         lineHeight: 1.4,
-        paddingLeft: 8,
-        borderLeftWidth: 2,
-        borderLeftColor: C.border,
     },
     bulletRow: {
         flexDirection: 'row',
@@ -661,26 +658,6 @@ export const CVDocument = () => (
                     </View>
                 </View>
 
-                {/* Competencias clave */}
-                <MainSection title="Competencias Clave de RR.HH." />
-                <View style={S.badgeRow}>
-                    {PDF_COMPETENCIAS.map((c, i) => (
-                        <View key={i} style={S.badge}>
-                            <Text style={S.badgeText}>{c}</Text>
-                        </View>
-                    ))}
-                </View>
-
-                {/* Herramientas digitales */}
-                <MainSection title="Herramientas Digitales" />
-                <View style={S.badgeRow}>
-                    {PDF_SKILLS.map((s, i) => (
-                        <View key={i} style={S.badge}>
-                            <Text style={S.badgeText}>{s}</Text>
-                        </View>
-                    ))}
-                </View>
-
             </View>
         </Page>
 
@@ -760,6 +737,27 @@ export const CVDocument = () => (
                         )}
                     </View>
                 ))}
+
+                {/* Competencias clave */}
+                <MainSection title="Competencias Clave de RR.HH." />
+                <View style={S.badgeRow}>
+                    {PDF_COMPETENCIAS.map((c, i) => (
+                        <View key={i} style={S.badge}>
+                            <Text style={S.badgeText}>{c}</Text>
+                        </View>
+                    ))}
+                </View>
+
+                {/* Herramientas digitales */}
+                <MainSection title="Herramientas Digitales" />
+                <View style={S.badgeRow}>
+                    {PDF_SKILLS.map((s, i) => (
+                        <View key={i} style={S.badge}>
+                            <Text style={S.badgeText}>{s}</Text>
+                        </View>
+                    ))}
+                </View>
+
             </View>
         </Page>
 

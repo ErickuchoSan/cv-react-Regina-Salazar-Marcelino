@@ -22,7 +22,7 @@ export const EXPERIENCE_DATA: ExperienceItem[] = [
         duration: "4 años",
         description: "Responsable integral del área de Capital Humano: reclutamiento y selección por competencias, gestión de nómina, capacitación, control de indicadores de RRHH y desarrollo organizacional para una red activa de 23 sucursales.",
         functions: [
-            "Gestión completa de nómina quincenal (altas, bajas, incidencias, finiquitos y liquidaciones) para una plantilla de 40–50 colaboradores, garantizando cero errores en 4 años consecutivos",
+            "Gestión completa de nómina quincenal (altas, bajas, incidencias, finiquitos y liquidaciones) para una plantilla de 40–50 colaboradores, garantizando exactitud y puntualidad en cada período",
             "Reclutamiento end-to-end: publicación de vacantes en OCC, Indeed y LinkedIn, aplicación de entrevistas por competencias, coordinación de exámenes psicométricos y proceso de onboarding estructurado",
             "Diseño e impartición de 15+ programas de capacitación anuales: inducción, servicio al cliente, protocolos de seguridad e higiene y desarrollo de habilidades, alcanzando a 200+ colaboradores",
             "Supervisión continua del clima organizacional mediante encuestas de satisfacción, análisis de indicadores de rotación y ausentismo, y planes de acción de mejora",
@@ -98,7 +98,7 @@ export const PDF_EXPERIENCE: PDFExperienceItem[] = [
         period: 'Ene 2022 – Feb 2026',
         desc: 'Responsable integral del área de Capital Humano: reclutamiento por competencias, gestión de nómina, capacitación, indicadores de RRHH y desarrollo organizacional para red de 23 sucursales.',
         bullets: [
-            'Gestión de nómina quincenal (altas, bajas, incidencias, finiquitos y liquidaciones) para plantilla de 40–50 colaboradores con cero errores en 4 años',
+            'Gestión de nómina quincenal (altas, bajas, incidencias, vacaciones, finiquitos y liquidaciones) para plantilla de 40–50 colaboradores, garantizando exactitud y puntualidad en cada período',
             'Reclutamiento end-to-end: publicación en OCC, Indeed y LinkedIn, entrevistas por competencias, exámenes psicométricos y onboarding estructurado',
             'Diseño e impartición de 15+ programas de capacitación anuales (inducción, servicio al cliente, seguridad e higiene) para 200+ colaboradores',
             'Supervisión de clima organizacional mediante encuestas, análisis de rotación/ausentismo y planes de mejora',
@@ -122,7 +122,11 @@ export const PDF_EXPERIENCE: PDFExperienceItem[] = [
             'Análisis de métricas de engagement y alcance para optimizar estrategias de atracción de candidatos',
             'Coordinación de calendario editorial alineado con objetivos de comunicación interna y RRHH',
         ],
-        achievements: null,
+        achievements: [
+            'Incremento del 30% en engagement en publicaciones de cultura organizacional y vacantes',
+            'Mejora del 25% en alcance orgánico optimizando horarios y formatos de publicación',
+            'Producción de 240+ piezas de contenido anuales para atracción de talento',
+        ],
     },
     {
         role: 'Asistente de Operaciones y Atención al Cliente',
@@ -135,6 +139,10 @@ export const PDF_EXPERIENCE: PDFExperienceItem[] = [
             'Supervisión y cumplimiento de protocolos de seguridad e higiene con certificación en Primeros Auxilios (Protección Civil)',
             'Resolución de conflictos con mediación, escucha activa y comunicación asertiva logrando 4 años sin incidentes',
         ],
-        achievements: null,
+        achievements: [
+            '4 años consecutivos sin incidentes de seguridad aplicando protocolos de Protección Civil',
+            '95% de satisfacción de clientes sostenido durante toda la estadía según encuestas internas',
+            'Reconocimiento interno por excelencia en servicio al cliente y liderazgo de grupos',
+        ],
     },
 ];
