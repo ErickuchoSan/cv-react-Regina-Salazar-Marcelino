@@ -56,7 +56,7 @@ export const TECH_CATEGORIES: TechCategoryData[] = [
             { name: 'PowerPoint', icon: FaFilePowerpoint, color: 'text-orange-600' },
             { name: 'Word / Google Docs', icon: FaFileWord, color: 'text-blue-600' },
             { name: 'Canva Pro', icon: SiCanva, color: 'text-cyan-500' },
-            { name: 'ChatGPT / Gemini / IA Generativa', icon: FaRobot, color: 'text-purple-600' },
+            { name: 'IAs Generativas (ChatGPT / Gemini)', icon: FaRobot, color: 'text-purple-600' },
         ],
     },
     {
@@ -117,7 +117,7 @@ export const PDF_SKILLS = [
     'Microsoft Office 365',
     'Google Workspace',
     'Canva Pro',
-    'IA Generativa (ChatGPT, Gemini)',
+    'IAs Generativas',
     'Sistemas de Nómina',
     'Portales de Empleo (OCC, Indeed, LinkedIn)',
 ];

@@ -17,7 +17,7 @@ export interface ExperienceItem {
 export const EXPERIENCE_DATA: ExperienceItem[] = [
     {
         role: "Coordinadora de Recursos Humanos",
-        company: "Sonora Kids Group",
+        company: "Sonora Kids (Sonora Grill Group)",
         period: "Ene 2022 - Feb 2026",
         duration: "4 años",
         description: "Responsable integral del área de Capital Humano: reclutamiento y selección por competencias, gestión de nómina, capacitación, control de indicadores de RRHH y desarrollo organizacional para una red activa de 23 sucursales.",
@@ -94,7 +94,7 @@ export interface PDFExperienceItem {
 export const PDF_EXPERIENCE: PDFExperienceItem[] = [
     {
         role: 'Coordinadora de Recursos Humanos',
-        company: 'Sonora Kids Group (Grupo Sonora Grill)',
+        company: 'Sonora Kids (Sonora Grill Group)',
         period: 'Ene 2022 – Feb 2026',
         desc: 'Responsable integral del área de Capital Humano: reclutamiento por competencias, gestión de nómina, capacitación, indicadores de RRHH y desarrollo organizacional para red de 23 sucursales.',
         bullets: [
