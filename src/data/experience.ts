@@ -33,7 +33,7 @@ export const EXPERIENCE_DATA: ExperienceItem[] = [
         achievements: [
             "Reducción del 25% en rotación de personal mediante programas de engagement y mejora del clima laboral",
             "Tiempo de cobertura de vacantes optimizado de 45 a 30 días (–33%) implementando proceso de selección por competencias",
-            "Cero incidencias de nómina en 4 años de gestión simultánea de 23 sucursales y hasta 50 colaboradores",
+            "Gestión precisa de nómina en 4 años de administración simultánea de 23 sucursales y hasta 50 colaboradores",
             "Dashboards de RRHH que redujeron el tiempo de análisis de indicadores en un 40%",
             "Ahorro acumulado del 15% en costos de proveedores mediante negociación estructurada"
         ],
@@ -60,22 +60,22 @@ export const EXPERIENCE_DATA: ExperienceItem[] = [
         icon: FaBullhorn
     },
     {
-        role: "Asistente de Operaciones y Atención al Cliente",
+        role: "Asistente Infantil",
         company: "Sonora Grill Group",
         period: "Ene 2018 - Ene 2022",
         duration: "4 años",
-        description: "Coordinación operativa, atención y gestión de grupos de clientes, aplicación rigurosa de protocolos de seguridad e higiene y resolución de conflictos con alto índice de satisfacción.",
+        description: "Coordinación y cuidado integral en el área infantil, atención a grupos de niños, aplicación rigurosa de protocolos de seguridad y primeros auxilios, garantizando un entorno seguro y recreativo.",
         functions: [
-            "Atención personalizada a clientes manteniendo un índice de satisfacción del 95% validado por encuestas internas",
-            "Coordinación y supervisión de grupos de 20–30 personas diarias, organizando actividades con dinámica y empatía",
+            "Atención personalizada y cuidado de niños, manteniendo una excelente comunicación con los padres",
+            "Coordinación y supervisión de grupos infantiles de 20–30 niños diarios, organizando actividades lúdicas y didácticas",
             "Cumplimiento y supervisión de protocolos de seguridad e higiene con certificación vigente en Primeros Auxilios por Protección Civil",
-            "Gestión y resolución de conflictos con clientes aplicando técnicas de mediación, escucha activa y comunicación asertiva",
-            "Diseño e implementación de actividades recreativas inclusivas adaptadas a distintos grupos de edad y necesidades"
+            "Diseño e implementación de actividades recreativas inclusivas adaptadas a distintos grupos de edad y necesidades",
+            "Apoyo en el desarrollo de dinámicas de integración para fomentar la convivencia positiva entre los niños"
         ],
         achievements: [
-            "4 años consecutivos sin incidentes de seguridad gracias a la aplicación estricta de protocolos",
-            "95% de satisfacción de clientes sostenido durante 4 años según encuestas internas periódicas",
-            "Reconocimiento interno por excelencia en servicio al cliente y liderazgo de grupos"
+            "Garantía de un entorno seguro aplicando estrictamente los protocolos de Protección Civil en el área infantil",
+            "Excelente respuesta y comentarios positivos de los padres respecto al cuidado y atención brindados a sus hijos",
+            "Reconocimiento interno por el manejo de grupos y vocación de servicio en el área infantil"
         ],
         icon: FaChild
     }
@@ -108,7 +108,7 @@ export const PDF_EXPERIENCE: PDFExperienceItem[] = [
         achievements: [
             'Reducción del 25% en rotación de personal con programas de engagement y mejora de clima laboral',
             'Tiempo de cobertura de vacantes optimizado de 45 a 30 días (–33%) con proceso de selección por competencias',
-            'Cero incidencias de nómina en 4 años gestionando simultáneamente 23 sucursales y hasta 50 colaboradores',
+            'Gestión precisa de nómina en 4 años administrando simultáneamente 23 sucursales y hasta 50 colaboradores',
         ],
     },
     {
@@ -129,20 +129,20 @@ export const PDF_EXPERIENCE: PDFExperienceItem[] = [
         ],
     },
     {
-        role: 'Asistente de Operaciones y Atención al Cliente',
+        role: 'Asistente Infantil',
         company: 'Sonora Grill Group',
         period: 'Ene 2018 – Ene 2022',
-        desc: 'Coordinación operativa, atención al cliente, gestión de grupos y aplicación de protocolos de seguridad e higiene.',
+        desc: 'Cuidado y coordinación de grupos infantiles, aplicando protocolos de seguridad y realizando actividades lúdico-recreativas.',
         bullets: [
-            'Atención a clientes con índice de satisfacción del 95% sostenido durante 4 años según encuestas internas',
-            'Coordinación de grupos de 20–30 personas diarias con enfoque en experiencia y actividades recreativas',
+            'Atención personalizada y cuidado de niños manteniendo comunicación continua con los padres',
+            'Coordinación de grupos de 20–30 niños diarios organizando dinámicas interactivas y seguras',
             'Supervisión y cumplimiento de protocolos de seguridad e higiene con certificación en Primeros Auxilios (Protección Civil)',
-            'Resolución de conflictos con mediación, escucha activa y comunicación asertiva logrando 4 años sin incidentes',
+            'Diseño de actividades recreativas inclusivas adaptadas a distintas edades',
         ],
         achievements: [
-            '4 años consecutivos sin incidentes de seguridad aplicando protocolos de Protección Civil',
-            '95% de satisfacción de clientes sostenido durante toda la estadía según encuestas internas',
-            'Reconocimiento interno por excelencia en servicio al cliente y liderazgo de grupos',
+            'Garantía de un entorno seguro aplicando protocolos de Protección Civil',
+            'Excelentes comentarios de padres de familia por la atención brindada',
+            'Reconocimiento por vocación de servicio y liderazgo en el área infantil',
         ],
     },
 ];

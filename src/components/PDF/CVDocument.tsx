@@ -672,7 +672,7 @@ export const CVDocument = () => (
 
                     {PDF_EXPERIENCE[0].bullets.map((b, i) => (
                         <View key={i} style={S.bulletRow}>
-                            <Text style={S.bulletArrow}>▸</Text>
+                            <Text style={S.bulletArrow}>•</Text>
                             <Text style={S.bulletText}>{b}</Text>
                         </View>
                     ))}
@@ -682,7 +682,7 @@ export const CVDocument = () => (
                             <Text style={S.achieveLabel}>LOGROS DESTACADOS</Text>
                             {PDF_EXPERIENCE[0].achievements.map((a, i) => (
                                 <View key={i} style={S.achieveRow}>
-                                    <Text style={S.achieveStar}>✦</Text>
+                                    <Text style={S.achieveStar}>-</Text>
                                     <Text style={S.achieveText}>{a}</Text>
                                 </View>
                             ))}
@@ -750,7 +750,7 @@ export const CVDocument = () => (
                         {/* Bullets de funciones */}
                         {exp.bullets.map((b, i) => (
                             <View key={i} style={S.bulletRow}>
-                                <Text style={S.bulletArrow}>▸</Text>
+                                <Text style={S.bulletArrow}>•</Text>
                                 <Text style={S.bulletText}>{b}</Text>
                             </View>
                         ))}
@@ -761,7 +761,7 @@ export const CVDocument = () => (
                                 <Text style={S.achieveLabel}>LOGROS DESTACADOS</Text>
                                 {exp.achievements.map((a, i) => (
                                     <View key={i} style={S.achieveRow}>
-                                        <Text style={S.achieveStar}>✦</Text>
+                                        <Text style={S.achieveStar}>-</Text>
                                         <Text style={S.achieveText}>{a}</Text>
                                     </View>
                                 ))}
