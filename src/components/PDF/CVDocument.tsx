@@ -679,7 +679,7 @@ export const CVDocument = () => (
 
                     {PDF_EXPERIENCE[0].achievements && (
                         <View style={S.achieveBox}>
-                            <Text style={S.achieveLabel}>⭐ Logros Destacados</Text>
+                            <Text style={S.achieveLabel}>LOGROS DESTACADOS</Text>
                             {PDF_EXPERIENCE[0].achievements.map((a, i) => (
                                 <View key={i} style={S.achieveRow}>
                                     <Text style={S.achieveStar}>✦</Text>
@@ -758,7 +758,7 @@ export const CVDocument = () => (
                         {/* Logros destacados */}
                         {exp.achievements && (
                             <View style={S.achieveBox}>
-                                <Text style={S.achieveLabel}>⭐ Logros Destacados</Text>
+                                <Text style={S.achieveLabel}>LOGROS DESTACADOS</Text>
                                 {exp.achievements.map((a, i) => (
                                     <View key={i} style={S.achieveRow}>
                                         <Text style={S.achieveStar}>✦</Text>
