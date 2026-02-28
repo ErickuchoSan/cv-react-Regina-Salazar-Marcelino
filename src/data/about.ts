@@ -50,7 +50,7 @@ export const INFO_CARDS: InfoCard[] = [
         iconBgClass: 'bg-amber-50 dark:bg-amber-900/30',
         iconColorClass: 'text-amber-500 dark:text-amber-400',
         title: 'Ubicación',
-        content: `San Nicolás Totolapan, ${CONTACT.location}`
+        content: CONTACT.location
     },
     {
         icon: FaHeart,

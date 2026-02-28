@@ -658,6 +658,38 @@ export const CVDocument = () => (
                     </View>
                 </View>
 
+                {/* ── Comienzo de Experiencia (Página 1) */}
+                <MainSection title="Experiencia Profesional" />
+                <View style={S.expItemLast} wrap={false}>
+                    <View style={S.expHeader}>
+                        <Text style={S.expRole}>{PDF_EXPERIENCE[0].role}</Text>
+                        <View style={S.expPeriodPill}>
+                            <Text style={S.expPeriod}>{PDF_EXPERIENCE[0].period}</Text>
+                        </View>
+                    </View>
+                    <Text style={S.expCompany}>{PDF_EXPERIENCE[0].company}</Text>
+                    <Text style={S.expDesc}>{PDF_EXPERIENCE[0].desc}</Text>
+
+                    {PDF_EXPERIENCE[0].bullets.map((b, i) => (
+                        <View key={i} style={S.bulletRow}>
+                            <Text style={S.bulletArrow}>▸</Text>
+                            <Text style={S.bulletText}>{b}</Text>
+                        </View>
+                    ))}
+
+                    {PDF_EXPERIENCE[0].achievements && (
+                        <View style={S.achieveBox}>
+                            <Text style={S.achieveLabel}>⭐ Logros Destacados</Text>
+                            {PDF_EXPERIENCE[0].achievements.map((a, i) => (
+                                <View key={i} style={S.achieveRow}>
+                                    <Text style={S.achieveStar}>✦</Text>
+                                    <Text style={S.achieveText}>{a}</Text>
+                                </View>
+                            ))}
+                        </View>
+                    )}
+                </View>
+
             </View>
         </Page>
 
@@ -696,13 +728,13 @@ export const CVDocument = () => (
             </View>
 
             {/* ── Cuerpo principal p.2 */}
-            <View style={S.main}>
-                <MainSection title="Experiencia Profesional" />
+            <View style={[S.main, { paddingTop: 40 }]}>
+                <MainSection title="Experiencia Profesional (cont.)" />
 
-                {PDF_EXPERIENCE.map((exp, idx) => (
+                {PDF_EXPERIENCE.slice(1).map((exp, idx) => (
                     <View
                         key={idx}
-                        style={idx < PDF_EXPERIENCE.length - 1 ? S.expItem : S.expItemLast}
+                        style={idx < PDF_EXPERIENCE.slice(1).length - 1 ? S.expItem : S.expItemLast}
                         wrap={false}
                     >
                         {/* Cabecera del puesto */}
