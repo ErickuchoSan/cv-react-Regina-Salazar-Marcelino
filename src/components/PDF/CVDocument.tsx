@@ -728,7 +728,7 @@ export const CVDocument = () => (
             </View>
 
             {/* ── Cuerpo principal p.2 */}
-            <View style={[S.main, { paddingTop: 40 }]}>
+            <View style={[S.main, { paddingTop: 20 }]}>
                 <MainSection title="Experiencia Profesional (cont.)" />
 
                 {PDF_EXPERIENCE.slice(1).map((exp, idx) => (
@@ -783,7 +783,7 @@ export const CVDocument = () => (
                 </View>
 
                 {/* Herramientas digitales */}
-                <View wrap={false} style={{ marginTop: 15 }}>
+                <View wrap={false} style={{ marginTop: 5 }}>
                     <MainSection title="Herramientas Digitales" />
                     <View style={S.badgeRow}>
                         {PDF_SKILLS.map((s, i) => (
