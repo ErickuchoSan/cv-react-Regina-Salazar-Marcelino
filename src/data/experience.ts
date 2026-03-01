@@ -64,8 +64,8 @@ export const EXPERIENCE_DATA: ExperienceItem[] = [
     {
         role: "Auxiliar de Marketing y Employer Branding",
         company: "Naré (Medio tiempo)",
-        period: "Mayo 2023 - Actualidad",
-        duration: "2+ años",
+        period: "Mayo 2023 - Feb 2026",
+        duration: "2 años 9 meses",
         description: "Apoyo en estrategias de comunicación interna, employer branding y atracción de talento a través de contenido digital de alto impacto. Generación de identidad de marca empleadora sólida y coherente.",
         functions: [
             "Desarrollo de contenido orientado a employer branding: cultura organizacional, publicación de vacantes atractivas y narrativa de vida en la empresa.",
