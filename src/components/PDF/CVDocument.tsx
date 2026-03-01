@@ -770,30 +770,6 @@ export const CVDocument = () => (
                     </View>
                 ))}
 
-                {/* Competencias clave */}
-                <View wrap={false}>
-                    <MainSection title="Competencias Clave de RR.HH." />
-                    <View style={S.badgeRow}>
-                        {PDF_COMPETENCIAS.map((c, i) => (
-                            <View key={i} style={S.badge}>
-                                <Text style={S.badgeText}>{c}</Text>
-                            </View>
-                        ))}
-                    </View>
-                </View>
-
-                {/* Herramientas digitales */}
-                <View wrap={false} style={{ marginTop: 5 }}>
-                    <MainSection title="Herramientas Digitales" />
-                    <View style={S.badgeRow}>
-                        {PDF_SKILLS.map((s, i) => (
-                            <View key={i} style={S.badge}>
-                                <Text style={S.badgeText}>{s}</Text>
-                            </View>
-                        ))}
-                    </View>
-                </View>
-
             </View>
         </Page>
 

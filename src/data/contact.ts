@@ -8,7 +8,7 @@ export const CONTACT = {
     location: 'Magdalena Contreras, CDMX',
     mapsUrl: 'https://www.google.com/maps/search/Magdalena+Contreras+CDMX',
     whatsappUrl: (message?: string) => {
-        const defaultMsg = 'Hola Regina, te escribo desde tu portafolio web. Tengo una oportunidad laboral para ti.';
+        const defaultMsg = 'Hola Regina, vi tu portafolio y me gustaría contactarte.';
         return `https://wa.me/525630154490?text=${encodeURIComponent(message || defaultMsg)}`;
     },
     description: 'Profesional de Recursos Humanos especializada en reclutamiento, nómina, capacitación y desarrollo organizacional.',
