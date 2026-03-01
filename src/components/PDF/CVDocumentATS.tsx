@@ -240,35 +240,43 @@ export const CVDocumentATS = () => (
             <View style={S.section}>
                 <Text style={S.secTitle}>Experiencia Profesional</Text>
 
-                {PDF_EXPERIENCE.map((exp, idx) => (
-                    <View key={idx} style={S.expItem}>
-                        <View style={S.expHeader}>
-                            <Text style={S.expRole}>{exp.role}</Text>
-                            <Text style={S.expPeriod}>{exp.period}</Text>
+                {PDF_EXPERIENCE.map((exp, idx) => {
+                    const isAuxiliar = exp.role === 'Auxiliar de Marketing y Employer Branding';
+                    return (
+                        <View
+                            key={idx}
+                            style={[S.expItem, isAuxiliar ? { marginTop: 10 } : {}]}
+                            wrap={false}
+                            break={isAuxiliar}
+                        >
+                            <View style={S.expHeader}>
+                                <Text style={S.expRole}>{exp.role}</Text>
+                                <Text style={S.expPeriod}>{exp.period}</Text>
+                            </View>
+                            <Text style={S.expCompany}>{exp.company}</Text>
+                            <Text style={S.expDesc}>{exp.desc}</Text>
+
+                            {exp.bullets.map((b, i) => (
+                                <View key={i} style={S.bulletRow}>
+                                    <Text style={S.bulletDot}>•</Text>
+                                    <Text style={S.bulletText}>{b}</Text>
+                                </View>
+                            ))}
+
+                            {exp.achievements && exp.achievements.length > 0 && (
+                                <View style={S.achieveBox}>
+                                    <Text style={S.achieveLabel}>Logros Destacados:</Text>
+                                    {exp.achievements.map((a, i) => (
+                                        <View key={i} style={S.bulletRow}>
+                                            <Text style={S.bulletDot}>•</Text>
+                                            <Text style={S.achieveText}>{a}</Text>
+                                        </View>
+                                    ))}
+                                </View>
+                            )}
                         </View>
-                        <Text style={S.expCompany}>{exp.company}</Text>
-                        <Text style={S.expDesc}>{exp.desc}</Text>
-
-                        {exp.bullets.map((b, i) => (
-                            <View key={i} style={S.bulletRow}>
-                                <Text style={S.bulletDot}>•</Text>
-                                <Text style={S.bulletText}>{b}</Text>
-                            </View>
-                        ))}
-
-                        {exp.achievements && exp.achievements.length > 0 && (
-                            <View style={S.achieveBox}>
-                                <Text style={S.achieveLabel}>Logros Destacados:</Text>
-                                {exp.achievements.map((a, i) => (
-                                    <View key={i} style={S.bulletRow}>
-                                        <Text style={S.bulletDot}>•</Text>
-                                        <Text style={S.achieveText}>{a}</Text>
-                                    </View>
-                                ))}
-                            </View>
-                        )}
-                    </View>
-                ))}
+                    );
+                })}
             </View>
 
             {/* ── Educación */}
