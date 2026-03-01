@@ -41,7 +41,7 @@ export const EXPERIENCE_DATA: ExperienceItem[] = [
     },
     {
         role: "Auxiliar de Marketing y Employer Branding",
-        company: "Naré",
+        company: "Naré (Medio tiempo)",
         period: "Mayo 2023 - Actualidad",
         duration: "2+ años",
         description: "Apoyo en estrategias de comunicación interna, employer branding y atracción de talento a través de contenido digital de alto impacto. Generación de identidad de marca empleadora sólida y coherente.",
@@ -113,7 +113,7 @@ export const PDF_EXPERIENCE: PDFExperienceItem[] = [
     },
     {
         role: 'Auxiliar de Marketing y Employer Branding',
-        company: 'Naré',
+        company: 'Naré (Medio tiempo)',
         period: 'Mayo 2023 – Actualidad',
         desc: 'Comunicación interna, employer branding y estrategias de atracción de talento mediante contenido digital de alto impacto.',
         bullets: [
