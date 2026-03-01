@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { FaDownload, FaEnvelope, FaChevronDown } from 'react-icons/fa';
 import { PDFDownloadLink } from '@react-pdf/renderer';
 import { CVDocument } from '../PDF/CVDocument';
@@ -6,6 +6,18 @@ import { CVDocumentATS } from '../PDF/CVDocumentATS';
 
 export const Hero: React.FC = () => {
     const [isSelectOpen, setIsSelectOpen] = useState(false);
+    const buttonRef = useRef<HTMLButtonElement>(null);
+    const [dropdownPosition, setDropdownPosition] = useState({ top: 0, left: 0 });
+
+    useEffect(() => {
+        if (isSelectOpen && buttonRef.current) {
+            const rect = buttonRef.current.getBoundingClientRect();
+            setDropdownPosition({
+                top: rect.bottom + 8,
+                left: rect.left,
+            });
+        }
+    }, [isSelectOpen]);
 
     return (
         <section id="inicio" className="hero-humanist-bg min-h-screen flex items-center pt-20 relative">
@@ -68,6 +80,7 @@ export const Hero: React.FC = () => {
                             {/* Dropdown de descarga directa */}
                             <div className="relative">
                                 <button
+                                    ref={buttonRef}
                                     onClick={() => setIsSelectOpen(!isSelectOpen)}
                                     className="btn-humanist-primary justify-center"
                                     aria-label="Descargar CV"
@@ -88,8 +101,12 @@ export const Hero: React.FC = () => {
                                         />
                                         {/* Menu */}
                                         <div
-                                            className="absolute left-1/2 -translate-x-1/2 sm:left-0 sm:translate-x-0 top-full mt-2 w-[calc(100vw-2rem)] max-w-72 bg-white dark:bg-gray-800 rounded-xl shadow-2xl border border-gray-200 dark:border-gray-700"
-                                            style={{ zIndex: 9999 }}
+                                            className="fixed w-[calc(100vw-2rem)] max-w-72 bg-white dark:bg-gray-800 rounded-xl shadow-2xl border border-gray-200 dark:border-gray-700"
+                                            style={{
+                                                zIndex: 9999,
+                                                top: dropdownPosition.top,
+                                                left: Math.min(dropdownPosition.left, window.innerWidth - 288 - 16),
+                                            }}
                                         >
                                             <PDFDownloadLink
                                                 document={<CVDocument />}
