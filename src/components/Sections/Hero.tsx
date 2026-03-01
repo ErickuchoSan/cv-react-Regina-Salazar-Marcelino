@@ -8,7 +8,7 @@ export const Hero: React.FC = () => {
     const [isSelectOpen, setIsSelectOpen] = useState(false);
 
     return (
-        <section id="inicio" className="hero-humanist-bg min-h-screen flex items-center pt-20 relative overflow-hidden">
+        <section id="inicio" className="hero-humanist-bg min-h-screen flex items-center pt-20 relative">
             {/* Organic Background Elements */}
             <div className="organic-blob blob-1" aria-hidden="true" />
             <div className="organic-blob blob-2" aria-hidden="true" />
