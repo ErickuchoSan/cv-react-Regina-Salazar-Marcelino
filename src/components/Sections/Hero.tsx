@@ -88,7 +88,7 @@ export const Hero: React.FC = () => {
                                         />
                                         {/* Menu */}
                                         <div
-                                            className="absolute left-1/2 -translate-x-1/2 sm:left-0 sm:translate-x-0 top-full mt-2 w-72 bg-white dark:bg-gray-800 rounded-xl shadow-2xl border border-gray-200 dark:border-gray-700"
+                                            className="absolute left-1/2 -translate-x-1/2 sm:left-0 sm:translate-x-0 top-full mt-2 w-[calc(100vw-2rem)] max-w-72 bg-white dark:bg-gray-800 rounded-xl shadow-2xl border border-gray-200 dark:border-gray-700"
                                             style={{ zIndex: 9999 }}
                                         >
                                             <PDFDownloadLink
