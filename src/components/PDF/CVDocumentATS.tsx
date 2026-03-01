@@ -1,7 +1,8 @@
 import { Page, Text, View, Document, StyleSheet, Font, Link } from '@react-pdf/renderer';
-import { CONTACT } from '../../data/contact';
+import { CONTACT, PROFILE, AVAILABILITY, EDUCATION, LANGUAGES_CERTS } from '../../data/profile';
 import { PDF_SKILLS, PDF_COMPETENCIAS } from '../../data/skills';
 import { PDF_EXPERIENCE } from '../../data/experience';
+import { ATS_COLORS as C } from './styles/pdfColors';
 
 // ─── Fuente ────────────────────────────────────────────────────────────────────
 Font.register({
@@ -12,19 +13,6 @@ Font.register({
         { src: 'https://cdnjs.cloudflare.com/ajax/libs/ink/3.1.10/fonts/Roboto/roboto-bold-webfont.ttf', fontWeight: 700 },
     ],
 });
-
-// ─── Colores minimalistas ──────────────────────────────────────────────────────
-const C = {
-    primary: '#1a365d',      // Azul oscuro profesional
-    accent: '#2b6cb0',       // Azul medio
-    text: '#1a202c',         // Casi negro
-    textSub: '#4a5568',      // Gris oscuro
-    textMuted: '#718096',    // Gris medio
-    border: '#e2e8f0',       // Gris claro
-    white: '#ffffff',
-    achieveBg: '#fffbeb',
-    achieveText: '#92400e',
-};
 
 // ─── Estilos ATS-Friendly (una sola columna) ───────────────────────────────────
 const S = StyleSheet.create({
@@ -222,16 +210,14 @@ export const CVDocumentATS = () => (
                     <Text style={S.contactItem}>|</Text>
                     <Text style={S.contactItem}>{CONTACT.location}</Text>
                     <Text style={S.contactItem}>|</Text>
-                    <Text style={S.contactItem}>Disponibilidad inmediata</Text>
+                    <Text style={S.contactItem}>{AVAILABILITY.status}</Text>
                 </View>
             </View>
 
             {/* ── Perfil Profesional */}
             <View style={S.section}>
                 <Text style={S.secTitle}>Perfil Profesional</Text>
-                <Text style={S.summary}>
-                    Profesional de Recursos Humanos con más de 4 años de experiencia en gestión integral de RRHH: reclutamiento y selección, administración de nómina, capacitación y desarrollo organizacional. He liderado equipos de hasta 50 colaboradores y coordinado operaciones en 23 sucursales. Resultados comprobados: reducción del 25% en rotación de personal, optimización del 33% en tiempos de contratación y ahorro del 15% en costos operativos. Dominio de Excel avanzado, portales de empleo y herramientas digitales. Licenciatura en Gestión Empresarial en curso.
-                </Text>
+                <Text style={S.summary}>{PROFILE.fullSummary}</Text>
             </View>
 
             {/* ── Competencias Clave */}
@@ -288,25 +274,23 @@ export const CVDocumentATS = () => (
             {/* ── Educación */}
             <View style={S.section}>
                 <Text style={S.secTitle}>Educación</Text>
-                <View style={S.eduRow}>
-                    <Text style={S.eduDeg}>Lic. en Gestión y Desarrollo Empresarial</Text>
-                    <Text style={S.eduDate}>2024 – Actualidad</Text>
-                </View>
-                <Text style={S.eduSch}>UVEG – En curso (100% en línea)</Text>
-
-                <View style={[S.eduRow, { marginTop: 8 }]}>
-                    <Text style={S.eduDeg}>Técnico Puericultista</Text>
-                    <Text style={S.eduDate}>2015 – 2018</Text>
-                </View>
-                <Text style={S.eduSch}>CETIS #10</Text>
+                {EDUCATION.map((edu, idx) => (
+                    <View key={idx} style={idx > 0 ? { marginTop: 8 } : undefined}>
+                        <View style={S.eduRow}>
+                            <Text style={S.eduDeg}>{edu.degree}</Text>
+                            <Text style={S.eduDate}>{edu.period}</Text>
+                        </View>
+                        <Text style={S.eduSch}>
+                            {edu.school}{edu.status ? ` – ${edu.status}` : ''}
+                        </Text>
+                    </View>
+                ))}
             </View>
 
             {/* ── Idiomas y Certificaciones */}
             <View style={S.section}>
                 <Text style={S.secTitle}>Idiomas y Certificaciones</Text>
-                <Text style={S.inlineList}>
-                    Español (Nativo) • Primeros Auxilios – Protección Civil • Manejo de Contenido Digital
-                </Text>
+                <Text style={S.inlineList}>{LANGUAGES_CERTS.join(' • ')}</Text>
             </View>
 
         </Page>

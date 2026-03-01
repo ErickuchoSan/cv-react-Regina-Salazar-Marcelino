@@ -12,6 +12,12 @@ export interface ExperienceItem {
     functions: string[];
     achievements?: string[];
     icon: IconType;
+    // PDF-specific: versiones condensadas para ajuste de espacio
+    pdf?: {
+        desc?: string;
+        bullets?: string[];
+        achievements?: string[];
+    };
 }
 
 export const EXPERIENCE_DATA: ExperienceItem[] = [
@@ -37,7 +43,23 @@ export const EXPERIENCE_DATA: ExperienceItem[] = [
             "Dashboards de RRHH que redujeron el tiempo de análisis de indicadores en un 40%.",
             "Ahorro acumulado del 15% en costos de proveedores mediante negociación estructurada."
         ],
-        icon: FaUsers
+        icon: FaUsers,
+        pdf: {
+            desc: "Responsable integral del área de Capital Humano: reclutamiento por competencias, gestión de nómina, capacitación, indicadores de RRHH y desarrollo organizacional para red de 23 sucursales.",
+            bullets: [
+                "Gestión de nómina quincenal (altas, bajas, incidencias, vacaciones, finiquitos y liquidaciones) para plantilla de 40–50 colaboradores, garantizando exactitud y puntualidad en cada período.",
+                "Reclutamiento end-to-end: publicación en OCC, Indeed y LinkedIn, entrevistas por competencias, exámenes psicométricos y onboarding estructurado.",
+                "Diseño e impartición de 15+ programas de capacitación anuales (inducción, servicio al cliente, seguridad e higiene) para 200+ colaboradores.",
+                "Supervisión de clima organizacional mediante encuestas, análisis de rotación/ausentismo y planes de mejora.",
+                "Negociación con proveedores de uniformes y servicios logrando reducción del 15% en costos operativos anuales.",
+                "Elaboración de dashboards en Excel con KPIs: headcount, rotación, costo por contratación y tiempo de cobertura de vacantes.",
+            ],
+            achievements: [
+                "Reducción del 25% en rotación de personal con programas de engagement y mejora de clima laboral.",
+                "Tiempo de cobertura de vacantes optimizado de 45 a 30 días (–33%) con proceso de selección por competencias.",
+                "Gestión precisa de nómina en 4 años administrando simultáneamente 23 sucursales y hasta 50 colaboradores.",
+            ],
+        },
     },
     {
         role: "Auxiliar de Marketing y Employer Branding",
@@ -57,7 +79,21 @@ export const EXPERIENCE_DATA: ExperienceItem[] = [
             "Mejora del 25% en alcance orgánico con optimización de horarios y formatos de publicación.",
             "Producción anual de 240+ piezas de contenido de alta calidad para atracción de talento."
         ],
-        icon: FaBullhorn
+        icon: FaBullhorn,
+        pdf: {
+            desc: "Comunicación interna, employer branding y estrategias de atracción de talento mediante contenido digital de alto impacto.",
+            bullets: [
+                "Diseño de contenido para employer branding: cultura organizacional, vacantes atractivas y vida en la empresa.",
+                "Producción de 20+ piezas de contenido mensual en Canva para redes sociales y campañas de atracción de talento.",
+                "Análisis de métricas de engagement y alcance para optimizar estrategias de atracción de candidatos.",
+                "Coordinación de calendario editorial alineado con objetivos de comunicación interna y RRHH.",
+            ],
+            achievements: [
+                "Incremento del 30% en engagement en publicaciones de cultura organizacional y vacantes.",
+                "Mejora del 25% en alcance orgánico optimizando horarios y formatos de publicación.",
+                "Producción de 240+ piezas de contenido anuales para atracción de talento.",
+            ],
+        },
     },
     {
         role: "Asistente Infantil",
@@ -77,11 +113,25 @@ export const EXPERIENCE_DATA: ExperienceItem[] = [
             "Excelente respuesta y comentarios positivos de los padres respecto al cuidado y atención brindados a sus hijos.",
             "Reconocimiento interno por el manejo de grupos y vocación de servicio en el área infantil."
         ],
-        icon: FaChild
+        icon: FaChild,
+        pdf: {
+            desc: "Cuidado y coordinación de grupos infantiles, aplicando protocolos de seguridad y realizando actividades lúdico-recreativas.",
+            bullets: [
+                "Atención personalizada y cuidado de niños manteniendo comunicación continua con los padres.",
+                "Coordinación de grupos de 20–30 niños diarios organizando dinámicas interactivas y seguras.",
+                "Supervisión y cumplimiento de protocolos de seguridad e higiene con certificación en Primeros Auxilios (Protección Civil).",
+                "Diseño de actividades recreativas inclusivas adaptadas a distintas edades.",
+            ],
+            achievements: [
+                "Garantía de un entorno seguro aplicando protocolos de Protección Civil.",
+                "Excelentes comentarios de padres de familia por la atención brindada.",
+                "Reconocimiento por vocación de servicio y liderazgo en el área infantil.",
+            ],
+        },
     }
 ];
 
-// Versión simplificada para PDF (sin iconos, con estructura diferente)
+// ─── Versión derivada para PDF ─────────────────────────────────────────────────
 export interface PDFExperienceItem {
     role: string;
     company: string;
@@ -91,58 +141,11 @@ export interface PDFExperienceItem {
     achievements: string[] | null;
 }
 
-export const PDF_EXPERIENCE: PDFExperienceItem[] = [
-    {
-        role: 'Coordinadora de Recursos Humanos',
-        company: 'Sonora Kids (Sonora Grill Group)',
-        period: 'Ene 2022 – Feb 2026',
-        desc: 'Responsable integral del área de Capital Humano: reclutamiento por competencias, gestión de nómina, capacitación, indicadores de RRHH y desarrollo organizacional para red de 23 sucursales.',
-        bullets: [
-            'Gestión de nómina quincenal (altas, bajas, incidencias, vacaciones, finiquitos y liquidaciones) para plantilla de 40–50 colaboradores, garantizando exactitud y puntualidad en cada período.',
-            'Reclutamiento end-to-end: publicación en OCC, Indeed y LinkedIn, entrevistas por competencias, exámenes psicométricos y onboarding estructurado.',
-            'Diseño e impartición de 15+ programas de capacitación anuales (inducción, servicio al cliente, seguridad e higiene) para 200+ colaboradores.',
-            'Supervisión de clima organizacional mediante encuestas, análisis de rotación/ausentismo y planes de mejora.',
-            'Negociación con proveedores de uniformes y servicios logrando reducción del 15% en costos operativos anuales.',
-            'Elaboración de dashboards en Excel con KPIs: headcount, rotación, costo por contratación y tiempo de cobertura de vacantes.',
-        ],
-        achievements: [
-            'Reducción del 25% en rotación de personal con programas de engagement y mejora de clima laboral.',
-            'Tiempo de cobertura de vacantes optimizado de 45 a 30 días (–33%) con proceso de selección por competencias.',
-            'Gestión precisa de nómina en 4 años administrando simultáneamente 23 sucursales y hasta 50 colaboradores.',
-        ],
-    },
-    {
-        role: 'Auxiliar de Marketing y Employer Branding',
-        company: 'Naré (Medio tiempo)',
-        period: 'Mayo 2023 – Actualidad',
-        desc: 'Comunicación interna, employer branding y estrategias de atracción de talento mediante contenido digital de alto impacto.',
-        bullets: [
-            'Diseño de contenido para employer branding: cultura organizacional, vacantes atractivas y vida en la empresa.',
-            'Producción de 20+ piezas de contenido mensual en Canva para redes sociales y campañas de atracción de talento.',
-            'Análisis de métricas de engagement y alcance para optimizar estrategias de atracción de candidatos.',
-            'Coordinación de calendario editorial alineado con objetivos de comunicación interna y RRHH.',
-        ],
-        achievements: [
-            'Incremento del 30% en engagement en publicaciones de cultura organizacional y vacantes.',
-            'Mejora del 25% en alcance orgánico optimizando horarios y formatos de publicación.',
-            'Producción de 240+ piezas de contenido anuales para atracción de talento.',
-        ],
-    },
-    {
-        role: 'Asistente Infantil',
-        company: 'Sonora Grill Group',
-        period: 'Ene 2018 – Ene 2022',
-        desc: 'Cuidado y coordinación de grupos infantiles, aplicando protocolos de seguridad y realizando actividades lúdico-recreativas.',
-        bullets: [
-            'Atención personalizada y cuidado de niños manteniendo comunicación continua con los padres.',
-            'Coordinación de grupos de 20–30 niños diarios organizando dinámicas interactivas y seguras.',
-            'Supervisión y cumplimiento de protocolos de seguridad e higiene con certificación en Primeros Auxilios (Protección Civil).',
-            'Diseño de actividades recreativas inclusivas adaptadas a distintas edades.',
-        ],
-        achievements: [
-            'Garantía de un entorno seguro aplicando protocolos de Protección Civil.',
-            'Excelentes comentarios de padres de familia por la atención brindada.',
-            'Reconocimiento por vocación de servicio y liderazgo en el área infantil.',
-        ],
-    },
-];
+export const PDF_EXPERIENCE: PDFExperienceItem[] = EXPERIENCE_DATA.map(exp => ({
+    role: exp.role,
+    company: exp.company,
+    period: exp.period.replace(' - ', ' – '), // Guión largo consistente
+    desc: exp.pdf?.desc || exp.description,
+    bullets: exp.pdf?.bullets || exp.functions,
+    achievements: exp.pdf?.achievements || exp.achievements || null,
+}));

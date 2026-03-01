@@ -1,7 +1,8 @@
 import { Page, Text, View, Document, StyleSheet, Image, Font, Link } from '@react-pdf/renderer';
-import { CONTACT } from '../../data/contact';
+import { CONTACT, PROFILE, AVAILABILITY, EDUCATION, PDF_METRICS } from '../../data/profile';
 import { PDF_SKILLS, PDF_COMPETENCIAS } from '../../data/skills';
 import { PDF_EXPERIENCE } from '../../data/experience';
+import { CV_COLORS as C } from './styles/pdfColors';
 
 // ─── Fuente ────────────────────────────────────────────────────────────────────
 Font.register({
@@ -14,35 +15,6 @@ Font.register({
         { src: 'https://cdnjs.cloudflare.com/ajax/libs/ink/3.1.10/fonts/Roboto/roboto-lightitalic-webfont.ttf', fontStyle: 'italic', fontWeight: 300 },
     ],
 });
-
-// ─── Paleta de Colores ──────────────────────────────────────────────────────────
-const C = {
-    // Sidebar – Azul marino profesional
-    sidebar: '#1a2e4a',
-    sidebarAlt: '#223355',
-    sidebarLine: '#2d4a73',
-    sidebarText: '#cdd8e8',
-    sidebarMuted: '#8fa8c8',
-    accent: '#4fb3d8',   // Azul claro / turquesa
-    accentWarm: '#f0b429',   // Ámbar dorado para logros
-    // Cuerpo principal
-    white: '#ffffff',
-    bgAlt: '#f7f9fc',
-    bgSection: '#edf2f8',
-    textDark: '#0f1c2e',
-    textMain: '#1e3048',
-    textSub: '#4a6080',
-    textMuted: '#7a92ab',
-    border: '#dce6f0',
-    // Badges
-    badgeBg: '#e8f4fd',
-    badgeBorder: '#b3d8f0',
-    badgeText: '#1a4a6e',
-    // Logros
-    achieveBg: '#fffbeb',
-    achieveBorder: '#fbbf24',
-    achieveText: '#92400e',
-};
 
 // ─── Estilos ────────────────────────────────────────────────────────────────────
 const S = StyleSheet.create({
@@ -571,7 +543,7 @@ export const CVDocument = () => (
 
                     <View style={S.contactItem}>
                         <View style={S.contactDot} />
-                        <Text style={S.contactText}>Disponibilidad inmediata</Text>
+                        <Text style={S.contactText}>{AVAILABILITY.status}</Text>
                     </View>
                 </View>
 
@@ -580,16 +552,13 @@ export const CVDocument = () => (
                 {/* Educación */}
                 <View style={S.eduBlock}>
                     <SideSecTitle title="Educación" />
-                    <View style={S.eduItem}>
-                        <Text style={S.eduDeg}>Lic. en Gestión y Desarrollo Empresarial</Text>
-                        <Text style={S.eduSch}>UVEG</Text>
-                        <Text style={S.eduDate}>2024 – Actualidad • En línea</Text>
-                    </View>
-                    <View style={S.eduItem}>
-                        <Text style={S.eduDeg}>Técnico Puericultista</Text>
-                        <Text style={S.eduSch}>CETIS #10</Text>
-                        <Text style={S.eduDate}>2015 – 2018</Text>
-                    </View>
+                    {EDUCATION.map((edu, idx) => (
+                        <View key={idx} style={S.eduItem}>
+                            <Text style={S.eduDeg}>{edu.degree}</Text>
+                            <Text style={S.eduSch}>{edu.school}</Text>
+                            <Text style={S.eduDate}>{edu.period}{edu.status ? ` • ${edu.status.replace('(100% en línea)', 'En línea')}` : ''}</Text>
+                        </View>
+                    ))}
                 </View>
 
                 <View style={S.sidebarDivider} />
@@ -635,27 +604,17 @@ export const CVDocument = () => (
                 {/* Perfil profesional */}
                 <MainSection title="Perfil Profesional" />
                 <Text style={S.summary}>
-                    Profesional de Recursos Humanos con más de 4 años de experiencia en gestión integral de RRHH: reclutamiento y selección, administración de nómina, capacitación y desarrollo organizacional. He liderado equipos de hasta 50 colaboradores y coordinado operaciones en 23 sucursales. Resultados comprobados: reducción del 25% en rotación de personal, optimización del 33% en tiempos de contratación y ahorro del 15% en costos operativos. Dominio de Excel avanzado, portales de empleo y herramientas digitales. Licenciatura en Gestión Empresarial en curso. Disponibilidad inmediata.
+                    {PROFILE.fullSummary} {AVAILABILITY.status}.
                 </Text>
 
                 {/* Métricas clave */}
                 <View style={S.metricsRow}>
-                    <View style={S.metricBox}>
-                        <Text style={S.metricValue}>4+</Text>
-                        <Text style={S.metricLabel}>Años de{'\n'}Experiencia</Text>
-                    </View>
-                    <View style={S.metricBox}>
-                        <Text style={S.metricValue}>23</Text>
-                        <Text style={S.metricLabel}>Sucursales{'\n'}Gestionadas</Text>
-                    </View>
-                    <View style={S.metricBox}>
-                        <Text style={S.metricValue}>50+</Text>
-                        <Text style={S.metricLabel}>Colaboradores{'\n'}a cargo</Text>
-                    </View>
-                    <View style={S.metricBox}>
-                        <Text style={S.metricValue}>−25%</Text>
-                        <Text style={S.metricLabel}>Rotación{'\n'}reducida</Text>
-                    </View>
+                    {PDF_METRICS.map((metric, idx) => (
+                        <View key={idx} style={S.metricBox}>
+                            <Text style={S.metricValue}>{metric.value}</Text>
+                            <Text style={S.metricLabel}>{metric.label}</Text>
+                        </View>
+                    ))}
                 </View>
 
                 {/* ── Comienzo de Experiencia (Página 1) */}

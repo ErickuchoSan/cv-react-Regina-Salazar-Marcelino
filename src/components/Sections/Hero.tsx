@@ -1,23 +1,14 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React from 'react';
 import { FaDownload, FaEnvelope, FaChevronDown } from 'react-icons/fa';
 import { PDFDownloadLink } from '@react-pdf/renderer';
 import { CVDocument } from '../PDF/CVDocument';
 import { CVDocumentATS } from '../PDF/CVDocumentATS';
+import { HERO_BADGES, METRICS } from '../../data/profile';
+import { Badge } from '../UI/Badge';
+import { useDropdown } from '../../hooks/useDropdown';
 
 export const Hero: React.FC = () => {
-    const [isSelectOpen, setIsSelectOpen] = useState(false);
-    const buttonRef = useRef<HTMLButtonElement>(null);
-    const [dropdownPosition, setDropdownPosition] = useState({ top: 0, left: 0 });
-
-    useEffect(() => {
-        if (isSelectOpen && buttonRef.current) {
-            const rect = buttonRef.current.getBoundingClientRect();
-            setDropdownPosition({
-                top: rect.bottom + 8,
-                left: rect.left,
-            });
-        }
-    }, [isSelectOpen]);
+    const { isOpen, toggle, close, buttonRef, position } = useDropdown();
 
     return (
         <section id="inicio" className="hero-humanist-bg min-h-screen flex items-center pt-20 relative">
@@ -34,15 +25,9 @@ export const Hero: React.FC = () => {
 
                         {/* Badge - responsivo: una línea en desktop, dos en móvil */}
                         <div className="flex flex-wrap justify-center md:justify-start gap-2 mb-6">
-                            <span className="inline-block px-3 py-1.5 rounded-full text-xs sm:text-sm font-semibold tracking-wide uppercase shadow-sm bg-teal-100 text-teal-800 dark:bg-teal-900/50 dark:text-teal-300 whitespace-nowrap">
-                                Recursos Humanos
-                            </span>
-                            <span className="inline-block px-3 py-1.5 rounded-full text-xs sm:text-sm font-semibold tracking-wide uppercase shadow-sm bg-teal-100 text-teal-800 dark:bg-teal-900/50 dark:text-teal-300 whitespace-nowrap">
-                                Capital Humano
-                            </span>
-                            <span className="inline-block px-3 py-1.5 rounded-full text-xs sm:text-sm font-semibold tracking-wide uppercase shadow-sm bg-teal-100 text-teal-800 dark:bg-teal-900/50 dark:text-teal-300 whitespace-nowrap">
-                                Gestión de Talento
-                            </span>
+                            {HERO_BADGES.map((badge) => (
+                                <Badge key={badge}>{badge}</Badge>
+                            ))}
                         </div>
 
                         <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold mb-6 leading-tight font-serif text-gray-800 dark:text-gray-100">
@@ -60,16 +45,12 @@ export const Hero: React.FC = () => {
                             Resultados: −25% rotación · −33% tiempo de contratación · 23 sucursales.
                         </p>
 
-                        {/* Métricas rápidas - solo móvil/tablet */}
+                        {/* Métricas rápidas - solo móvil/tablet (primeras 3) */}
                         <div className="grid grid-cols-3 gap-3 mb-8 md:hidden">
-                            {[
-                                { value: '4+', label: 'Años RH' },
-                                { value: '23', label: 'Sucursales' },
-                                { value: '−25%', label: 'Rotación' },
-                            ].map((m) => (
-                                <div key={m.label} className="text-center p-2 rounded-xl bg-white/70 dark:bg-gray-800/70 border border-teal-100 dark:border-teal-800 shadow-sm">
+                            {METRICS.slice(0, 3).map((m) => (
+                                <div key={m.labelShort} className="text-center p-2 rounded-xl bg-white/70 dark:bg-gray-800/70 border border-teal-100 dark:border-teal-800 shadow-sm">
                                     <div className="text-lg font-bold text-teal-600 dark:text-teal-400">{m.value}</div>
-                                    <div className="text-xs text-gray-500 dark:text-gray-400">{m.label}</div>
+                                    <div className="text-xs text-gray-500 dark:text-gray-400">{m.labelShort}</div>
                                 </div>
                             ))}
                         </div>
@@ -81,22 +62,22 @@ export const Hero: React.FC = () => {
                             <div className="relative">
                                 <button
                                     ref={buttonRef}
-                                    onClick={() => setIsSelectOpen(!isSelectOpen)}
+                                    onClick={toggle}
                                     className="btn-humanist-primary justify-center"
                                     aria-label="Descargar CV"
                                 >
                                     <FaDownload className="mr-2" aria-hidden="true" />
                                     Descargar CV
-                                    <FaChevronDown className={`ml-2 text-xs transition-transform ${isSelectOpen ? 'rotate-180' : ''}`} />
+                                    <FaChevronDown className={`ml-2 text-xs transition-transform ${isOpen ? 'rotate-180' : ''}`} />
                                 </button>
 
                                 {/* Dropdown con descarga directa */}
-                                {isSelectOpen && (
+                                {isOpen && (
                                     <>
                                         {/* Overlay para cerrar */}
                                         <div
                                             className="fixed inset-0"
-                                            onClick={() => setIsSelectOpen(false)}
+                                            onClick={close}
                                             style={{ zIndex: 40 }}
                                         />
                                         {/* Menu */}
@@ -104,8 +85,8 @@ export const Hero: React.FC = () => {
                                             className="fixed w-[calc(100vw-2rem)] max-w-72 bg-white dark:bg-gray-800 rounded-xl shadow-2xl border border-gray-200 dark:border-gray-700"
                                             style={{
                                                 zIndex: 9999,
-                                                top: dropdownPosition.top,
-                                                left: Math.min(dropdownPosition.left, window.innerWidth - 288 - 16),
+                                                top: position.top,
+                                                left: Math.min(position.left, window.innerWidth - 288 - 16),
                                             }}
                                         >
                                             <PDFDownloadLink

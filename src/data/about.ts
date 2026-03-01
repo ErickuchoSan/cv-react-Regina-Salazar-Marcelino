@@ -1,31 +1,19 @@
 import { FaGraduationCap, FaMapMarkerAlt, FaBriefcase, FaHeart } from 'react-icons/fa';
 import type { IconType } from 'react-icons';
 import { CONTACT } from './contact';
+import { METRICS, EDUCATION as PROFILE_EDUCATION } from './profile';
 
-// Single Source of Truth: Datos de la sección "Sobre Mí"
+// Datos de la sección "Sobre Mí" - usa datos centralizados de profile.ts
 
-export interface Stat {
-    value: string;
-    label: string;
-}
+// Re-export METRICS como STATS para compatibilidad con About.tsx
+export const STATS = METRICS;
 
-export const STATS: Stat[] = [
-    { value: '4+', label: 'Años en RR.HH.' },
-    { value: '23', label: 'Sucursales Gestionadas' },
-    { value: '50+', label: 'Colaboradores a Cargo' },
-    { value: '−25%', label: 'Reducción en Rotación' }
-];
-
-export interface Education {
-    degree: string;
-    school: string;
-    status: string;
-}
-
-export const EDUCATION: Education[] = [
-    { degree: 'Lic. en Gestión y Desarrollo Empresarial', school: 'UVEG', status: 'En curso' },
-    { degree: 'Técnico Puericultista', school: 'CETIS #10', status: '2018' }
-];
+// Adaptar EDUCATION de profile.ts para el formato que usa About.tsx
+export const EDUCATION = PROFILE_EDUCATION.map(edu => ({
+    degree: edu.degree,
+    school: edu.school,
+    status: edu.status ? edu.status.replace(' (100% en línea)', '') : edu.period.split(' – ')[1] || edu.period
+}));
 
 export interface InfoCard {
     icon: IconType;
