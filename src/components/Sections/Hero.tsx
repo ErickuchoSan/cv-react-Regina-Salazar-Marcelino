@@ -4,18 +4,8 @@ import { PDFDownloadLink } from '@react-pdf/renderer';
 import { CVDocument } from '../PDF/CVDocument';
 import { CVDocumentATS } from '../PDF/CVDocumentATS';
 
-type CVVersion = 'visual' | 'ats';
-
 export const Hero: React.FC = () => {
-    const [cvVersion, setCvVersion] = useState<CVVersion>('visual');
     const [isSelectOpen, setIsSelectOpen] = useState(false);
-
-    const cvOptions = [
-        { value: 'visual' as CVVersion, label: 'CV Visual', desc: 'Diseño moderno con sidebar' },
-        { value: 'ats' as CVVersion, label: 'CV Simple', desc: 'Optimizado para portales de empleo' },
-    ];
-
-    const selectedOption = cvOptions.find(o => o.value === cvVersion)!;
 
     return (
         <section id="inicio" className="hero-humanist-bg min-h-screen flex items-center pt-20 relative overflow-hidden">
@@ -75,58 +65,53 @@ export const Hero: React.FC = () => {
                         {/* Botones de acción con selector de CV */}
                         <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
 
-                            {/* Selector + Botón de descarga */}
-                            <div className="flex items-stretch">
-                                {/* Selector de versión */}
-                                <div className="relative">
-                                    <button
-                                        onClick={() => setIsSelectOpen(!isSelectOpen)}
-                                        className="h-full px-3 flex items-center gap-2 bg-teal-700 dark:bg-teal-800 text-white rounded-l-full border-r border-teal-600 dark:border-teal-700 hover:bg-teal-800 dark:hover:bg-teal-900 transition-colors"
-                                        aria-label="Seleccionar versión de CV"
-                                    >
-                                        <FaChevronDown className={`text-xs transition-transform ${isSelectOpen ? 'rotate-180' : ''}`} />
-                                    </button>
-
-                                    {/* Dropdown */}
-                                    {isSelectOpen && (
-                                        <div className="absolute left-0 top-full mt-2 w-56 bg-white dark:bg-gray-800 rounded-xl shadow-xl border border-gray-200 dark:border-gray-700 overflow-hidden z-50">
-                                            {cvOptions.map((option) => (
-                                                <button
-                                                    key={option.value}
-                                                    onClick={() => {
-                                                        setCvVersion(option.value);
-                                                        setIsSelectOpen(false);
-                                                    }}
-                                                    className={`w-full text-left px-4 py-3 hover:bg-teal-50 dark:hover:bg-teal-900/30 transition-colors ${
-                                                        cvVersion === option.value ? 'bg-teal-50 dark:bg-teal-900/30' : ''
-                                                    }`}
-                                                >
-                                                    <div className="flex items-center justify-between">
-                                                        <span className="font-medium text-gray-800 dark:text-gray-100">{option.label}</span>
-                                                        {cvVersion === option.value && (
-                                                            <span className="text-teal-600 dark:text-teal-400 text-sm">✓</span>
-                                                        )}
-                                                    </div>
-                                                    <span className="text-xs text-gray-500 dark:text-gray-400">{option.desc}</span>
-                                                </button>
-                                            ))}
-                                        </div>
-                                    )}
-                                </div>
-
-                                {/* Botón de descarga */}
-                                <PDFDownloadLink
-                                    document={cvVersion === 'visual' ? <CVDocument /> : <CVDocumentATS />}
-                                    fileName={cvVersion === 'visual' ? 'CV_Regina_Salazar_Marcelino.pdf' : 'CV_Regina_Salazar_ATS.pdf'}
-                                    className="btn-humanist-primary rounded-l-none justify-center"
+                            {/* Dropdown de descarga directa */}
+                            <div className="relative">
+                                <button
+                                    onClick={() => setIsSelectOpen(!isSelectOpen)}
+                                    className="btn-humanist-primary justify-center"
+                                    aria-label="Descargar CV"
                                 >
-                                    {({ loading }) => (
-                                        <>
-                                            <FaDownload className="mr-2" aria-hidden="true" />
-                                            {loading ? 'Generando...' : `Descargar ${selectedOption.label}`}
-                                        </>
-                                    )}
-                                </PDFDownloadLink>
+                                    <FaDownload className="mr-2" aria-hidden="true" />
+                                    Descargar CV
+                                    <FaChevronDown className={`ml-2 text-xs transition-transform ${isSelectOpen ? 'rotate-180' : ''}`} />
+                                </button>
+
+                                {/* Dropdown con descarga directa */}
+                                {isSelectOpen && (
+                                    <div className="absolute left-0 top-full mt-2 w-64 bg-white dark:bg-gray-800 rounded-xl shadow-xl border border-gray-200 dark:border-gray-700 overflow-hidden z-50">
+                                        <PDFDownloadLink
+                                            document={<CVDocument />}
+                                            fileName="CV_Regina_Salazar_Marcelino.pdf"
+                                            className="block w-full text-left px-4 py-3 hover:bg-teal-50 dark:hover:bg-teal-900/30 transition-colors"
+                                            onClick={() => setIsSelectOpen(false)}
+                                        >
+                                            {({ loading }) => (
+                                                <>
+                                                    <div className="font-medium text-gray-800 dark:text-gray-100">
+                                                        {loading ? 'Generando...' : 'CV Visual'}
+                                                    </div>
+                                                    <span className="text-xs text-gray-500 dark:text-gray-400">Diseño moderno con sidebar</span>
+                                                </>
+                                            )}
+                                        </PDFDownloadLink>
+                                        <PDFDownloadLink
+                                            document={<CVDocumentATS />}
+                                            fileName="CV_Regina_Salazar_ATS.pdf"
+                                            className="block w-full text-left px-4 py-3 hover:bg-teal-50 dark:hover:bg-teal-900/30 transition-colors border-t border-gray-100 dark:border-gray-700"
+                                            onClick={() => setIsSelectOpen(false)}
+                                        >
+                                            {({ loading }) => (
+                                                <>
+                                                    <div className="font-medium text-gray-800 dark:text-gray-100">
+                                                        {loading ? 'Generando...' : 'CV Simple (ATS)'}
+                                                    </div>
+                                                    <span className="text-xs text-gray-500 dark:text-gray-400">Optimizado para portales de empleo</span>
+                                                </>
+                                            )}
+                                        </PDFDownloadLink>
+                                    </div>
+                                )}
                             </div>
 
                             <a href="#contacto" className="btn-humanist-secondary justify-center">
