@@ -79,35 +79,41 @@ export const Hero: React.FC = () => {
 
                                 {/* Dropdown con descarga directa */}
                                 {isSelectOpen && (
-                                    <div className="absolute left-0 top-full mt-2 w-64 bg-white dark:bg-gray-800 rounded-xl shadow-xl border border-gray-200 dark:border-gray-700 overflow-hidden z-50">
+                                    <div className="absolute left-1/2 -translate-x-1/2 sm:left-0 sm:translate-x-0 top-full mt-2 w-72 bg-white dark:bg-gray-800 rounded-xl shadow-xl border border-gray-200 dark:border-gray-700 overflow-hidden z-50">
                                         <PDFDownloadLink
                                             document={<CVDocument />}
                                             fileName="CV_Regina_Salazar_Marcelino.pdf"
-                                            className="block w-full text-left px-4 py-3 hover:bg-teal-50 dark:hover:bg-teal-900/30 transition-colors"
-                                            onClick={() => setIsSelectOpen(false)}
+                                            className="block w-full text-left px-4 py-3 hover:bg-teal-50 dark:hover:bg-teal-900/30 transition-colors cursor-pointer"
+                                            onClick={() => setTimeout(() => setIsSelectOpen(false), 100)}
                                         >
                                             {({ loading }) => (
-                                                <>
-                                                    <div className="font-medium text-gray-800 dark:text-gray-100">
-                                                        {loading ? 'Generando...' : 'CV Visual'}
+                                                <div className="flex items-center gap-3">
+                                                    <FaDownload className="text-teal-600 dark:text-teal-400 flex-shrink-0" />
+                                                    <div>
+                                                        <div className="font-medium text-gray-800 dark:text-gray-100">
+                                                            {loading ? 'Generando...' : 'CV Visual'}
+                                                        </div>
+                                                        <span className="text-xs text-gray-500 dark:text-gray-400">Diseño moderno con sidebar</span>
                                                     </div>
-                                                    <span className="text-xs text-gray-500 dark:text-gray-400">Diseño moderno con sidebar</span>
-                                                </>
+                                                </div>
                                             )}
                                         </PDFDownloadLink>
                                         <PDFDownloadLink
                                             document={<CVDocumentATS />}
                                             fileName="CV_Regina_Salazar_ATS.pdf"
-                                            className="block w-full text-left px-4 py-3 hover:bg-teal-50 dark:hover:bg-teal-900/30 transition-colors border-t border-gray-100 dark:border-gray-700"
-                                            onClick={() => setIsSelectOpen(false)}
+                                            className="block w-full text-left px-4 py-3 hover:bg-teal-50 dark:hover:bg-teal-900/30 transition-colors border-t border-gray-100 dark:border-gray-700 cursor-pointer"
+                                            onClick={() => setTimeout(() => setIsSelectOpen(false), 100)}
                                         >
                                             {({ loading }) => (
-                                                <>
-                                                    <div className="font-medium text-gray-800 dark:text-gray-100">
-                                                        {loading ? 'Generando...' : 'CV Simple (ATS)'}
+                                                <div className="flex items-center gap-3">
+                                                    <FaDownload className="text-blue-600 dark:text-blue-400 flex-shrink-0" />
+                                                    <div>
+                                                        <div className="font-medium text-gray-800 dark:text-gray-100">
+                                                            {loading ? 'Generando...' : 'CV Simple (ATS)'}
+                                                        </div>
+                                                        <span className="text-xs text-gray-500 dark:text-gray-400">Optimizado para portales de empleo</span>
                                                     </div>
-                                                    <span className="text-xs text-gray-500 dark:text-gray-400">Optimizado para portales de empleo</span>
-                                                </>
+                                                </div>
                                             )}
                                         </PDFDownloadLink>
                                     </div>
