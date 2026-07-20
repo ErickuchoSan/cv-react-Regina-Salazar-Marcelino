@@ -22,18 +22,34 @@ export const Contacto: React.FC = () => {
                             Contacto
                         </h2>
                         <div className="flex flex-col gap-[18px]">
-                            <div className="flex items-center gap-3.5">
+                            <a
+                                href={`mailto:${CONTACT.email}`}
+                                className="flex items-center gap-3.5"
+                                aria-label="Enviar correo a Regina"
+                            >
                                 <FaEnvelope className="text-infantil-border" size={16} />
                                 <span className="text-sm text-infantil-border">{CONTACT.email}</span>
-                            </div>
-                            <div className="flex items-center gap-3.5">
+                            </a>
+                            <a
+                                href={CONTACT.whatsappUrl()}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-center gap-3.5"
+                                aria-label="Escribir por WhatsApp a Regina"
+                            >
                                 <FaWhatsapp className="text-infantil-border" size={16} />
                                 <span className="text-sm text-infantil-border">{CONTACT.displayPhone}</span>
-                            </div>
-                            <div className="flex items-center gap-3.5">
+                            </a>
+                            <a
+                                href={CONTACT.mapsUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-center gap-3.5"
+                                aria-label="Ver ubicación en Google Maps"
+                            >
                                 <FaMapMarkerAlt className="text-infantil-border" size={16} />
                                 <span className="text-sm text-infantil-border">{CONTACT.location}</span>
-                            </div>
+                            </a>
                         </div>
                     </div>
 
@@ -44,7 +60,7 @@ export const Contacto: React.FC = () => {
                             onClick={toggle}
                             className="inline-flex items-center gap-3 bg-infantil-bg px-10 py-5 text-[11px] font-medium tracking-[3px] text-infantil-text uppercase transition-colors hover:bg-infantil-button-hover"
                         >
-                            <FaDownload size={13} />
+                            <FaDownload size={13} aria-hidden="true" />
                             Descargar CV — PDF
                         </button>
 
