@@ -1314,7 +1314,7 @@ export const InfantilCVDocument = () => (
                         <Text style={S.secLabel}>Reconocimientos</Text>
                         <Text style={S.secTitle}>Certificaciones</Text>
                         {INFANTIL_CERTIFICACIONES.map((cert) => (
-                            <Text key={cert} style={S.listItem}>✓ {cert}</Text>
+                            <Text key={cert} style={S.listItem}>• {cert}</Text>
                         ))}
                     </View>
                     <View style={S.col}>
