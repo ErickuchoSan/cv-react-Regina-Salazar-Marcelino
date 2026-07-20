@@ -10,7 +10,7 @@ const S = StyleSheet.create({
     page: { flexDirection: 'column', backgroundColor: C.white, fontFamily: 'Helvetica', paddingVertical: 40, paddingHorizontal: 50 },
     header: { marginBottom: 20, borderBottomWidth: 2, borderBottomColor: C.terracotta, paddingBottom: 15 },
     name: { fontFamily: 'Times-Roman', fontSize: 24, color: C.text, marginBottom: 4 },
-    role: { fontSize: 12, color: C.terracotta, fontWeight: 500, marginBottom: 10 },
+    role: { fontSize: 12, color: C.terracotta, fontWeight: 700, marginBottom: 10 },
     contactRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 15 },
     contactItem: { fontSize: 9, color: C.textMuted },
     contactLink: { fontSize: 9, color: C.terracotta, textDecoration: 'none' },
@@ -32,7 +32,7 @@ const S = StyleSheet.create({
     expHeader: { flexDirection: 'row', justifyContent: 'space-between', marginBottom: 2 },
     expRole: { fontSize: 11, fontWeight: 700, color: C.text },
     expPeriod: { fontSize: 9, color: C.label },
-    expCompany: { fontSize: 10, color: C.sage, fontWeight: 500, marginBottom: 4 },
+    expCompany: { fontSize: 10, color: C.sage, fontWeight: 700, marginBottom: 4 },
     bulletRow: { flexDirection: 'row', marginBottom: 2, paddingLeft: 8 },
     bulletDot: { fontSize: 9, color: C.textMuted, marginRight: 6 },
     bulletText: { fontSize: 9, color: C.textMuted, lineHeight: 1.4, flex: 1 },
@@ -50,7 +50,7 @@ const S = StyleSheet.create({
         letterSpacing: 1,
     },
     eduRow: { flexDirection: 'row', justifyContent: 'space-between', marginBottom: 4 },
-    eduDeg: { fontSize: 10, fontWeight: 500, color: C.text },
+    eduDeg: { fontSize: 10, fontWeight: 700, color: C.text },
     eduDate: { fontSize: 9, color: C.label },
     eduSch: { fontSize: 9, color: C.textMuted },
     footer: { marginTop: 'auto', paddingTop: 10, borderTopWidth: 1, borderTopColor: C.border },
@@ -97,8 +97,8 @@ export const InfantilCVDocumentATS = () => (
                             <Text style={S.expPeriod}>{exp.period}</Text>
                         </View>
                         <Text style={S.expCompany}>{exp.company}</Text>
-                        {exp.bullets.map((b) => (
-                            <View key={b} style={S.bulletRow}>
+                        {exp.bullets.map((b, idx) => (
+                            <View key={idx} style={S.bulletRow}>
                                 <Text style={S.bulletDot}>•</Text>
                                 <Text style={S.bulletText}>{b}</Text>
                             </View>
@@ -111,14 +111,14 @@ export const InfantilCVDocumentATS = () => (
                 </Text>
                 {INFANTIL_EXPERIENCE_GROUPED.roles.map((role, idx) => (
                     <View key={role.title}>
-                        {idx > 0 && <Text style={S.ascensoBadge}>↑ Ascenso</Text>}
+                        {idx > 0 && <Text style={S.ascensoBadge}>Ascenso</Text>}
                         <View style={S.expItem} wrap={false}>
                             <View style={S.expHeader}>
                                 <Text style={S.expRole}>{role.title}</Text>
                                 <Text style={S.expPeriod}>{role.period}</Text>
                             </View>
-                            {role.bullets.map((b) => (
-                                <View key={b} style={S.bulletRow}>
+                            {role.bullets.map((b, idx) => (
+                                <View key={idx} style={S.bulletRow}>
                                     <Text style={S.bulletDot}>•</Text>
                                     <Text style={S.bulletText}>{b}</Text>
                                 </View>
