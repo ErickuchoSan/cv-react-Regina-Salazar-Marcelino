@@ -1,3 +1,4 @@
+import React from 'react';
 import type { CVVersion } from '../../hooks/useVersion';
 
 interface VersionSwitcherProps {
@@ -5,7 +6,7 @@ interface VersionSwitcherProps {
     onToggle: () => void;
 }
 
-export const VersionSwitcher = ({ version, onToggle }: VersionSwitcherProps) => (
+export const VersionSwitcher: React.FC<VersionSwitcherProps> = ({ version, onToggle }) => (
     <button
         type="button"
         onClick={onToggle}
