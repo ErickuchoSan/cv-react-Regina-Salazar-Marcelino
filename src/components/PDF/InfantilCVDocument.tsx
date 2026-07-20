@@ -7,9 +7,9 @@ import { INFANTIL_EXPERIENCE, INFANTIL_EXPERIENCE_GROUPED } from '../../data/inf
 import { INFANTIL_PDF_COLORS as C } from './styles/pdfColorsInfantil';
 
 const S = StyleSheet.create({
-    page: { flexDirection: 'column', backgroundColor: C.bg, fontFamily: 'Helvetica', paddingBottom: 40 },
-    topBar: { height: 6, backgroundColor: C.terracotta },
-    header: { paddingHorizontal: 50, paddingTop: 34, paddingBottom: 20 },
+    page: { flexDirection: 'column', backgroundColor: C.bg, fontFamily: 'Helvetica', paddingTop: 40, paddingBottom: 40 },
+    topBar: { position: 'absolute', top: 0, left: 0, right: 0, height: 6, backgroundColor: C.terracotta },
+    header: { paddingHorizontal: 50, paddingBottom: 20 },
     overline: { fontSize: 9, letterSpacing: 2, color: C.terracotta, textTransform: 'uppercase', marginBottom: 8 },
     name: { fontFamily: 'Times-Roman', fontSize: 30, color: C.text, marginBottom: 6 },
     tagline: { fontFamily: 'Times-Italic', fontSize: 11, color: C.textMuted, marginBottom: 14, lineHeight: 1.5 },
@@ -63,7 +63,7 @@ const S = StyleSheet.create({
 export const InfantilCVDocument = () => (
     <Document>
         <Page size="A4" style={S.page}>
-            <View style={S.topBar} />
+            <View style={S.topBar} fixed />
 
             <View style={S.header}>
                 <Text style={S.overline}>{PROFILE_INFANTIL.overline}</Text>
