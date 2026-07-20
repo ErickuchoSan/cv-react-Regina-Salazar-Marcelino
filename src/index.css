@@ -9,6 +9,26 @@
   --color-accent-light: #ffe4e6;
   --color-bg-soft: #fdfbf7;
 
+  /* Infantil version — warm palette from the approved Claude Design mockup */
+  --color-infantil-bg: #FAF7F2;
+  --color-infantil-card: #FDFAF6;
+  --color-infantil-section-alt: #F0EBE1;
+  --color-infantil-text: #2C2416;
+  --color-infantil-text-muted: #6B5744;
+  --color-infantil-text-faint: #8A7A6A;
+  --color-infantil-label: #9B8B7A;
+  --color-infantil-terracotta: #C4724A;
+  --color-infantil-terracotta-hover: #B5633C;
+  --color-infantil-sage: #7B9E87;
+  --color-infantil-sage-dark: #4A7560;
+  --color-infantil-border: #D4C5B0;
+  --color-infantil-border-soft: #E8DFD5;
+  --color-infantil-button-hover: #EDE7DC;
+  --color-infantil-footer: #231E12;
+
+  --font-infantil-serif: 'Cormorant Garamond', serif;
+  --font-infantil-sans: 'DM Sans', sans-serif;
+
   --font-sans: 'Inter', sans-serif;
   --font-serif: 'Merriweather', serif;
 
