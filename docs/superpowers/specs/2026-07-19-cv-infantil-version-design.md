@@ -26,7 +26,10 @@ Agregar una segunda versión completa del CV web de Regina Salazar Marcelino, en
 Nuevo directorio `src/data/infantil/`, mismo patrón SSOT que `src/data/*.ts` actual:
 
 - `profile.ts` — perfil, tagline, overline ("Técnico Puericultista"), resumen (7+ años).
-- `experience.ts` — 4 entradas (Jardín de Niños "Esperanza", Instituto de la Mujer, Sonora Grill Prime × 2 roles agrupados con marcador de ascenso), siguiendo la forma de `ExperienceItem` ya usada pero con campos propios (no reutiliza `EXPERIENCE_DATA` de RH).
+- `experience.ts` — **no reutiliza la interfaz `ExperienceItem` de RH** (esa trae `duration`, `achievements` separados e `icon: IconType`, que el mockup no usa). Estructura propia con dos formas:
+  - Entradas simples (Jardín de Niños "Esperanza", Instituto de la Mujer): `{ company, role, period, bullets: string[] }`.
+  - Entrada agrupada (Sonora Grill Prime): `{ company: 'Sonora Grill Prime', periodRange: 'abr 2020 – feb 2026', roles: [{ title, period, bullets, variant: 'muted' }, { title, period, bullets, variant: 'prominent' }] }` — el badge "↑ Ascenso" se renderiza entre `roles[0]` y `roles[1]`, no es parte de los datos.
+  - El mockup no separa "logros" del resto de bullets (a diferencia del ATS de RH que sí tiene `achieveBox`); todo va en una sola lista `bullets` por rol.
 - `skills.ts` — competencias (16 tags) + herramientas (6 ítems).
 - `education.ts` — educación (UVEG en curso + CETIS #10), certificaciones (4), idiomas (Español nativo).
 - `contact.ts` — reexporta el `CONTACT` real existente (`src/data/contact.ts`); la versión infantil solo cambia el `role`/`description` mostrados, no el correo/teléfono/ubicación.
@@ -47,11 +50,30 @@ Los estilos se implementan con Tailwind (clases utilitarias + `@theme` nuevo, ve
 
 ## 6. Theming
 
-- Agregar a `index.html` el `<link>` de Google Fonts para Cormorant Garamond + DM Sans (junto a las fuentes actuales Inter/Merriweather).
-- Extender `src/index.css` `@theme` con tokens propios prefijados para no chocar con la paleta RH (teal/rose): `--color-infantil-bg: #FAF7F2`, `--color-infantil-card: #FDFAF6`, `--color-infantil-section-alt: #F0EBE1`, `--color-infantil-text: #2C2416`, `--color-infantil-text-muted: #6B5744`, `--color-infantil-terracotta: #C4724A`, `--color-infantil-sage: #7B9E87`, `--color-infantil-border: #D4C5B0`, `--font-infantil-serif: 'Cormorant Garamond', serif`, `--font-infantil-sans: 'DM Sans', sans-serif`.
-- Los componentes de `src/components/Infantil/` usan estos tokens vía clases Tailwind (`bg-infantil-bg`, `font-infantil-serif`, etc.), quedando aislados del tema RH.
+- Agregar a `index.html` el `<link>` de Google Fonts con los pesos exactos que usa el mockup — si se omiten pesos, el navegador simula bold/italic y se pierde la fidelidad tipográfica: `family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500` (junto a las fuentes actuales Inter/Merriweather, que no se tocan).
+- Extender `src/index.css` `@theme` con tokens propios prefijados para no chocar con la paleta RH (teal/rose). Revisé el mockup color por color; la lista original del spec estaba incompleta — set completo:
+  - `--color-infantil-bg: #FAF7F2` (fondo general)
+  - `--color-infantil-card: #FDFAF6` (tarjetas)
+  - `--color-infantil-section-alt: #F0EBE1` (fondo sección Competencias)
+  - `--color-infantil-text: #2C2416` (texto principal / fondo sección Contacto)
+  - `--color-infantil-text-muted: #6B5744` (texto secundario, bullets)
+  - `--color-infantil-text-faint: #8A7A6A` (texto del rol "muted" — Asistente de Ludoteca, antes del ascenso)
+  - `--color-infantil-label: #9B8B7A` (labels de empresa/fecha secundarios: banner Sonora Grill Prime, "UVEG"/"CETIS", badge "Nativo")
+  - `--color-infantil-terracotta: #C4724A` (acento primario: overline, fechas, botón Contacto, border-left del rol destacado)
+  - `--color-infantil-terracotta-hover: #B5633C` (hover del botón Contacto)
+  - `--color-infantil-sage: #7B9E87` (acento secundario: border-left Jardín/Instituto, ícono check certificaciones)
+  - `--color-infantil-sage-dark: #4A7560` (texto de los 4 tags de competencia destacados)
+  - `--color-infantil-border: #D4C5B0` (divisores principales, borde de tags/nav)
+  - `--color-infantil-border-soft: #E8DFD5` (divisores dentro del bloque Sonora Grill Prime, badge Ascenso)
+  - `--color-infantil-button-hover: #EDE7DC` (hover del botón "Descargar CV" sobre fondo oscuro)
+  - `--color-infantil-footer: #231E12` (fondo del footer, más oscuro que la sección Contacto)
+  - `--font-infantil-serif: 'Cormorant Garamond', serif`
+  - `--font-infantil-sans: 'DM Sans', sans-serif`
+- Los componentes de `src/components/Infantil/` usan estos tokens vía clases Tailwind (`bg-infantil-bg`, `font-infantil-serif`, etc.), quedando aislados del tema RH. Los anillos decorativos del Hero y el fondo de los 4 tags destacados usan estos mismos colores con alpha (`rgba`) — Tailwind v4 permite esto con la sintaxis `bg-infantil-sage/12` (opacidad) directamente sobre el token, sin necesitar tokens rgba separados.
 
 ## 7. PDFs
+
+**Nota:** el mockup de Claude Design implementa el botón "Descargar CV — PDF" con `window.print()` (impresión nativa del navegador) — es el comportamiento por defecto que pone la herramienta de diseño, no un requisito del usuario. Se descarta: se reemplaza por documentos `@react-pdf/renderer` reales, igual que la versión RH (mejor control de layout, resultado más limpio, y una variante ATS-friendly que `window.print()` no puede ofrecer).
 
 Dos documentos nuevos con `@react-pdf/renderer`, paralelos a los existentes:
 
@@ -63,6 +85,7 @@ Dos documentos nuevos con `@react-pdf/renderer`, paralelos a los existentes:
 ## 8. Contenido de referencia
 
 El contenido textual completo (perfil, las 4 experiencias con su texto exacto, competencias, herramientas, certificaciones) ya está aprobado y documentado en:
+
 - Mockup fuente: `Regina Salazar CV.dc.html` (Claude Design export, compartido por el usuario).
 - Memoria de proyecto: `project-infantil-cv-content` (contenido aprobado), `project-dual-cv-switch` (plan arquitectónico).
 
