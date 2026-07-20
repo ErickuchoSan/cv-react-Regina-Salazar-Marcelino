@@ -16,6 +16,8 @@
 - Design spec: `docs/superpowers/specs/2026-07-19-cv-infantil-version-design.md`
 - Approved mockup markup (visual source of truth): `Regina Salazar CV.dc.html` (Claude Design export shared by the user)
 
+**Component typing correction (found during Task 3 review):** every existing component in this codebase uses the `React.FC` typing convention — `export const Hero: React.FC = () => {...}` for zero-prop components, `export const Badge: React.FC<BadgeProps> = (...) => (...)` for prop-taking ones (with `import React from 'react';` at the top). The code samples in Tasks 4 and 11-18 below were written as plain destructured arrow functions (`export const X = (props) => (...)`) — when implementing those tasks, convert the top-level component export to the `React.FC` form instead, to match the established pattern. Everything else in each sample (JSX, data shape, logic) stays as written.
+
 **Tailwind note:** this project uses Tailwind v4.1.18. Gradient utilities are named `bg-linear-to-r` (not the v3 name `bg-gradient-to-r`). Custom `@theme` color tokens automatically get `bg-*`/`text-*`/`border-*` utilities, including opacity modifiers (`bg-infantil-sage/12`). Tailwind v4's spacing utilities accept arbitrary numbers (integer or decimal, e.g. `pl-4.5` = 18px) computed from `--spacing: 0.25rem` — if any such class doesn't compile as expected during Task 20's build check, replace it with the bracket arbitrary equivalent (e.g. `pl-[18px]`) and note it in the task's commit message.
 
 ---
@@ -1243,8 +1245,8 @@ export const InfantilCVDocument = () => (
                                 <Text style={S.cardPeriod}>{exp.period}</Text>
                             </View>
                             <Text style={S.cardRole}>{exp.role}</Text>
-                            {exp.bullets.map((b) => (
-                                <View key={b} style={S.bulletRow}>
+                            {exp.bullets.map((b, bi) => (
+                                <View key={bi} style={S.bulletRow}>
                                     <Text style={S.bulletDot}>•</Text>
                                     <Text style={S.bulletText}>{b}</Text>
                                 </View>
@@ -1258,14 +1260,14 @@ export const InfantilCVDocument = () => (
                     </View>
                     {INFANTIL_EXPERIENCE_GROUPED.roles.map((role, idx) => (
                         <View key={role.title} wrap={false}>
-                            {idx > 0 && <Text style={S.ascensoBadge}>↑ Ascenso</Text>}
+                            {idx > 0 && <Text style={S.ascensoBadge}>Ascenso</Text>}
                             <View style={[S.card, role.variant === 'prominent' ? S.cardTerracotta : S.cardMuted]}>
                                 <View style={S.cardHeader}>
                                     <Text style={S.cardRole}>{role.title}</Text>
                                     <Text style={S.cardPeriod}>{role.period}</Text>
                                 </View>
-                                {role.bullets.map((b) => (
-                                    <View key={b} style={S.bulletRow}>
+                                {role.bullets.map((b, bi) => (
+                                    <View key={bi} style={S.bulletRow}>
                                         <Text style={S.bulletDot}>•</Text>
                                         <Text style={S.bulletText}>{b}</Text>
                                     </View>
