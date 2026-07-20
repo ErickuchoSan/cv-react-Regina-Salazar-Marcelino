@@ -72,25 +72,40 @@ export const InfantilCVDocumentATS = () => (
                 </View>
             </View>
 
-            <View style={S.section}>
+            <View style={S.section} wrap={false}>
                 <Text style={S.secTitle}>Perfil Profesional</Text>
                 <Text style={S.summary}>{PROFILE_INFANTIL.summary}</Text>
             </View>
 
-            <View style={S.section}>
+            <View style={S.section} wrap={false}>
                 <Text style={S.secTitle}>Competencias</Text>
                 <Text style={S.inlineList}>{INFANTIL_COMPETENCIAS.map((c) => c.label).join(' • ')}</Text>
             </View>
 
-            <View style={S.section}>
+            <View style={S.section} wrap={false}>
                 <Text style={S.secTitle}>Herramientas</Text>
                 <Text style={S.inlineList}>{INFANTIL_HERRAMIENTAS.join(' • ')}</Text>
             </View>
 
             <View style={S.section}>
-                <Text style={S.secTitle}>Experiencia Profesional</Text>
+                <View wrap={false}>
+                    <Text style={S.secTitle}>Experiencia Profesional</Text>
+                    <View key={INFANTIL_EXPERIENCE[0].company} style={S.expItem}>
+                        <View style={S.expHeader}>
+                            <Text style={S.expRole}>{INFANTIL_EXPERIENCE[0].role}</Text>
+                            <Text style={S.expPeriod}>{INFANTIL_EXPERIENCE[0].period}</Text>
+                        </View>
+                        <Text style={S.expCompany}>{INFANTIL_EXPERIENCE[0].company}</Text>
+                        {INFANTIL_EXPERIENCE[0].bullets.map((b, idx) => (
+                            <View key={idx} style={S.bulletRow}>
+                                <Text style={S.bulletDot}>•</Text>
+                                <Text style={S.bulletText}>{b}</Text>
+                            </View>
+                        ))}
+                    </View>
+                </View>
 
-                {INFANTIL_EXPERIENCE.map((exp) => (
+                {INFANTIL_EXPERIENCE.slice(1).map((exp) => (
                     <View key={exp.company} style={S.expItem} wrap={false}>
                         <View style={S.expHeader}>
                             <Text style={S.expRole}>{exp.role}</Text>
@@ -128,7 +143,7 @@ export const InfantilCVDocumentATS = () => (
                 ))}
             </View>
 
-            <View style={S.section}>
+            <View style={S.section} wrap={false}>
                 <Text style={S.secTitle}>Educación</Text>
                 {INFANTIL_EDUCATION.map((edu) => (
                     <View key={edu.school} style={{ marginTop: 4 }}>
@@ -141,7 +156,7 @@ export const InfantilCVDocumentATS = () => (
                 ))}
             </View>
 
-            <View style={S.section}>
+            <View style={S.section} wrap={false}>
                 <Text style={S.secTitle}>Certificaciones e Idiomas</Text>
                 <Text style={S.inlineList}>
                     {[...INFANTIL_CERTIFICACIONES, ...INFANTIL_IDIOMAS.map((l) => `${l.language} (${l.level})`)].join(' • ')}

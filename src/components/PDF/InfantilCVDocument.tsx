@@ -79,16 +79,34 @@ export const InfantilCVDocument = () => (
             </View>
 
             <View style={S.body}>
-                <View style={S.section}>
+                <View style={S.section} wrap={false}>
                     <Text style={S.secLabel}>Perfil</Text>
                     <Text style={S.summary}>{PROFILE_INFANTIL.summary}</Text>
                 </View>
 
                 <View style={S.section}>
-                    <Text style={S.secLabel}>Trayectoria</Text>
-                    <Text style={S.secTitle}>Experiencia Profesional</Text>
+                    <View wrap={false}>
+                        <Text style={S.secLabel}>Trayectoria</Text>
+                        <Text style={S.secTitle}>Experiencia Profesional</Text>
+                        <View
+                            key={INFANTIL_EXPERIENCE[0].company}
+                            style={[S.card, INFANTIL_EXPERIENCE[0].accent === 'sage' ? S.cardSage : S.cardTerracotta]}
+                        >
+                            <View style={S.cardHeader}>
+                                <Text style={S.cardCompany}>{INFANTIL_EXPERIENCE[0].company}</Text>
+                                <Text style={S.cardPeriod}>{INFANTIL_EXPERIENCE[0].period}</Text>
+                            </View>
+                            <Text style={S.cardRole}>{INFANTIL_EXPERIENCE[0].role}</Text>
+                            {INFANTIL_EXPERIENCE[0].bullets.map((b, bi) => (
+                                <View key={bi} style={S.bulletRow}>
+                                    <Text style={S.bulletDot}>•</Text>
+                                    <Text style={S.bulletText}>{b}</Text>
+                                </View>
+                            ))}
+                        </View>
+                    </View>
 
-                    {INFANTIL_EXPERIENCE.map((exp) => (
+                    {INFANTIL_EXPERIENCE.slice(1).map((exp) => (
                         <View key={exp.company} style={[S.card, exp.accent === 'sage' ? S.cardSage : S.cardTerracotta]} wrap={false}>
                             <View style={S.cardHeader}>
                                 <Text style={S.cardCompany}>{exp.company}</Text>
@@ -127,7 +145,7 @@ export const InfantilCVDocument = () => (
                     ))}
                 </View>
 
-                <View style={S.section}>
+                <View style={S.section} wrap={false}>
                     <Text style={S.secLabel}>Perfil</Text>
                     <Text style={S.secTitle}>Competencias</Text>
                     <View style={S.chipRow}>
@@ -140,7 +158,7 @@ export const InfantilCVDocument = () => (
                 </View>
 
                 <View style={[S.section, S.twoCol]}>
-                    <View style={S.col}>
+                    <View style={S.col} wrap={false}>
                         <Text style={S.secLabel}>Formación académica</Text>
                         <Text style={S.secTitle}>Educación</Text>
                         {INFANTIL_EDUCATION.map((edu) => (
@@ -150,7 +168,7 @@ export const InfantilCVDocument = () => (
                             </View>
                         ))}
                     </View>
-                    <View style={S.col}>
+                    <View style={S.col} wrap={false}>
                         <Text style={S.secLabel}>Recursos</Text>
                         <Text style={S.secTitle}>Herramientas</Text>
                         {INFANTIL_HERRAMIENTAS.map((tool) => (
@@ -160,14 +178,14 @@ export const InfantilCVDocument = () => (
                 </View>
 
                 <View style={[S.section, S.twoCol]}>
-                    <View style={S.col}>
+                    <View style={S.col} wrap={false}>
                         <Text style={S.secLabel}>Reconocimientos</Text>
                         <Text style={S.secTitle}>Certificaciones</Text>
                         {INFANTIL_CERTIFICACIONES.map((cert) => (
                             <Text key={cert} style={S.listItem}>• {cert}</Text>
                         ))}
                     </View>
-                    <View style={S.col}>
+                    <View style={S.col} wrap={false}>
                         <Text style={S.secLabel}>Comunicación</Text>
                         <Text style={S.secTitle}>Idiomas</Text>
                         {INFANTIL_IDIOMAS.map((lang) => (
