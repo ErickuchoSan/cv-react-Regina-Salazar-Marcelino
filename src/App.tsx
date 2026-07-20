@@ -1,32 +1,17 @@
-
-import { Navbar } from './components/Layout/Navbar';
-import { Hero } from './components/Sections/Hero';
-import { About } from './components/Sections/About';
-import { Experience } from './components/Sections/Experience';
-import { Skills } from './components/Sections/Skills';
-import { Languages } from './components/Sections/Languages';
-import { Projects } from './components/Sections/Projects';
-import { Contact } from './components/Sections/Contact';
-import { Footer } from './components/Sections/Footer';
+import { useVersion } from './hooks/useVersion';
+import { RHVersion } from './components/RHVersion';
+import { InfantilVersion } from './components/Infantil/InfantilVersion';
+import { VersionSwitcher } from './components/UI/VersionSwitcher';
 
 function App() {
+    const { version, toggleVersion } = useVersion();
 
-
-  return (
-    <div className="min-h-screen">
-      <Navbar />
-      <main>
-        <Hero />
-        <Experience />
-        <About />
-        <Projects />
-        <Skills />
-        <Languages />
-        <Contact />
-      </main>
-      <Footer />
-    </div>
-  );
+    return (
+        <>
+            {version === 'rh' ? <RHVersion /> : <InfantilVersion />}
+            <VersionSwitcher version={version} onToggle={toggleVersion} />
+        </>
+    );
 }
 
 export default App;
